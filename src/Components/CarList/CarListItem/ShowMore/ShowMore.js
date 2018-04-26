@@ -4,8 +4,8 @@ import './ShowMore.css'
 class ShowMore extends React.Component {
   render() {
     return (
-      <div >
-        <button value="showmore">SHOW MORE</button>
+      <div id="ShowMore">
+        <button id="show">SHOW MORE</button>
       </div>
     )
   }

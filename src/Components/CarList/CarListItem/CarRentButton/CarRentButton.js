@@ -4,8 +4,8 @@ import './CarRentButton.css'
 class CarRentButton extends React.Component {
   render() {
     return (
-      <div >
-        <button value="rent">RENT</button>
+      <div id="RentButton">
+        <button id="rent">RENT</button>
 
       </div>
     )
