@@ -1,9 +1,10 @@
 import React from 'react'
+import './CarFeatures.css'
 
 class CarFeatures extends React.Component {
   render () {
     return (
-      <div>
+      <div className='CarFeatures'>
 
       </div>
 
