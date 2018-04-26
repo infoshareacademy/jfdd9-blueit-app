@@ -2,12 +2,13 @@ import React, {Component} from 'react'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
 import 'react-datepicker/dist/react-datepicker.css'
+import 'moment/locale/en-gb'
 
 class RentDateForm extends Component {
 
   state = {
-    startDate: moment(),
-    endDate: moment()
+    startDate: null,
+    endDate: null
   };
 
   handleChangeStartDate = date => {
@@ -22,29 +23,49 @@ class RentDateForm extends Component {
     })
   };
 
+  isStartDateEmpty = () => {
+    return this.state.startDate === null
+  };
+
   render() {
     return (
       <div>
+
         <DatePicker
-          dateFormat="YYYY/MM/DD"
           locale="en-gb"
-          placeholderText="Weeks start on Monday"
+          dateFormat="YYYY/MM/DD"
+          placeholderText="Start date"
           todayButton={"Today"}
-          selected={this.state.startDate}
-          onChange={this.handleChangeStartDate}
           minDate={moment()}
           maxDate={moment().add(1, "month")}
-          isClearable={true}
+          selected={this.state.startDate}
+          selectsStart
+          startDate={this.state.startDate}
+          endDate={this.state.endDate}
+          onChange={this.handleChangeStartDate}
+          withPortal
+        />
 
+        <DatePicker
+          locale="en-gb"
+          dateFormat="YYYY/MM/DD"
+          placeholderText="End date"
+          todayButton={"Today"}
+          minDate={moment(this.state.startDate)}
+          maxDate={moment(this.state.startDate).add(14, "days")}
+          selected={this.state.endDate}
+          selectsEnd
+          startDate={this.state.startDate}
+          endDate={this.state.endDate}
+          onChange={this.handleChangeEndDate}
+          disabled={this.isStartDateEmpty()}
+          withPortal
         />
-        <DatePicker placeholderText="End date"
-                    dateFormat="YYYY/MM/DD"
-                    todayButton={"Today"}
-                    selected={this.state.endDate}
-                    onChange={this.handleChangeEndDate}
-                    minDate={moment()}
-                    maxDate={moment().add(14, "days")}
-        />
+
+        <p>
+          Maximum rent time is 14 days.
+        </p>
+
       </div>
     )
   }
