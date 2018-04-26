@@ -50,7 +50,6 @@ class RentDateForm extends Component {
           locale="en-gb"
           dateFormat="YYYY/MM/DD"
           placeholderText="End date"
-          todayButton={"Today"}
           minDate={moment(this.state.startDate)}
           maxDate={moment(this.state.startDate).add(14, "days")}
           selected={this.state.endDate}
@@ -60,11 +59,12 @@ class RentDateForm extends Component {
           onChange={this.handleChangeEndDate}
           disabled={this.isStartDateEmpty()}
           withPortal
-        />
+        >
+          <div style={{color: 'red', textAlign: 'center', fontSize: '1.5em'}}>
+            Maximum rent time is 14 days.
+          </div>
+        </DatePicker>
 
-        <p>
-          Maximum rent time is 14 days.
-        </p>
 
       </div>
     )
