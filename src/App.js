@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import CarRentButton from './Components/CarList/CarListItem/CarRentButton/CarRentButton';
 import ShowMore from './Components/CarList/CarListItem/ShowMore/ShowMore'
+import CarDescription from './Components/CarList/CarListItem/CarDescription/CarDescription';
+import CarImg from './Components/CarList/CarListItem/CarImg/CarImg';
 
 class App extends Component {
   render() {
@@ -10,6 +11,8 @@ class App extends Component {
       <div className="App">
         <p><CarRentButton/></p>
         <p><ShowMore/></p>
+        <p><CarDescription/></p>
+        <p><CarImg/></p>
       </div>
     );
   }
