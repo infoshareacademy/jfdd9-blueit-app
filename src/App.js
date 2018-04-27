@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import NavbarMenu from './Components/Navbar/NavbarMenu'
+import NavbarMenu from './components/Navbar/NavbarMenu'
+import CarList from "./components/CarList/CarList";
 
 
 class App extends Component {
@@ -9,7 +10,9 @@ class App extends Component {
       <div className="App">
         <nav>
           <NavbarMenu/>
+
         </nav>
+        <CarList/>
 
       </div>
     );
