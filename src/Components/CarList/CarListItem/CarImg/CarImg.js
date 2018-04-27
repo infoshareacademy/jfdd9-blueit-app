@@ -9,10 +9,10 @@ class CarImg extends React.Component {
   render() {
     return (
       <div className="CarImg">
-        <div ><img src={SUV}/></div>
-        <div><img src={compact}/></div>
-        <div><img src={minivan}/></div>
-        <div><img src={fullsize}/></div>
+        <div className="CarImg-img"><img src={compact} alt="car-compact"/></div>
+        <div className="CarImg-img"><img src={fullsize} alt="car-fullsize"/></div>
+        <div className="CarImg-img"><img src={SUV} alt="car-suv"/></div>
+        <div className="CarImg-img"><img src={minivan} alt="car-minivan"/></div>
       </div>
     )
   }
