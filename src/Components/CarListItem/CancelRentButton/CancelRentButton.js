@@ -1,10 +1,10 @@
 import React from 'react'
-import 'CancelRentButton.css'
+import './CancelRentButton.css'
 
 class CancelRentButton extends React.Component {
   render () {
     return (
-      <button>
+      <button className='CancelRentButton'>
         Delete reservation
       </button>
     )
