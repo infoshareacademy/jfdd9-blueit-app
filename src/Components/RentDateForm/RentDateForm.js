@@ -44,6 +44,7 @@ class RentDateForm extends Component {
           endDate={this.state.endDate}
           onChange={this.handleChangeStartDate}
           withPortal
+          fixedHeight
         />
 
         <DatePicker
@@ -59,6 +60,7 @@ class RentDateForm extends Component {
           onChange={this.handleChangeEndDate}
           disabled={this.isStartDateEmpty()}
           withPortal
+          fixedHeight
         >
           <div style={{color: 'red', textAlign: 'center', fontSize: '1.5em'}}>
             Maximum rent time is 14 days.
