@@ -1,6 +1,13 @@
 #rent{
-    background-color: lightslategrey;
-    color: white;
+    background-color: #778899;
+    color: #fff;
     padding: 10px 20px;
     font-size: 2em;
+    border-radius: 5%;
+    transition: color 0.2s;
+}
+#rent:hover{
+    background-color: #fff;
+    color: #778899;
+    transition: color 0.2s;
 }
