@@ -22,12 +22,12 @@ class App extends Component {
           <CarFeatures/>
           <Route exact path="/" component={RentCarScreen}/>
           <Route path="/rent-car-screen" component={RentCarScreen}/>
-          <Route path="/my-rentals-screen" component={MyRentsalsScreen} />
-          <Route path="/rent-summary-screen" component={RentSummaryScreen} />
+          <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
+          <Route path="/rent-summary-screen" component={RentSummaryScreen}/>
         </div>
       </Router>
 
-
+    )
   }
 }
 
