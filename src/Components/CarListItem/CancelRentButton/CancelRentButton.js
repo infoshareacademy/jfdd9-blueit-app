@@ -4,7 +4,7 @@ import './CancelRentButton.css'
 class CancelRentButton extends React.Component {
   render () {
     return (
-      <button className='CancelRentButton'>
+      <button onClick={this.props.cancel} className='CancelRentButton'>
         Delete reservation
       </button>
     )
@@ -12,3 +12,4 @@ class CancelRentButton extends React.Component {
 }
 
 export default CancelRentButton
+
