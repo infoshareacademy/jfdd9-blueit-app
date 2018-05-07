@@ -1,11 +1,22 @@
-
+.CarImgList{
+    font-family: Arial;
+    color: #0b1259;
+}
 .CarImg{
-    border: 1px black solid;
-    width: 50px;
-    margin: 20px;
+    border: 1px #0b1259 solid;
+    width: 100px;
+    height: auto;
+    margin: 3rem;
     padding: 5px;
 }
 .CarImageList{
     list-style: none;
     font-size: 1em;
+}
+.carType{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 40%;
+    align-items: center;
 }
