@@ -1,12 +1,11 @@
+
 .CarImg{
-    display: flex;
-}
-.CarImg-img{
     border: 1px black solid;
-    width: fit-content;
+    width: 50px;
     margin: 20px;
     padding: 5px;
 }
-.CarImg-img img{
-    width:120px;
+.CarImageList{
+    list-style: none;
+    font-size: 1em;
 }

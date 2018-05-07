@@ -7,9 +7,8 @@ class CarListItem extends Component {
   render() {
     return (
       <Fragment>
-
         <CarImg/>
-        <CarRentButton/>
+
         <ShowMore/>
       </Fragment>
 
