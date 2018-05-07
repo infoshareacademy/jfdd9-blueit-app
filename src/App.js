@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import NavbarMenu from './components/Navbar/NavbarMenu'
-import CarList from "./components/CarList/CarList";
+import NavbarMenu from './Components/Navbar/NavbarMenu'
 
 
 class App extends Component {
@@ -9,10 +8,12 @@ class App extends Component {
     return (
       <div className="App">
         <nav>
+
           <NavbarMenu/>
 
         </nav>
-        <CarList/>
+
+
 
       </div>
     );
