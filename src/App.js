@@ -2,16 +2,11 @@ import React, {Component} from 'react';
 import './App.css';
 import NavbarMenu from './Components/Navbar/NavbarMenu'
 import RentCarScreen from "./Components/RentCarScreen";
-import MyRentsalsScreen from "./Components/MyRentsalsScreen";
-import RentSummaryScreen from "./Components/RentSummaryScreen";
-import CancelRentButton from "./Components/CarListItem/CancelRentButton/CancelRentButton";
-import CarFeatures from "./Components/DateForm/CarFeatures/CarFeatures";
 
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
-
 
 class App extends Component {
   render() {
@@ -21,13 +16,12 @@ class App extends Component {
           <nav>
             <NavbarMenu/>
           </nav>
-          <CancelRentButton/>
 
-          <CarFeatures/>
+
           <Route exact path="/" component={RentCarScreen}/>
           <Route path="/rent-car-screen" component={RentCarScreen}/>
-          <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
-          <Route path="/rent-summary-screen" component={RentSummaryScreen}/>
+          {/*<Route path="/my-rentals-screen" component={MyRentsalsScreen}/>*/}
+          {/*<Route path="/rent-summary-screen" component={RentSummaryScreen}/>*/}
         </div>
       </Router>
     );
