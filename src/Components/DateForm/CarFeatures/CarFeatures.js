@@ -7,42 +7,42 @@ class CarFeatures extends React.Component {
       <div className='CarFeatures'>
         <p><input
           type="checkbox"
-          id="Family car"
+          name="Family car"
         />
           <label htmlFor="Family car">Family Car</label></p>
         <p><input
           type="checkbox"
-          id="Sports car"
+          name="Sports car"
         />
           <label htmlFor="Sports car">Sports Car</label></p>
         <p><input
           type="checkbox"
-          id="Autonomous car"
+          name="Autonomous car"
           />
           <label htmlFor="Autonomous car">Autonomus Car</label></p>
         <p><input
           type="checkbox"
-          id="Child care"
+          name="Child care"
         />
           <label htmlFor= "Child care">Child care</label></p>
         <p><input
           type="checkbox"
-          id="Pet friendly"
+          name="Pet friendly"
         />
           <label htmlFor="Pet friendly">Pet friendly</label></p>
         <p><input
           type="checkbox"
-          id="Tour guide"
+          name="Tour guide"
         />
           <label htmlFor="Tour guide">Tour guide</label></p>
         <p><input
           type="checkbox"
-          id="Cable TV"
+          name="Cable TV"
         />
           <label htmlFor="Cable TV">Cable TV</label></p>
         <p><input
           type="checkbox"
-          id="Private bathroom"
+          name="Private bathroom"
         />
           <label htmlFor="Private bathroom">Private bathroom</label></p>
 
