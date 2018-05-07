@@ -12,6 +12,9 @@ import {
   Route
 } from 'react-router-dom'
 
+import CarRentButton from './Components/CarListItem/CarRentButton/CarRentButton';
+import ShowMore from './Components/CarListItem/ShowMore/ShowMore'
+import CarImg from './Components/CarListItem/CarImg/CarImg';
 
 class App extends Component {
   render() {
@@ -28,8 +31,14 @@ class App extends Component {
           <Route path="/rent-car-screen" component={RentCarScreen}/>
           <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
           <Route path="/rent-summary-screen" component={RentSummaryScreen}/>
+
+
+
         </div>
       </Router>
+
+
+
     );
   }
 }
