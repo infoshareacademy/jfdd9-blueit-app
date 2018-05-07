@@ -14,6 +14,18 @@ import {
 
 
 class App extends Component {
+
+  state = {
+    rentDateFrom: null,
+    rentDateTo: null
+  };
+
+  rentDates = (dateFrom, dateTo) =>
+    this.setState({
+      rentDateFrom: dateFrom,
+      rentDateTo: dateTo
+    });
+
   render() {
     return (
       <Router>
@@ -25,7 +37,7 @@ class App extends Component {
 
           <CarFeatures/>
           <Route exact path="/" component={RentCarScreen}/>
-          <Route path="/rent-car-screen" component={RentCarScreen}/>
+          <Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
           <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
           <Route path="/rent-summary-screen" component={RentSummaryScreen}/>
         </div>
