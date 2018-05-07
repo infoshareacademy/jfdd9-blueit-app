@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import RentDateForm from "./RentDateForm/RentDateForm";
 import CarFeatures from "./CarFeatures/CarFeatures";
+import CarListItem from "./CarListItem/CarListItem";
 
 class RentCarScreen extends Component {
   render() {
@@ -8,6 +9,7 @@ class RentCarScreen extends Component {
       <Fragment>
         <RentDateForm/>
         <CarFeatures/>
+        <CarListItem/>
       </Fragment>
     )
   }
