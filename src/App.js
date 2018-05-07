@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import NavbarMenu from './Components/Navbar/NavbarMenu'
-import RentCarScreenView from "./Components/RentCarScreenView/RentCarScreenView";
+import RentCarScreen from "./Components/RentCarScreen";
 
 import {
   BrowserRouter as Router,
@@ -20,8 +20,8 @@ class App extends Component {
           </nav>
 
 
-          <Route exact path="/" component={RentCarScreenView}/>
-          <Route path="/rent-car-screen" component={RentCarScreenView}/>
+          <Route exact path="/" component={RentCarScreen}/>
+          <Route path="/rent-car-screen" component={RentCarScreen}/>
           {/*<Route path="/my-rentals-screen" component={MyRentsalsScreen}/>*/}
           {/*<Route path="/rent-summary-screen" component={RentSummaryScreen}/>*/}
         </div>
