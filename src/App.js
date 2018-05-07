@@ -11,14 +11,14 @@ import {
 class App extends Component {
 
   state = {
-    rentDateFrom: null,
-    rentDateTo: null
+    startDate: null,
+    endDate: null
   };
 
-  rentDates = (dateFrom, dateTo) =>
+  rentDates = (startDate, endDate) =>
     this.setState({
-      rentDateFrom: dateFrom,
-      rentDateTo: dateTo
+      startDate: startDate,
+      endDate: endDate
     });
 
   render() {
