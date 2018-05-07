@@ -70,7 +70,7 @@ class RentDateForm extends Component {
             fixedHeight
           >
             <div className="CalendarDateTo">
-              Maximum rent period is 14 days.
+              Maximum rent period is 14 days
             </div>
           </DatePicker>
         </div>

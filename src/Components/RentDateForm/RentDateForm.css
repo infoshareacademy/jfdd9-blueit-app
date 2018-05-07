@@ -15,8 +15,11 @@
 }
 
 .CalendarDateTo {
-    color: red;
+    clear: left;
+    background: #f0f0f0;
+    color: #000;
+    font-weight: bold;
     text-align: center;
-    font-size: 1.2em;
-    margin-bottom: 0.5em;
+    border-top: 1px solid #aeaeae;
+    padding: 5px 0;
 }
