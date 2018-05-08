@@ -5,7 +5,11 @@ import './SearchEngine.css'
 import CarFeatures from "../CarFeatures/CarFeatures";
 
 const KEYS_TO_FILTERS = [
-  'make', 'model', 'productionYear', 'carbody']
+  'make',
+  'model',
+  'productionYear',
+  'carbody'
+]
 
 class SearchEngine extends Component {
   constructor(props) {
@@ -18,7 +22,7 @@ class SearchEngine extends Component {
   }
 
   toggleOption = optionName => this.setState(
-    ({ selectedOptions }) => ({
+    ({selectedOptions}) => ({
       selectedOptions: selectedOptions.includes(optionName) ?
         selectedOptions.filter(option => option !== optionName) :
         selectedOptions.concat(optionName)
@@ -26,7 +30,9 @@ class SearchEngine extends Component {
   )
 
   render() {
-    const filteredCars = cars.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+    const filteredCars = cars.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS)).filter(
+      car => this.state.selectedOptions.every(option => car.features.includes(option))
+    )
     return (
       <Fragment>
         <SearchInput className="search-input" onChange={this.searchUpdated}/>
@@ -34,13 +40,13 @@ class SearchEngine extends Component {
         {filteredCars.map(car => {
           return (
             <div className="id" key={car.id}>
-            <ul>
-              <li>
-              <div className="make">{car.make}</div>
-              <div className="model">{car.model}</div>
-              <div className="year">{car.productionYear} </div>
-              </li>
-            </ul>
+              <ul>
+                <li>
+                  <div className="make">{car.make}</div>
+                  <div className="model">{car.model}</div>
+                  <div className="year">{car.productionYear} </div>
+                </li>
+              </ul>
             </div>
           )
         })}
