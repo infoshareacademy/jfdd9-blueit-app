@@ -4,6 +4,7 @@ import moment from 'moment'
 import 'react-datepicker/dist/react-datepicker.css'
 import 'moment/locale/en-gb'
 import './RentDateForm.css'
+import SearchEngine from "../SearchEngine/SearchEngine";
 
 class RentDateForm extends Component {
 
@@ -74,6 +75,7 @@ class RentDateForm extends Component {
             </div>
           </DatePicker>
         </div>
+        <SearchEngine/>
       </Fragment>
     )
   }
