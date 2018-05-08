@@ -1,0 +1,12 @@
+.CarImg{
+    display: flex;
+}
+.CarImg-img{
+    border: 1px black solid;
+    width: fit-content;
+    margin: 20px;
+    padding: 5px;
+}
+.CarImg-img img{
+    width:120px;
+}
