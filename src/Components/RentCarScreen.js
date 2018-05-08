@@ -1,10 +1,14 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import RentDateForm from "./RentDateForm/RentDateForm";
+import CarFeatures from "./DateForm/CarFeatures/CarFeatures";
 
 class RentCarScreen extends Component {
   render() {
     return (
-      <RentDateForm/>
+      <Fragment>
+        <RentDateForm/>
+        <CarFeatures/>
+      </Fragment>
     )
   }
 }
