@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "Make": "Isuzu",
+    "Model": "Space",
+    "ProductionYear": 1992
+  },
+  {
+    "id": 2,
+    "Make": "Saab",
+    "Model": "900",
+    "ProductionYear": 1999
+  },
+  {
+    "id": 3,
+    "Make": "Hyundai",
+    "Model": "Tiburon",
+    "ProductionYear": 2001
+  },
+  {
+    "id": 4,
+    "Make": "Aston Martin",
+    "Model": "DB9",
+    "ProductionYear": 2005
+  },
+  {
+    "id": 5,
+    "Make": "Audi",
+    "Model": "Q5",
+    "ProductionYear": 2012
+  },
+  {
+    "id": 6,
+    "Make": "Hummer",
+    "Model": "H2",
+    "ProductionYear": 2003
+  },
+  {
+    "id": 7,
+    "Make": "GMC",
+    "Model": "Yukon",
+    "ProductionYear": 2000
+  },
+  {
+    "id": 8,
+    "Make": "Buick",
+    "Model": "Skylark",
+    "ProductionYear": 1986
+  },
+  {
+    "id": 9,
+    "Make": "Maybach",
+    "Model": "62",
+    "ProductionYear": 2009
+  },
+  {
+    "id": 10,
+    "Make": "Ford",
+    "Model": "Mustang",
+    "ProductionYear": 1980
+  },
+  {
+    "id": 11,
+    "Make": "Audi",
+    "Model": "RS6",
+    "ProductionYear": 2003
+  },
+  {
+    "id": 12,
+    "Make": "Saturn",
+    "Model": "Relay",
+    "ProductionYear": 2005
+  },
+  {
+    "id": 13,
+    "Make": "Lamborghini",
+    "Model": "Murciélago",
+    "ProductionYear": 2002
+  },
+  {
+    "id": 14,
+    "Make": "GMC",
+    "Model": "Savana 3500",
+    "ProductionYear": 1999
+  },
+  {
+    "id": 15,
+    "Make": "Pontiac",
+    "Model": "1000",
+    "ProductionYear": 1986
+  },
+  {
+    "id": 16,
+    "Make": "Buick",
+    "Model": "Regal",
+    "ProductionYear": 1995
+  },
+  {
+    "id": 17,
+    "Make": "Cadillac",
+    "Model": "CTS-V",
+    "ProductionYear": 2007
+  },
+  {
+    "id": 18,
+    "Make": "Dodge",
+    "Model": "Ram 3500",
+    "ProductionYear": 2008
+  },
+  {
+    "id": 19,
+    "Make": "Lexus",
+    "Model": "ES",
+    "ProductionYear": 1995
+  },
+  {
+    "id": 20,
+    "Make": "Toyota",
+    "Model": "Camry Hybrid",
+    "ProductionYear": 2011
+  },
+  {
+    "id": 21,
+    "Make": "Toyota",
+    "Model": "Paseo",
+    "ProductionYear": 1993
+  },
+  {
+    "id": 22,
+    "Make": "Volkswagen",
+    "Model": "Corrado",
+    "ProductionYear": 1993
+  },
+  {
+    "id": 23,
+    "Make": "Chevrolet",
+    "Model": "Colorado",
+    "ProductionYear": 2010
+  },
+  {
+    "id": 24,
+    "Make": "Audi",
+    "Model": "Allroad",
+    "ProductionYear": 2004
+  },
+  {
+    "id": 25,
+    "Make": "Dodge",
+    "Model": "Viper",
+    "ProductionYear": 2001
+  },
+  {
+    "id": 26,
+    "Make": "Oldsmobile",
+    "Model": "Aurora",
+    "ProductionYear": 2001
+  },
+  {
+    "id": 27,
+    "Make": "Volkswagen",
+    "Model": "Eos",
+    "ProductionYear": 2012
+  },
+  {
+    "id": 28,
+    "Make": "Ford",
+    "Model": "Model T",
+    "ProductionYear": 1909
+  },
+  {
+    "id": 29,
+    "Make": "Buick",
+    "Model": "Century",
+    "ProductionYear": 2001
+  },
+  {
+    "id": 30,
+    "Make": "Mercury",
+    "Model": "Grand Marquis",
+    "ProductionYear": 2009
+  },
+  {
+    "id": 31,
+    "Make": "Volvo",
+    "Model": "XC90",
+    "ProductionYear": 2013
+  },
+  {
+    "id": 32,
+    "Make": "Toyota",
+    "Model": "Prius",
+    "ProductionYear": 2012
+  },
+  {
+    "id": 33,
+    "Make": "Chevrolet",
+    "Model": "Impala",
+    "ProductionYear": 2003
+  },
+  {
+    "id": 34,
+    "Make": "Mercedes-Benz",
+    "Model": "CLK-Class",
+    "ProductionYear": 2001
+  },
+  {
+    "id": 35,
+    "Make": "Porsche",
+    "Model": "911",
+    "ProductionYear": 2003
+  },
+  {
+    "id": 36,
+    "Make": "Buick",
+    "Model": "Century",
+    "ProductionYear": 1990
+  },
+  {
+    "id": 37,
+    "Make": "Ford",
+    "Model": "F350",
+    "ProductionYear": 2000
+  },
+  {
+    "id": 38,
+    "Make": "Chrysler",
+    "Model": "Sebring",
+    "ProductionYear": 2008
+  },
+  {
+    "id": 39,
+    "Make": "Maybach",
+    "Model": "57",
+    "ProductionYear": 2009
+  },
+  {
+    "id": 40,
+    "Make": "Volkswagen",
+    "Model": "Passat",
+    "ProductionYear": 2000
+  }
+]
