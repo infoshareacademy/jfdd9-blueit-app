@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import SearchInput, {createFilter} from 'react-search-input'
 import cars from './cars.json'
+import './SearchEngine.css'
 
 const KEYS_TO_FILTERS = [
   'Make', 'Model', 'ProductionYear']
