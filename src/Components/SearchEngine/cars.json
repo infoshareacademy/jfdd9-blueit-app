@@ -1,242 +1,1231 @@
 [
   {
     "id": 1,
-    "Make": "Isuzu",
-    "Model": "Space",
-    "ProductionYear": 1992
+    "make": "Mazda",
+    "model": "Mazda6",
+    "productionYear": 2012,
+    "features": [
+      "Family car",
+      "Sports car"
+    ],
+    "carbody": "minivan"
   },
   {
     "id": 2,
-    "Make": "Saab",
-    "Model": "900",
-    "ProductionYear": 1999
+    "make": "Nissan",
+    "model": "NX",
+    "productionYear": 1993,
+    "features": [
+      "Child care",
+      "Family car",
+      "Pet friendly",
+      "Tour guide",
+      "Cable TV",
+      "Sports car",
+      "Private bathroom"
+    ],
+    "carbody": "suv"
   },
   {
     "id": 3,
-    "Make": "Hyundai",
-    "Model": "Tiburon",
-    "ProductionYear": 2001
+    "make": "Chevrolet",
+    "model": "Express 3500",
+    "productionYear": 2006,
+    "features": [
+      "Private bathroom"
+    ],
+    "carbody": "compact"
   },
   {
     "id": 4,
-    "Make": "Aston Martin",
-    "Model": "DB9",
-    "ProductionYear": 2005
+    "make": "Volkswagen",
+    "model": "Eurovan",
+    "productionYear": 2003,
+    "features": [
+      "Pet friendly",
+      "Child care",
+      "Tour guide"
+    ],
+    "carbody": "minivan"
   },
   {
     "id": 5,
-    "Make": "Audi",
-    "Model": "Q5",
-    "ProductionYear": 2012
+    "make": "Land Rover",
+    "model": "Discovery",
+    "productionYear": 2003,
+    "features": [
+      "Pet friendly"
+    ],
+    "carbody": "suv"
   },
   {
     "id": 6,
-    "Make": "Hummer",
-    "Model": "H2",
-    "ProductionYear": 2003
+    "make": "Dodge",
+    "model": "Caravan",
+    "productionYear": 1998,
+    "features": [
+      "Tour guide",
+      "Private bathroom",
+      "Pet friendly",
+      "Child care",
+      "Family car",
+      "Sports car"
+    ],
+    "carbody": "suv"
   },
   {
     "id": 7,
-    "Make": "GMC",
-    "Model": "Yukon",
-    "ProductionYear": 2000
+    "make": "Nissan",
+    "model": "350Z Roadster",
+    "productionYear": 2006,
+    "features": [
+      "Sports car",
+      "Pet friendly",
+      "Child care",
+      "Autonomous car"
+    ],
+    "carbody": "fullsize"
   },
   {
     "id": 8,
-    "Make": "Buick",
-    "Model": "Skylark",
-    "ProductionYear": 1986
+    "make": "Volkswagen",
+    "model": "rio",
+    "productionYear": 1997,
+    "features": [
+      "Autonomous car",
+      "Private bathroom"
+    ],
+    "carbody": "fullsize"
   },
   {
     "id": 9,
-    "Make": "Maybach",
-    "Model": "62",
-    "ProductionYear": 2009
+    "make": "Toyota",
+    "model": "Matrix",
+    "productionYear": 2004,
+    "features": [],
+    "carbody": "fullsize"
   },
   {
     "id": 10,
-    "Make": "Ford",
-    "Model": "Mustang",
-    "ProductionYear": 1980
+    "make": "Porsche",
+    "model": "Panamera",
+    "productionYear": 2010,
+    "features": [
+      "Tour guide",
+      "Family car",
+      "Child care"
+    ],
+    "carbody": "suv"
   },
   {
     "id": 11,
-    "Make": "Audi",
-    "Model": "RS6",
-    "ProductionYear": 2003
+    "make": "Honda",
+    "model": "Prelude",
+    "productionYear": 1997,
+    "features": [
+      "Pet friendly",
+      "Autonomous car",
+      "Sports car",
+      "Child care"
+    ],
+    "carbody": "minivan"
   },
   {
     "id": 12,
-    "Make": "Saturn",
-    "Model": "Relay",
-    "ProductionYear": 2005
+    "make": "Acura",
+    "model": "NSX",
+    "productionYear": 1994,
+    "features": [
+      "Cable TV",
+      "Autonomous car",
+      "Family car",
+      "Sports car"
+    ],
+    "carbody": "compact"
   },
   {
     "id": 13,
-    "Make": "Lamborghini",
-    "Model": "Murciélago",
-    "ProductionYear": 2002
+    "make": "Mercury",
+    "model": "Lynx",
+    "productionYear": 1986,
+    "features": [
+      "Family car",
+      "Autonomous car"
+    ],
+    "carbody": "suv"
   },
   {
     "id": 14,
-    "Make": "GMC",
-    "Model": "Savana 3500",
-    "ProductionYear": 1999
+    "make": "Mercedes-Benz",
+    "model": "E-Class",
+    "productionYear": 2002,
+    "features": [
+      "Private bathroom",
+      "Cable TV",
+      "Autonomous car",
+      "Pet friendly",
+      "Child care"
+    ],
+    "carbody": "compact"
   },
   {
     "id": 15,
-    "Make": "Pontiac",
-    "Model": "1000",
-    "ProductionYear": 1986
+    "make": "Alfa Romeo",
+    "model": "Spider",
+    "productionYear": 1994,
+    "features": [
+      "Autonomous car",
+      "Sports car",
+      "Child care"
+    ],
+    "carbody": "compact"
   },
   {
     "id": 16,
-    "Make": "Buick",
-    "Model": "Regal",
-    "ProductionYear": 1995
+    "make": "Buick",
+    "model": "Riviera",
+    "productionYear": 1999,
+    "features": [
+      "Family car",
+      "Private bathroom",
+      "Child care",
+      "Sports car",
+      "Tour guide",
+      "Pet friendly"
+    ],
+    "carbody": "fullsize"
   },
   {
     "id": 17,
-    "Make": "Cadillac",
-    "Model": "CTS-V",
-    "ProductionYear": 2007
+    "make": "Mazda",
+    "model": "Familia",
+    "productionYear": 1986,
+    "features": [],
+    "carbody": "suv"
   },
   {
     "id": 18,
-    "Make": "Dodge",
-    "Model": "Ram 3500",
-    "ProductionYear": 2008
+    "make": "Rolls-Royce",
+    "model": "Phantom",
+    "productionYear": 2006,
+    "features": [
+      "Child care",
+      "Family car",
+      "Autonomous car"
+    ],
+    "carbody": "compact"
   },
   {
     "id": 19,
-    "Make": "Lexus",
-    "Model": "ES",
-    "ProductionYear": 1995
+    "make": "Volkswagen",
+    "model": "Jetta",
+    "productionYear": 2007,
+    "features": [
+      "Child care",
+      "Cable TV",
+      "Autonomous car"
+    ],
+    "carbody": "minivan"
   },
   {
     "id": 20,
-    "Make": "Toyota",
-    "Model": "Camry Hybrid",
-    "ProductionYear": 2011
+    "make": "Nissan",
+    "model": "Maxima",
+    "productionYear": 2003,
+    "features": [
+      "Tour guide",
+      "Family car",
+      "Cable TV",
+      "Sports car"
+    ],
+    "carbody": "compact"
   },
   {
     "id": 21,
-    "Make": "Toyota",
-    "Model": "Paseo",
-    "ProductionYear": 1993
+    "make": "Mazda",
+    "model": "Miata MX-5",
+    "productionYear": 1994,
+    "features": [
+      "Sports car",
+      "Child care",
+      "Private bathroom",
+      "Cable TV",
+      "Pet friendly",
+      "Autonomous car"
+    ],
+    "carbody": "minivan"
   },
   {
     "id": 22,
-    "Make": "Volkswagen",
-    "Model": "Corrado",
-    "ProductionYear": 1993
+    "make": "Chevrolet",
+    "model": "Suburban 2500",
+    "productionYear": 2005,
+    "features": [
+      "Child care",
+      "Tour guide"
+    ],
+    "carbody": "fullsize"
   },
   {
     "id": 23,
-    "Make": "Chevrolet",
-    "Model": "Colorado",
-    "ProductionYear": 2010
+    "make": "Chrysler",
+    "model": "New Yorker",
+    "productionYear": 1993,
+    "features": [
+      "Family car",
+      "Private bathroom",
+      "Tour guide",
+      "Child care",
+      "Cable TV",
+      "Sports car",
+      "Pet friendly"
+    ],
+    "carbody": "compact"
   },
   {
     "id": 24,
-    "Make": "Audi",
-    "Model": "Allroad",
-    "ProductionYear": 2004
+    "make": "Volkswagen",
+    "model": "Cabriolet",
+    "productionYear": 2000,
+    "features": [
+      "Private bathroom"
+    ],
+    "carbody": "compact"
   },
   {
     "id": 25,
-    "Make": "Dodge",
-    "Model": "Viper",
-    "ProductionYear": 2001
+    "make": "Dodge",
+    "model": "Durango",
+    "productionYear": 2011,
+    "features": [
+      "Pet friendly",
+      "Cable TV",
+      "Child care",
+      "Private bathroom",
+      "Autonomous car",
+      "Tour guide",
+      "Family car"
+    ],
+    "carbody": "minivan"
   },
   {
     "id": 26,
-    "Make": "Oldsmobile",
-    "Model": "Aurora",
-    "ProductionYear": 2001
+    "make": "Volkswagen",
+    "model": "New Beetle",
+    "productionYear": 2004,
+    "features": [
+      "Family car",
+      "Tour guide",
+      "Private bathroom"
+    ],
+    "carbody": "fullsize"
   },
   {
     "id": 27,
-    "Make": "Volkswagen",
-    "Model": "Eos",
-    "ProductionYear": 2012
+    "make": "Nissan",
+    "model": "GT-R",
+    "productionYear": 2013,
+    "features": [
+      "Sports car",
+      "Child care"
+    ],
+    "carbody": "fullsize"
   },
   {
     "id": 28,
-    "Make": "Ford",
-    "Model": "Model T",
-    "ProductionYear": 1909
+    "make": "Pontiac",
+    "model": "Firebird",
+    "productionYear": 1991,
+    "features": [
+      "Cable TV",
+      "Family car",
+      "Tour guide",
+      "Sports car",
+      "Pet friendly",
+      "Autonomous car"
+    ],
+    "carbody": "fullsize"
   },
   {
     "id": 29,
-    "Make": "Buick",
-    "Model": "Century",
-    "ProductionYear": 2001
+    "make": "Lincoln",
+    "model": "MKT",
+    "productionYear": 2012,
+    "features": [
+      "Autonomous car"
+    ],
+    "carbody": "compact"
   },
   {
     "id": 30,
-    "Make": "Mercury",
-    "Model": "Grand Marquis",
-    "ProductionYear": 2009
+    "make": "Suzuki",
+    "model": "SX4",
+    "productionYear": 2012,
+    "features": [
+      "Autonomous car",
+      "Cable TV",
+      "Pet friendly",
+      "Tour guide",
+      "Private bathroom",
+      "Child care"
+    ],
+    "carbody": "minivan"
   },
   {
     "id": 31,
-    "Make": "Volvo",
-    "Model": "XC90",
-    "ProductionYear": 2013
+    "make": "Jeep",
+    "model": "Liberty",
+    "productionYear": 2002,
+    "features": [
+      "Private bathroom",
+      "Sports car",
+      "Autonomous car",
+      "Cable TV",
+      "Tour guide"
+    ],
+    "carbody": "compact"
   },
   {
     "id": 32,
-    "Make": "Toyota",
-    "Model": "Prius",
-    "ProductionYear": 2012
+    "make": "Kia",
+    "model": "Borrego",
+    "productionYear": 2009,
+    "features": [
+      "Tour guide"
+    ],
+    "carbody": "fullsize"
   },
   {
     "id": 33,
-    "Make": "Chevrolet",
-    "Model": "Impala",
-    "ProductionYear": 2003
+    "make": "Toyota",
+    "model": "Land Cruiser",
+    "productionYear": 2013,
+    "features": [
+      "Family car",
+      "Pet friendly",
+      "Cable TV",
+      "Tour guide",
+      "Sports car"
+    ],
+    "carbody": "suv"
   },
   {
     "id": 34,
-    "Make": "Mercedes-Benz",
-    "Model": "CLK-Class",
-    "ProductionYear": 2001
+    "make": "Audi",
+    "model": "5000S",
+    "productionYear": 1986,
+    "features": [
+      "Family car",
+      "Child care",
+      "Tour guide",
+      "Cable TV",
+      "Sports car"
+    ],
+    "carbody": "minivan"
   },
   {
     "id": 35,
-    "Make": "Porsche",
-    "Model": "911",
-    "ProductionYear": 2003
+    "make": "GMC",
+    "model": "Vandura 1500",
+    "productionYear": 1994,
+    "features": [
+      "Tour guide",
+      "Sports car",
+      "Pet friendly",
+      "Family car",
+      "Child care",
+      "Autonomous car"
+    ],
+    "carbody": "compact"
   },
   {
     "id": 36,
-    "Make": "Buick",
-    "Model": "Century",
-    "ProductionYear": 1990
+    "make": "Mitsubishi",
+    "model": "Eclipse",
+    "productionYear": 1992,
+    "features": [
+      "Child care",
+      "Family car",
+      "Pet friendly",
+      "Cable TV",
+      "Tour guide"
+    ],
+    "carbody": "minivan"
   },
   {
     "id": 37,
-    "Make": "Ford",
-    "Model": "F350",
-    "ProductionYear": 2000
+    "make": "Ford",
+    "model": "Taurus",
+    "productionYear": 2004,
+    "features": [
+      "Autonomous car",
+      "Cable TV",
+      "Private bathroom",
+      "Pet friendly",
+      "Family car"
+    ],
+    "carbody": "minivan"
   },
   {
     "id": 38,
-    "Make": "Chrysler",
-    "Model": "Sebring",
-    "ProductionYear": 2008
+    "make": "Chevrolet",
+    "model": "APV",
+    "productionYear": 1993,
+    "features": [
+      "Family car"
+    ],
+    "carbody": "fullsize"
   },
   {
     "id": 39,
-    "Make": "Maybach",
-    "Model": "57",
-    "ProductionYear": 2009
+    "make": "Toyota",
+    "model": "Yaris",
+    "productionYear": 2009,
+    "features": [],
+    "carbody": "fullsize"
   },
   {
     "id": 40,
-    "Make": "Volkswagen",
-    "Model": "Passat",
-    "ProductionYear": 2000
+    "make": "Oldsmobile",
+    "model": "Regency",
+    "productionYear": 1998,
+    "features": [
+      "Family car"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 41,
+    "make": "Ford",
+    "model": "Bronco II",
+    "productionYear": 1989,
+    "features": [],
+    "carbody": "suv"
+  },
+  {
+    "id": 42,
+    "make": "Kia",
+    "model": "Sorento",
+    "productionYear": 2007,
+    "features": [
+      "Tour guide",
+      "Pet friendly",
+      "Autonomous car",
+      "Sports car",
+      "Cable TV",
+      "Family car"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 43,
+    "make": "Suzuki",
+    "model": "XL7",
+    "productionYear": 2007,
+    "features": [],
+    "carbody": "suv"
+  },
+  {
+    "id": 44,
+    "make": "Porsche",
+    "model": "911",
+    "productionYear": 1995,
+    "features": [
+      "Child care",
+      "Cable TV",
+      "Family car",
+      "Tour guide",
+      "Pet friendly",
+      "Sports car"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 45,
+    "make": "Suzuki",
+    "model": "Esteem",
+    "productionYear": 1999,
+    "features": [],
+    "carbody": "fullsize"
+  },
+  {
+    "id": 46,
+    "make": "Land Rover",
+    "model": "Freelander",
+    "productionYear": 2003,
+    "features": [
+      "Autonomous car",
+      "Family car",
+      "Private bathroom",
+      "Cable TV",
+      "Sports car"
+    ],
+    "carbody": "fullsize"
+  },
+  {
+    "id": 47,
+    "make": "Mitsubishi",
+    "model": "Outlander",
+    "productionYear": 2011,
+    "features": [],
+    "carbody": "compact"
+  },
+  {
+    "id": 48,
+    "make": "Dodge",
+    "model": "Ram 1500",
+    "productionYear": 2008,
+    "features": [
+      "Pet friendly",
+      "Sports car",
+      "Child care",
+      "Autonomous car",
+      "Private bathroom"
+    ],
+    "carbody": "compact"
+  },
+  {
+    "id": 49,
+    "make": "Lexus",
+    "model": "ES",
+    "productionYear": 1999,
+    "features": [
+      "Sports car",
+      "Cable TV",
+      "Tour guide",
+      "Autonomous car"
+    ],
+    "carbody": "fullsize"
+  },
+  {
+    "id": 50,
+    "make": "Cadillac",
+    "model": "XLR-V",
+    "productionYear": 2008,
+    "features": [
+      "Family car"
+    ],
+    "carbody": "compact"
+  },
+  {
+    "id": 51,
+    "make": "Chrysler",
+    "model": "Pacifica",
+    "productionYear": 2005,
+    "features": [],
+    "carbody": "compact"
+  },
+  {
+    "id": 52,
+    "make": "Porsche",
+    "model": "928",
+    "productionYear": 1986,
+    "features": [
+      "Sports car",
+      "Pet friendly",
+      "Autonomous car"
+    ],
+    "carbody": "compact"
+  },
+  {
+    "id": 53,
+    "make": "Chevrolet",
+    "model": "Corvette",
+    "productionYear": 2011,
+    "features": [
+      "Cable TV",
+      "Sports car"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 54,
+    "make": "Chevrolet",
+    "model": "Cobalt",
+    "productionYear": 2008,
+    "features": [],
+    "carbody": "suv"
+  },
+  {
+    "id": 55,
+    "make": "Chevrolet",
+    "model": "Suburban 2500",
+    "productionYear": 2006,
+    "features": [
+      "Pet friendly",
+      "Private bathroom",
+      "Child care"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 56,
+    "make": "Nissan",
+    "model": "200SX",
+    "productionYear": 1998,
+    "features": [
+      "Pet friendly"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 57,
+    "make": "Nissan",
+    "model": "240SX",
+    "productionYear": 1992,
+    "features": [
+      "Private bathroom",
+      "Tour guide",
+      "Family car",
+      "Pet friendly"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 58,
+    "make": "Ford",
+    "model": "Windstar",
+    "productionYear": 1995,
+    "features": [
+      "Autonomous car",
+      "Cable TV",
+      "Pet friendly",
+      "Sports car",
+      "Private bathroom",
+      "Family car",
+      "Tour guide"
+    ],
+    "carbody": "fullsize"
+  },
+  {
+    "id": 59,
+    "make": "Subaru",
+    "model": "Legacy",
+    "productionYear": 1999,
+    "features": [
+      "Child care",
+      "Cable TV"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 60,
+    "make": "Honda",
+    "model": "Odyssey",
+    "productionYear": 2004,
+    "features": [
+      "Pet friendly",
+      "Tour guide",
+      "Autonomous car",
+      "Child care",
+      "Private bathroom",
+      "Family car"
+    ],
+    "carbody": "compact"
+  },
+  {
+    "id": 61,
+    "make": "Maserati",
+    "model": "Biturbo",
+    "productionYear": 1986,
+    "features": [
+      "Pet friendly",
+      "Sports car",
+      "Private bathroom",
+      "Child care",
+      "Family car",
+      "Autonomous car"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 62,
+    "make": "Ford",
+    "model": "Contour",
+    "productionYear": 1996,
+    "features": [
+      "Child care"
+    ],
+    "carbody": "fullsize"
+  },
+  {
+    "id": 63,
+    "make": "Ford",
+    "model": "Contour",
+    "productionYear": 1995,
+    "features": [
+      "Sports car",
+      "Family car",
+      "Cable TV"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 64,
+    "make": "Volkswagen",
+    "model": "Jetta",
+    "productionYear": 2000,
+    "features": [
+      "Pet friendly"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 65,
+    "make": "Mazda",
+    "model": "Tribute",
+    "productionYear": 2006,
+    "features": [
+      "Autonomous car",
+      "Sports car",
+      "Child care",
+      "Family car",
+      "Cable TV",
+      "Pet friendly"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 66,
+    "make": "Volkswagen",
+    "model": "Golf",
+    "productionYear": 1986,
+    "features": [
+      "Cable TV",
+      "Family car",
+      "Sports car",
+      "Private bathroom",
+      "Pet friendly",
+      "Autonomous car",
+      "Tour guide"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 67,
+    "make": "Land Rover",
+    "model": "Discovery",
+    "productionYear": 2003,
+    "features": [
+      "Child care",
+      "Tour guide",
+      "Sports car",
+      "Cable TV",
+      "Private bathroom",
+      "Family car"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 68,
+    "make": "Oldsmobile",
+    "model": "98",
+    "productionYear": 1992,
+    "features": [],
+    "carbody": "minivan"
+  },
+  {
+    "id": 69,
+    "make": "Spyker",
+    "model": "C8 Spyder",
+    "productionYear": 2004,
+    "features": [
+      "Pet friendly",
+      "Private bathroom",
+      "Family car",
+      "Sports car"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 70,
+    "make": "Lexus",
+    "model": "ES",
+    "productionYear": 1997,
+    "features": [
+      "Pet friendly",
+      "Sports car",
+      "Cable TV"
+    ],
+    "carbody": "compact"
+  },
+  {
+    "id": 71,
+    "make": "Saab",
+    "model": "9-5",
+    "productionYear": 1999,
+    "features": [
+      "Private bathroom",
+      "Family car",
+      "Autonomous car",
+      "Pet friendly",
+      "Cable TV"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 72,
+    "make": "Hyundai",
+    "model": "Genesis Coupe",
+    "productionYear": 2013,
+    "features": [
+      "Cable TV",
+      "Child care",
+      "Sports car"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 73,
+    "make": "Chrysler",
+    "model": "Sebring",
+    "productionYear": 2010,
+    "features": [
+      "Tour guide",
+      "Pet friendly",
+      "Autonomous car",
+      "Family car",
+      "Private bathroom",
+      "Sports car"
+    ],
+    "carbody": "fullsize"
+  },
+  {
+    "id": 74,
+    "make": "Toyota",
+    "model": "MR2",
+    "productionYear": 2005,
+    "features": [
+      "Cable TV",
+      "Sports car",
+      "Tour guide",
+      "Child care",
+      "Family car",
+      "Pet friendly"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 75,
+    "make": "Buick",
+    "model": "Regal",
+    "productionYear": 1998,
+    "features": [],
+    "carbody": "compact"
+  },
+  {
+    "id": 76,
+    "make": "Honda",
+    "model": "Element",
+    "productionYear": 2005,
+    "features": [
+      "Autonomous car",
+      "Private bathroom",
+      "Pet friendly",
+      "Tour guide",
+      "Cable TV"
+    ],
+    "carbody": "fullsize"
+  },
+  {
+    "id": 77,
+    "make": "Lexus",
+    "model": "ES",
+    "productionYear": 1989,
+    "features": [
+      "Sports car",
+      "Pet friendly",
+      "Autonomous car",
+      "Cable TV",
+      "Child care",
+      "Tour guide"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 78,
+    "make": "Alfa Romeo",
+    "model": "Spider",
+    "productionYear": 1994,
+    "features": [
+      "Sports car",
+      "Autonomous car",
+      "Family car",
+      "Cable TV"
+    ],
+    "carbody": "compact"
+  },
+  {
+    "id": 79,
+    "make": "Lincoln",
+    "model": "Navigator",
+    "productionYear": 2008,
+    "features": [
+      "Tour guide",
+      "Child care",
+      "Pet friendly",
+      "Sports car",
+      "Autonomous car",
+      "Family car",
+      "Private bathroom"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 80,
+    "make": "Mazda",
+    "model": "B-Series Plus",
+    "productionYear": 2002,
+    "features": [
+      "Private bathroom"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 81,
+    "make": "Ford",
+    "model": "Econoline E150",
+    "productionYear": 2000,
+    "features": [
+      "Private bathroom",
+      "Sports car",
+      "Child care",
+      "Autonomous car",
+      "Pet friendly",
+      "Tour guide"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 82,
+    "make": "MINI",
+    "model": "Cooper",
+    "productionYear": 2003,
+    "features": [
+      "Autonomous car",
+      "Cable TV",
+      "Family car",
+      "Sports car",
+      "Tour guide"
+    ],
+    "carbody": "fullsize"
+  },
+  {
+    "id": 83,
+    "make": "Mazda",
+    "model": "B-Series",
+    "productionYear": 1986,
+    "features": [
+      "Private bathroom"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 84,
+    "make": "Cadillac",
+    "model": "SRX",
+    "productionYear": 2009,
+    "features": [
+      "Private bathroom",
+      "Autonomous car",
+      "Pet friendly",
+      "Cable TV"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 85,
+    "make": "Chevrolet",
+    "model": "Corvair 500",
+    "productionYear": 1963,
+    "features": [
+      "Private bathroom",
+      "Pet friendly",
+      "Tour guide",
+      "Autonomous car",
+      "Family car"
+    ],
+    "carbody": "compact"
+  },
+  {
+    "id": 86,
+    "make": "Saab",
+    "model": "9-7X",
+    "productionYear": 2008,
+    "features": [
+      "Child care",
+      "Pet friendly",
+      "Cable TV",
+      "Sports car",
+      "Private bathroom",
+      "Family car"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 87,
+    "make": "Ford",
+    "model": "Taurus",
+    "productionYear": 1987,
+    "features": [
+      "Autonomous car",
+      "Cable TV",
+      "Sports car",
+      "Pet friendly",
+      "Tour guide"
+    ],
+    "carbody": "compact"
+  },
+  {
+    "id": 88,
+    "make": "GMC",
+    "model": "Savana Cargo Van",
+    "productionYear": 2006,
+    "features": [
+      "Child care",
+      "Private bathroom",
+      "Cable TV",
+      "Sports car",
+      "Pet friendly"
+    ],
+    "carbody": "fullsize"
+  },
+  {
+    "id": 89,
+    "make": "Ford",
+    "model": "ZX2",
+    "productionYear": 2003,
+    "features": [
+      "Cable TV"
+    ],
+    "carbody": "fullsize"
+  },
+  {
+    "id": 90,
+    "make": "Aston Martin",
+    "model": "Rapide",
+    "productionYear": 2011,
+    "features": [],
+    "carbody": "compact"
+  },
+  {
+    "id": 91,
+    "make": "Honda",
+    "model": "Civic",
+    "productionYear": 1993,
+    "features": [
+      "Family car",
+      "Tour guide",
+      "Private bathroom",
+      "Sports car",
+      "Autonomous car",
+      "Child care"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 92,
+    "make": "Chevrolet",
+    "model": "Tahoe",
+    "productionYear": 2004,
+    "features": [],
+    "carbody": "compact"
+  },
+  {
+    "id": 93,
+    "make": "Ford",
+    "model": "Explorer Sport Trac",
+    "productionYear": 2008,
+    "features": [
+      "Pet friendly",
+      "Autonomous car"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 94,
+    "make": "Dodge",
+    "model": "Ram Van 2500",
+    "productionYear": 2003,
+    "features": [
+      "Private bathroom",
+      "Sports car",
+      "Pet friendly",
+      "Family car",
+      "Cable TV",
+      "Child care"
+    ],
+    "carbody": "compact"
+  },
+  {
+    "id": 95,
+    "make": "Mercedes-Benz",
+    "model": "SL-Class",
+    "productionYear": 2006,
+    "features": [
+      "Cable TV",
+      "Sports car",
+      "Private bathroom",
+      "Child care",
+      "Family car",
+      "Pet friendly"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 96,
+    "make": "Pontiac",
+    "model": "Monterey",
+    "productionYear": 2005,
+    "features": [
+      "Private bathroom",
+      "Pet friendly"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 97,
+    "make": "Land Rover",
+    "model": "Range Rover",
+    "productionYear": 2002,
+    "features": [
+      "Child care"
+    ],
+    "carbody": "minivan"
+  },
+  {
+    "id": 98,
+    "make": "Porsche",
+    "model": "Boxster",
+    "productionYear": 2009,
+    "features": [],
+    "carbody": "compact"
+  },
+  {
+    "id": 99,
+    "make": "Chevrolet",
+    "model": "Express 3500",
+    "productionYear": 1999,
+    "features": [
+      "Autonomous car",
+      "Tour guide",
+      "Family car",
+      "Cable TV",
+      "Sports car",
+      "Pet friendly",
+      "Private bathroom"
+    ],
+    "carbody": "suv"
+  },
+  {
+    "id": 100,
+    "make": "Audi",
+    "model": "S4",
+    "productionYear": 1992,
+    "features": [
+      "Pet friendly",
+      "Private bathroom"
+    ],
+    "carbody": "fullsize"
   }
 ]

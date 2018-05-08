@@ -5,7 +5,7 @@ import './SearchEngine.css'
 import CarFeatures from "../CarFeatures/CarFeatures";
 
 const KEYS_TO_FILTERS = [
-  'Make', 'Model', 'ProductionYear']
+  'make', 'model', 'productionYear', 'carbody']
 
 class SearchEngine extends Component {
   constructor(props) {
@@ -34,9 +34,13 @@ class SearchEngine extends Component {
         {filteredCars.map(car => {
           return (
             <div className="id" key={car.id}>
-              <div className="make">{car.Make}</div>
-              <div className="model">{car.Model}</div>
-              <div className="year">{car.ProductionYear} </div>
+            <ul>
+              <li>
+              <div className="make">{car.make}</div>
+              <div className="model">{car.model}</div>
+              <div className="year">{car.productionYear} </div>
+              </li>
+            </ul>
             </div>
           )
         })}
