@@ -9,6 +9,18 @@ import {
 } from 'react-router-dom'
 
 class App extends Component {
+
+  state = {
+    startDate: null,
+    endDate: null
+  };
+
+  rentDates = (startDate, endDate) =>
+    this.setState({
+      startDate: startDate,
+      endDate: endDate
+    });
+
   render() {
     return (
       <Router>
@@ -18,8 +30,8 @@ class App extends Component {
           </nav>
 
 
-          <Route exact path="/" component={RentCarScreen}/>
-          <Route path="/rent-car-screen" component={RentCarScreen}/>
+          <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
+          <Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
           {/*<Route path="/my-rentals-screen" component={MyRentsalsScreen}/>*/}
           {/*<Route path="/rent-summary-screen" component={RentSummaryScreen}/>*/}
         </div>

@@ -7,7 +7,7 @@ class RentCarScreen extends Component {
   render() {
     return (
       <Fragment>
-        <RentDateForm/>
+        <RentDateForm rentDates={this.props.rentDates}/>
         <CarFeatures/>
         <CarListItem/>
       </Fragment>
