@@ -15,7 +15,7 @@ class CarRentButton extends React.Component {
               // style={{ background: reservedCarIds.includes(this.props.carId) ? 'red' : 'black'}}
               onClick={() => reservedCarIds.includes(this.props.carId) ? cancelReservation(this.props.carId) : makeReservation(this.props.carId)}
             >
-              RENT
+              {reservedCarIds.includes(this.props.carId) ? 'Cancel' : 'Rent'}
             </button>
           )
         }
