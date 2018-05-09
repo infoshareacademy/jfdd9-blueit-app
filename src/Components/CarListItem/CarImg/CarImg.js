@@ -9,19 +9,19 @@ import CancelRentButton from "../../CancelRentButton/CancelRentButton";
 
 const options = {
   minivan: {
-    label: 'MINIVAN',
+    label: 'MINIVAN ',
     imageUrl: minivan
   },
   suv: {
-    label: 'SUV',
+    label: 'SUV ',
     imageUrl: SUV
   },
 compact: {
-  label: 'COMPACT',
+  label: 'COMPACT ',
     imageUrl: compact
 },
 fullsize: {
-  label: 'FULLSIZE',
+  label: 'FULLSIZE ',
     imageUrl: fullsize
 }
 
@@ -31,30 +31,28 @@ fullsize: {
 class CarImg extends React.Component {
   render() {
     return (
-      <div className="CarImgListContainer">
-        <ul className="CarImgList">
+        <div className="CarImgContainer">
           {
             this.props.cars.map(
               car => (
-                <li className="carType">
+                <div className="CarType">
                   <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
-                  <div   >
-                    <div>
-                  <span>
-                    <strong>{(options[car.carbody] || {}).label || 'Foo'}</strong>
-                  </span>
-                    </div>
-                      <div>
-  {car.make}, {car.model}, {car.features.join(', ')}</div>
-                    </div>
-                  <CarRentButton/><CancelRentButton/>
-                </li>
+                  <div className="CarInfo">
+                  <p>
+                    <strong>{(options[car.carbody] || {}).label || 'Car Undefined'}</strong>
+                    <span>{car.make},{car.model}</span>
+                  </p>
+                    <p> {car.features.join(', ')}</p>
+                  </div>
+                    <CarRentButton/>
+                    {/*<CancelRentButton/>*/}
+                </div>
+
               )
             )
           }
-        </ul>
-      </div>
-    )
+        </div>
+     )
   }
 }
 

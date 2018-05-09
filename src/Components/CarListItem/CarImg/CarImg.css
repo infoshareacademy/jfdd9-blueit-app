@@ -1,22 +1,27 @@
-.CarImgList{
+.CarImgContainer{
     font-family: Arial, sans-serif;
     color: #0b1259;
 }
-.CarImg{
-    border: 1px #0b1259 solid;
-    width: 100px;
-    height: auto;
-    margin: 3rem;
-    padding: 5px;
-}
-.CarImageList{
-    list-style: none;
-    font-size: 1em;
-}
-.carType{
+
+.CarType{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 40%;
     align-items: center;
+    background-color: rgba(24, 48, 255, 0.08);
+    border-radius: 15px;
+    margin: 10px;
+    width: 50%;
+}
+
+.CarImg{
+    border: 1px #0b1259 solid;
+    width: 10%;
+    margin-left: 3rem;
+    padding: 5px;
+    background: #fff;
+}
+
+.CarInfo{
+    width:50%;
 }
