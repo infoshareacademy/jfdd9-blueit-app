@@ -1,10 +1,9 @@
 import React from 'react'
 import './CarRentButton.css'
-import {ReservationConsumer} from "../../../contexts/Reservation";
+import {ReservationConsumer} from "../../contexts/Reservation";
 
 class CarRentButton extends React.Component {
   render() {
-    console.log(this.props)
     return (
       <ReservationConsumer>
         {

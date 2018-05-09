@@ -31,4 +31,18 @@ export class ReservationProvider extends Component {
       </ReservationContext.Provider>
     )
   }
+
+  componentDidMount() {
+    const reservedCarsAsTextInJSONFormat = localStorage.getItem('storedReservedCarIds');
+    const reservedCarsFromLocalStorage = JSON.parse(reservedCarsAsTextInJSONFormat);
+    this.setState({
+      reservedCarIds: reservedCarsFromLocalStorage || []
+    })
+  }
+
+  componentDidUpdate() {
+    const reservedCarIds = this.state.reservedCarIds;
+    localStorage.setItem('storedReservedCarIds', JSON.stringify(reservedCarIds));
+  }
+
 }
