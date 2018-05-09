@@ -3,6 +3,7 @@ import SearchInput, {createFilter} from 'react-search-input'
 import cars from './cars.json'
 import './SearchEngine.css'
 import CarFeatures from "../CarFeatures/CarFeatures";
+import CarListItem from '../CarListItem/CarListItem'
 
 const KEYS_TO_FILTERS = [
   'make',
@@ -45,6 +46,8 @@ class SearchEngine extends Component {
                   <div className="make">{car.make}</div>
                   <div className="model">{car.model}</div>
                   <div className="year">{car.productionYear} </div>
+                  <CarListItem car={car}/>
+
                 </li>
               </ul>
             </div>

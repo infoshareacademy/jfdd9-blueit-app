@@ -10,7 +10,7 @@ class CarListItem extends Component {
 
         <CarImg/>
         <ShowMore/>
-
+        <CarRentButton carId={this.props.car.id}/>
       </Fragment>
 
     )
