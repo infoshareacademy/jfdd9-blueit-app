@@ -2,17 +2,25 @@ import React, {Component} from 'react';
 import './App.css';
 import NavbarMenu from './Components/Navbar/NavbarMenu'
 import RentCarScreen from "./Components/RentCarScreen";
-import MyRentsalsScreen from "./Components/MyRentsalsScreen";
-import RentSummaryScreen from "./Components/RentSummaryScreen";
-import CancelRentButton from "./Components/CarListItem/CancelRentButton/CancelRentButton";
 
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
 
-
 class App extends Component {
+
+  state = {
+    startDate: null,
+    endDate: null
+  };
+
+  rentDates = (startDate, endDate) =>
+    this.setState({
+      startDate: startDate,
+      endDate: endDate
+    });
+
   render() {
     return (
       <Router>
@@ -20,17 +28,14 @@ class App extends Component {
           <nav>
             <NavbarMenu/>
           </nav>
-          <CancelRentButton/>
 
-          <Route exact path="/" component={RentCarScreen}/>
-          <Route path="/rent-car-screen" component={RentCarScreen}/>
-          <Route path="/my-rentals-screen" component={MyRentsalsScreen} />
-          <Route path="/rent-summary-screen" component={RentSummaryScreen} />
+
+          <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
+          <Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
+          {/*<Route path="/my-rentals-screen" component={MyRentsalsScreen}/>*/}
+          {/*<Route path="/rent-summary-screen" component={RentSummaryScreen}/>*/}
         </div>
       </Router>
-
-
-
     );
   }
 }

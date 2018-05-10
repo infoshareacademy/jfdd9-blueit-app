@@ -20,12 +20,11 @@
     font-size: 2em;
 }
 
-
-.menu__button__divider{
+.menu__button__divider {
     width: 2%;
     background: #302f54;
 }
 
 .active {
-    background-color: #351C66 ;
+    background-color: #351C66;
 }
