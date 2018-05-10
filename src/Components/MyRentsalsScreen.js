@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {ReservationConsumer} from "./contexts/Reservation";
-import cars from '././SearchEngine/cars'
 
 class MyRentsalsScreen extends Component {
   render() {
@@ -9,7 +8,14 @@ class MyRentsalsScreen extends Component {
         {
           ({cars, reservedCarIds, makeReservation, cancelReservation}) => (
 
-"zupa"
+            cars.filter(car => (
+                reservedCarIds.includes(car.id)
+              )
+            ).map(car => (
+              <p>
+                {car.make}
+              </p>
+            ))
 
           )
         }
