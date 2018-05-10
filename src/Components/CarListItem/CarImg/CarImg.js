@@ -37,7 +37,7 @@ class CarImg extends React.Component {
     return (
         <div className="CarImgContainer">
           {
-            this.props.cars.slice(0, (this.state.showMore ? undefined : 4) || (this.state.showLess ? 4 : undefined)).map(
+            this.props.cars.slice(0,5).map(
               car => (
                 <div className="CarType">
                   <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
@@ -54,15 +54,39 @@ class CarImg extends React.Component {
 
               )
             )
+
           }
 
           <div className="ShowMore">
           <button id="show" onClick={() => this.setState({ showMore: true })}>SHOW MORE</button>
         </div>
 
-          <div className="ShowLess">
-            <button id="show" onClick={() => this.setState({ showLess: true })}>SHOW LESS</button>
-          </div>
+
+          {
+            this.props.cars.slice(5, this.state.showMore ? undefined : null ).map(
+              car => (
+                <div className="CarType">
+                  <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
+                  <div className="CarInfo">
+                    <p>
+                      <strong>{(options[car.carbody] || {}).label || 'Car Undefined'}</strong>
+                      <span>{car.make},{car.model}</span>
+                    </p>
+                    <p> {car.features.join(', ')}</p>
+                  </div>
+                  <CarRentButton carId={car.id}/>
+                  {/*<CancelRentButton/>*/}
+                </div>
+
+              )
+            )
+
+          }
+
+          /* <div className="ShowLess">
+                    <button id="show" onClick={() => this.setState({ showLess: true })}>SHOW LESS</button>
+                  </div>*/
+
         </div>
      )
   }
