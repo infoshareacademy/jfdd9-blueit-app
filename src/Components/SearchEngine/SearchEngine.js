@@ -3,7 +3,7 @@ import SearchInput, {createFilter} from 'react-search-input'
 import cars from './cars.json'
 import './SearchEngine.css'
 import CarFeatures from "../CarFeatures/CarFeatures";
-import CarListItem from '../CarListItem/CarListItem'
+import CarImg from "../CarListItem/CarImg/CarImg";
 
 const KEYS_TO_FILTERS = [
   'make',
@@ -38,21 +38,7 @@ class SearchEngine extends Component {
       <Fragment>
         <SearchInput className="search-input" onChange={this.searchUpdated}/>
         <CarFeatures selectedOptions={this.state.selectedOptions} toggleOption={this.toggleOption}/>
-        {filteredCars.map(car => {
-          return (
-            <div className="id" key={car.id}>
-              <ul>
-                <li>
-                  <div className="make">{car.make}</div>
-                  <div className="model">{car.model}</div>
-                  <div className="year">{car.productionYear} </div>
-                  <CarListItem car={car}/>
-
-                </li>
-              </ul>
-            </div>
-          )
-        })}
+        <CarImg cars={filteredCars}/>
       </Fragment>
     )
   }

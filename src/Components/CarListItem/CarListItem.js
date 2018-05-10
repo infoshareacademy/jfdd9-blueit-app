@@ -8,9 +8,7 @@ class CarListItem extends Component {
     return (
       <Fragment>
 
-
         <ShowMore/>
-        <CarRentButton carId={this.props.car.id}/>
       </Fragment>
 
     )

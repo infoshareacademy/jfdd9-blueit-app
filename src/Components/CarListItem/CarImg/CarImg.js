@@ -5,40 +5,54 @@ import fullsize from '../../img/car-fullsize.jpg'
 import compact from '../../img/car-compact.jpg'
 import minivan from '../../img/car-minivan.jpg'
 import CarRentButton from "../CarRentButton/CarRentButton";
+import CancelRentButton from "../../CancelRentButton/CancelRentButton";
+
+const options = {
+  minivan: {
+    label: 'MINIVAN ',
+    imageUrl: minivan
+  },
+  suv: {
+    label: 'SUV ',
+    imageUrl: SUV
+  },
+compact: {
+  label: 'COMPACT ',
+    imageUrl: compact
+},
+fullsize: {
+  label: 'FULLSIZE ',
+    imageUrl: fullsize
+}
+
+};
 
 
 class CarImg extends React.Component {
   render() {
     return (
-      <div className="CarImgListContainer">
-        <ul className="CarImgList">
-          <li className="carType"><img src={compact} id="carCompactImg" alt="car-compact" className="CarImg"/>
-            <span><strong>COMPACT CAR </strong>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-              Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</span>
-            <CarRentButton/>
-          </li>
-          <li className="carType"><img src={fullsize} id="carFullsizeImg" alt="car-fullsize" className="CarImg"/>
-            <span><strong>FULLSIZE CAR </strong>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-              Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</span>
-            <CarRentButton/>
-          </li>
-          <li className="carType"><img src={SUV} id="carSUVImg" alt="car-suv" className="CarImg"/>
-            <span><strong>SPORTS UTILITY VEHICLE </strong>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-              Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</span>
-            <CarRentButton/>
-          </li>
-          <li className="carType"><img src={minivan} id="carMinivanImg" alt="car-minivan" className="CarImg"/>
-            <span><strong>MINIVAN </strong>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-              Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</span>
-            <CarRentButton/>
-          </li>
-        </ul>
-      </div>
-    )
+        <div className="CarImgContainer">
+          {
+            this.props.cars.map(
+              car => (
+                <div className="CarType">
+                  <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
+                  <div className="CarInfo">
+                  <p>
+                    <strong>{(options[car.carbody] || {}).label || 'Car Undefined'}</strong>
+                    <span>{car.make},{car.model}</span>
+                  </p>
+                    <p> {car.features.join(', ')}</p>
+                  </div>
+                    <CarRentButton carId={car.id}/>
+                    {/*<CancelRentButton/>*/}
+                </div>
+
+              )
+            )
+          }
+        </div>
+     )
   }
 }
 
