@@ -5,7 +5,7 @@ import fullsize from '../../img/car-fullsize.jpg'
 import compact from '../../img/car-compact.jpg'
 import minivan from '../../img/car-minivan.jpg'
 import CarRentButton from "../CarRentButton/CarRentButton";
-import CancelRentButton from "../../CancelRentButton/CancelRentButton";
+import '../CarImg/ShowMore.css'
 
 const options = {
   minivan: {
@@ -47,15 +47,15 @@ class CarImg extends React.Component {
                   </p>
                     <p> {car.features.join(', ')}</p>
                   </div>
-                    <CarRentButton/>
+                    <CarRentButton carId={car.id}/>
                     {/*<CancelRentButton/>*/}
                 </div>
 
               )
             )
-          }
-          <button onClick={() => this.setState({ showMore: true })}>show more</button>
-
+          }<div className="ShowMore">
+          <button id="show" onClick={() => this.setState({ showMore: true })}>SHOW MORE</button>
+        </div>
         </div>
      )
   }

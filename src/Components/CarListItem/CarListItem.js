@@ -9,7 +9,6 @@ class CarListItem extends Component {
       <Fragment>
 
         <ShowMore/>
-
       </Fragment>
 
     )
