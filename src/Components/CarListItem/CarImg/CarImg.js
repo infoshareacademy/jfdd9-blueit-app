@@ -30,13 +30,14 @@ fullsize: {
 
 class CarImg extends React.Component {
   state = {
-    showMore: false
+    showMore: false,
+    showLess: false
   }
   render() {
     return (
         <div className="CarImgContainer">
           {
-            this.props.cars.slice(0, this.state.showMore ? undefined : 4).map(
+            this.props.cars.slice(0, (this.state.showMore ? undefined : 4) || (this.state.showLess ? 4 : undefined)).map(
               car => (
                 <div className="CarType">
                   <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
@@ -53,9 +54,15 @@ class CarImg extends React.Component {
 
               )
             )
-          }<div className="ShowMore">
+          }
+
+          <div className="ShowMore">
           <button id="show" onClick={() => this.setState({ showMore: true })}>SHOW MORE</button>
         </div>
+
+          <div className="ShowLess">
+            <button id="show" onClick={() => this.setState({ showLess: true })}>SHOW LESS</button>
+          </div>
         </div>
      )
   }
