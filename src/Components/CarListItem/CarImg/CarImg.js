@@ -44,7 +44,7 @@ class CarImg extends React.Component {
                   </p>
                     <p> {car.features.join(', ')}</p>
                   </div>
-                    <CarRentButton/>
+                    <CarRentButton carId={car.id}/>
                     {/*<CancelRentButton/>*/}
                 </div>
 

@@ -11,7 +11,6 @@ class RentCarScreen extends Component {
       <Fragment>
         <RentDateForm rentDates={this.props.rentDates}/>
         <SearchEngine/>
-        <CarListItem/>
       </Fragment>
     )
   }
