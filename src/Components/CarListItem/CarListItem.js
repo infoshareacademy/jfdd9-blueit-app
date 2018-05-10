@@ -8,9 +8,7 @@ class CarListItem extends Component {
     return (
       <Fragment>
 
-        <CarImg/>
         <ShowMore/>
-
       </Fragment>
 
     )
