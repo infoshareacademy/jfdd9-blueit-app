@@ -5,7 +5,7 @@ import fullsize from '../../img/car-fullsize.jpg'
 import compact from '../../img/car-compact.jpg'
 import minivan from '../../img/car-minivan.jpg'
 import CarRentButton from "../CarRentButton/CarRentButton";
-import CancelRentButton from "../../CancelRentButton/CancelRentButton";
+import '../CarImg/ShowMore.css'
 
 const options = {
   minivan: {
@@ -29,11 +29,14 @@ fullsize: {
 
 
 class CarImg extends React.Component {
+  state = {
+    showMore: false
+  }
   render() {
     return (
         <div className="CarImgContainer">
           {
-            this.props.cars.map(
+            this.props.cars.slice(0, this.state.showMore ? undefined : 4).map(
               car => (
                 <div className="CarType">
                   <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
@@ -50,7 +53,9 @@ class CarImg extends React.Component {
 
               )
             )
-          }
+          }<div className="ShowMore">
+          <button id="show" onClick={() => this.setState({ showMore: true })}>SHOW MORE</button>
+        </div>
         </div>
      )
   }
