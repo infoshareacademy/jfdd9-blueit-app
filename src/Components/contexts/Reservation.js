@@ -6,6 +6,8 @@ export const ReservationConsumer = ReservationContext.Consumer;
 
 export class ReservationProvider extends Component {
   state = {
+    cars: [],
+
     reservedCarIds: [],
 
     makeReservation: carId => {
@@ -37,6 +39,19 @@ export class ReservationProvider extends Component {
     const reservedCarsFromLocalStorage = JSON.parse(reservedCarsAsTextInJSONFormat);
     this.setState({
       reservedCarIds: reservedCarsFromLocalStorage || []
+    });
+
+    fetch(process.env.PUBLIC_URL + '/cars.json', {
+      method: 'GET'
+    }).then(response => {
+      return response.json();
+    }).then(cars => {
+      console.log('cars', cars);
+      this.setState({
+        cars: cars
+      })
+    }).catch(error => {
+      console.log('Error', error)
     })
   }
 
