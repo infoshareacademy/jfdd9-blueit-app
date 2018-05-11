@@ -43,9 +43,9 @@ class CarImg extends React.Component {
                   <div className="CarInfo">
                   <p>
                     <strong>{(options[car.carbody] || {}).label || 'Car Undefined'}</strong>
-                    <span>{car.make},{car.model}</span>
+                    <span>{car.make}, {car.model}</span>
                   </p>
-                    <p> {car.features.join(', ')}</p>
+                    {car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>}
                   </div>
                     <CarRentButton carId={car.id}/>
                     {/*<CancelRentButton/>*/}
