@@ -2,6 +2,7 @@
     padding: 10px 10px;
     height: 52px;
     position: relative;
+    text-align: center;
 }
 
 .search-input::before {

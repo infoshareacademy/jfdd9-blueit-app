@@ -12,8 +12,8 @@ class NavbarMenu extends Component {
     return (
       <div className='menu__container'>
 
-        <div className = 'menu__button active'><Link to="/rent-car-screen">Rent a car</Link></div>
-        <div className = 'menu__button'><Link to="my-rentals-screen">My rentals</Link></div>
+        <div className = 'menu__button active'><Link to="/rent-car-screen">RENT A CAR</Link></div>
+        <div className = 'menu__button'><Link to="my-rentals-screen">MY RENTALS</Link></div>
 
       </div>
     )
