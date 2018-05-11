@@ -31,14 +31,14 @@ const options = {
 class CarImg extends React.Component {
   state = {
     showMore: false,
-    buttonText: 'Show More'
+    buttonText: 'SHOW MORE'
   }
 
   clickHeandler = () => {
     this.state.showMore ?
-      this.setState({showMore: false, buttonText: 'Show More'})
+      this.setState({showMore: false, buttonText: 'SHOW MORE'})
       :
-      this.setState({showMore: true, buttonText: 'Show Less'})
+      this.setState({showMore: true, buttonText: 'SHOW LESS'})
     }
 
 
