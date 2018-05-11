@@ -11,7 +11,7 @@ class MyRentsalsScreen extends Component {
     return (
       <div>
         {
-          reservedCarIds.length === 1 ?
+          reservedCarIds.length === 0 ?
             <h2>You don't have any active reservations.</h2> :
             cars.filter(car => (
               reservedCarIds.includes(car.id)

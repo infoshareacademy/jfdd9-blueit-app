@@ -30,13 +30,23 @@ fullsize: {
 
 class CarImg extends React.Component {
   state = {
-    showMore: false
+    showMore: false,
+    buttonText: 'SHOW MORE'
   }
+
+  clickHeandler = () => {
+    this.state.showMore ?
+      this.setState({showMore: false, buttonText: 'SHOW MORE'})
+      :
+      this.setState({showMore: true, buttonText: 'SHOW LESS'})
+    }
+
+
   render() {
     return (
         <div className="CarImgContainer">
           {
-            this.props.cars.slice(0, this.state.showMore ? undefined : 4).map(
+            this.props.cars.slice(0,5).map(
               car => (
                 <div key={car.id} className="CarType">
                   <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
@@ -48,15 +58,45 @@ class CarImg extends React.Component {
                     {car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>}
                   </div>
                     <CarRentButton carId={car.id}/>
+
                 </div>
 
-              )
+
+
             )
-          }<div className="ShowMore">
-          <button id="show" onClick={() => this.setState({ showMore: true })}>SHOW MORE</button>
+          )
+
+        }
+
+
+        <div className="ShowMore">
+          <button id="show" onClick={this.clickHeandler}>{this.state.buttonText}</button>
         </div>
-        </div>
-     )
+
+
+        {
+          this.state.showMore && this.props.cars.slice(5, this.state.showMore ? undefined : 5).map(
+            car => (
+              <div key={car.id} className="CarType">
+                <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
+                <div className="CarInfo">
+                  <p>
+                    <strong>{(options[car.carbody] || {}).label || 'Car Undefined'}</strong>
+                    <span>{car.make},{car.model}</span>
+                  </p>
+                  <p> {car.features.join(', ')}</p>
+                </div>
+                <CarRentButton carId={car.id}/>
+              </div>
+
+            )
+          )
+
+        }
+
+
+      </div>
+    )
   }
 }
 
