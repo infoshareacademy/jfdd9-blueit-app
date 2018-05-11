@@ -31,13 +31,22 @@ fullsize: {
 class CarImg extends React.Component {
   state = {
     showMore: false,
-    showLess: false
+    buttonText: 'Show More'
   }
+
+  clickHeandler = () => {
+    if (this.state.showMore === false) {
+      this.setState({ showMore: true, buttonText: 'Show Less' })
+    } else {
+      this.setState({ showMore: false, buttonText: 'Show More' })
+    }
+  }
+
   render() {
     return (
         <div className="CarImgContainer">
           {
-            this.props.cars.slice(0,5).map(
+            this.props.cars.slice(0, 5 ).map(
               car => (
                 <div className="CarType">
                   <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
@@ -57,13 +66,15 @@ class CarImg extends React.Component {
 
           }
 
+
+
           <div className="ShowMore">
-          <button id="show" onClick={() => this.setState({ showMore: true })}>SHOW MORE</button>
-        </div>
+            <button id="show" onClick={this.clickHeandler}>{this.state.buttonText}</button>
+          </div>
 
 
           {
-            this.props.cars.slice(5, this.state.showMore ? undefined : null ).map(
+            this.state.showMore&&this.props.cars.slice(0, this.state.showMore ? undefined : 5 ).map(
               car => (
                 <div className="CarType">
                   <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
@@ -83,9 +94,7 @@ class CarImg extends React.Component {
 
           }
 
-          /* <div className="ShowLess">
-                    <button id="show" onClick={() => this.setState({ showLess: true })}>SHOW LESS</button>
-                  </div>*/
+
 
         </div>
      )
