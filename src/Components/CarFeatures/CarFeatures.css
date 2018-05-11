@@ -9,7 +9,9 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 2rem;
-    margin: 2.5rem auto;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+
 }
 
 

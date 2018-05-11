@@ -20,6 +20,10 @@
     font-size: 2em;
 }
 
+.menu__button a {
+    text-decoration: none;
+}
+
 .menu__button__divider {
     width: 2%;
     background: #302f54;
