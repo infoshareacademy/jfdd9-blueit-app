@@ -35,10 +35,10 @@ class CarImg extends React.Component {
   }
 
   clickHeandler = () => {
-    if (this.state.showMore === false) {
-      this.setState({ showMore: true, buttonText: 'Show Less' })
-    } else {
+    if (this.state.showMore) {
       this.setState({ showMore: false, buttonText: 'Show More' })
+    } else {
+      this.setState({ showMore: true, buttonText: 'Show Less' })
     }
   }
 
