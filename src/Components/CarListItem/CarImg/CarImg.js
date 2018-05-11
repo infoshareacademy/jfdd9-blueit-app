@@ -48,7 +48,6 @@ class CarImg extends React.Component {
                     {car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>}
                   </div>
                     <CarRentButton carId={car.id}/>
-                    {/*<CancelRentButton/>*/}
                 </div>
 
               )
