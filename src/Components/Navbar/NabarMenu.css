@@ -4,6 +4,7 @@
     width: 100%;
     height: 50px;
     color: white;
+    padding: 1.1rem;
 }
 
 .nav__menu {
@@ -20,11 +21,10 @@
     font-size: 2em;
 }
 
-.menu__button__divider {
-    width: 2%;
-    background: #302f54;
+.menu__button a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #CEF3FF;
 }
 
-.active {
-    background-color: #351C66;
-}
+
