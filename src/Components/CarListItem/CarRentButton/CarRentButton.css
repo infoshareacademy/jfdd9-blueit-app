@@ -17,7 +17,7 @@
 .RentBtn,
 .RentBtnReserved {
     padding: 20px;
-    margin: 10px 0;
+    margin: 10px 1rem;
     width: 150px;
     color: #FFF;
     background-color: rgba(11, 18, 89, 0.8);

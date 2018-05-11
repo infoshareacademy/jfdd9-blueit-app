@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react'
-import {ReservationConsumer, withReservation} from "./contexts/Reservation";
+import {withReservation} from "./contexts/Reservation";
 import './CarListItem/CarImg/CarImg.css'
 import CarRentButton from "./CarListItem/CarRentButton/CarRentButton";
 import './MyRentsalsScreen.css'
@@ -26,7 +26,7 @@ class MyRentsalsScreen extends Component {
                         <strong>{(options[car.carbody] || {}).label || 'Car Undefined'}</strong>
                         <span>{car.make}, {car.model}</span>
                       </p>
-                      <p> {car.features.join(', ')}</p>
+                      <p><strong>Features:</strong> {car.features.join(', ')}</p>
                     </div>
                     <CarRentButton carId={car.id}/>
                   </div>
