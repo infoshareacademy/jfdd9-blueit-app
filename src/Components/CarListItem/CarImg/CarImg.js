@@ -16,14 +16,14 @@ const options = {
     label: 'SUV ',
     imageUrl: SUV
   },
-  compact: {
-    label: 'COMPACT ',
+compact: {
+  label: 'COMPACT ',
     imageUrl: compact
-  },
-  fullsize: {
-    label: 'FULLSIZE ',
+},
+fullsize: {
+  label: 'FULLSIZE ',
     imageUrl: fullsize
-  }
+}
 
 };
 
@@ -44,22 +44,24 @@ class CarImg extends React.Component {
 
   render() {
     return (
-      <div className="CarImgContainer">
-        {
-          this.props.cars.slice(0, 5).map(
-            car => (
-              <div className="CarType">
-                <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
-                <div className="CarInfo">
+        <div className="CarImgContainer">
+          {
+            this.props.cars.slice(0,5).map(
+              car => (
+                <div key={car.id} className="CarType">
+                  <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
+                  <div className="CarInfo">
                   <p>
                     <strong>{(options[car.carbody] || {}).label || 'Car Undefined'}</strong>
-                    <span>{car.make},{car.model}</span>
+                    <span>{car.make}, {car.model}</span>
                   </p>
-                  <p> {car.features.join(', ')}</p>
+                    {car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>}
+                  </div>
+                    <CarRentButton carId={car.id}/>
+
                 </div>
-                <CarRentButton carId={car.id}/>
-                {/*<CancelRentButton/>*/}
-              </div>
+
+
 
             )
           )
@@ -73,9 +75,9 @@ class CarImg extends React.Component {
 
 
         {
-          this.state.showMore && this.props.cars.slice(0, this.state.showMore ? undefined : 5).map(
+          this.state.showMore && this.props.cars.slice(5, this.state.showMore ? undefined : 5).map(
             car => (
-              <div className="CarType">
+              <div key={car.id} className="CarType">
                 <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
                 <div className="CarInfo">
                   <p>
@@ -85,7 +87,6 @@ class CarImg extends React.Component {
                   <p> {car.features.join(', ')}</p>
                 </div>
                 <CarRentButton carId={car.id}/>
-                {/*<CancelRentButton/>*/}
               </div>
 
             )
