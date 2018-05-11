@@ -56,3 +56,32 @@
         height: 200px;
     }
 }
+
+
+#show.ShowLess {
+    padding: 20px;
+    margin: 10px 9.5rem;
+    width: 200px;
+    color: #FFF;
+    //background-color: coral;
+    font-size: 24px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+
+
+#show.ShowLess {
+    background-color: rgba(89, 0, 8, 0.8);
+}
+
+#show.ShowLess:hover {
+    background-color: rgba(89, 0, 8, 0.9);
+    transition: all .4s;
+}
+
+.ShowMore {
+    text-align: center;
+}

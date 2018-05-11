@@ -6,6 +6,7 @@ import compact from '../../img/car-compact.jpg'
 import minivan from '../../img/car-minivan.jpg'
 import CarRentButton from "../CarRentButton/CarRentButton";
 import '../CarImg/ShowMore.css'
+import ShowMore from "../ShowMore/ShowMore";
 
 const options = {
   minivan: {
@@ -70,7 +71,11 @@ class CarImg extends React.Component {
 
 
         <div className="ShowMore">
-          <button id="show" onClick={this.clickHeandler}>{this.state.buttonText}</button>
+          <button id="show"
+                  className={this.clickHeandler.includes ? 'ShowMore' : 'ShowLess'}
+                  onClick={this.clickHeandler}
+          >
+            {this.state.buttonText}</button>
         </div>
 
 
