@@ -69,7 +69,6 @@ export class ReservationProvider extends Component {
     }).then(response => {
       return response.json();
     }).then(cars => {
-      console.log('cars', cars);
       this.setState({
         cars: cars
       })

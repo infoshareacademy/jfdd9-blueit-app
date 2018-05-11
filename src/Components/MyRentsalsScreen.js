@@ -3,6 +3,7 @@ import {withReservation} from "./contexts/Reservation";
 import './CarListItem/CarImg/CarImg.css'
 import CarRentButton from "./CarListItem/CarRentButton/CarRentButton";
 import './MyRentsalsScreen.css'
+import SUV from './img/car-SUV.jpg'
 
 class MyRentsalsScreen extends Component {
   render() {
@@ -16,10 +17,10 @@ class MyRentsalsScreen extends Component {
               reservedCarIds.includes(car.id)
             )).map(car => (
 
-              <Fragment>
+              <Fragment key={car.id}>
                 <div className="CarImgContainer">
                   <div className="CarType">
-                    <img src={(options[car.carbody] || {}).imageUrl} alt="car-compact" className="CarImg"/>
+                    <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
 
                     <div className="CarInfo">
                       <p>

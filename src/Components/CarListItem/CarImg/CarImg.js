@@ -38,7 +38,7 @@ class CarImg extends React.Component {
           {
             this.props.cars.slice(0, this.state.showMore ? undefined : 4).map(
               car => (
-                <div className="CarType">
+                <div key={car.id} className="CarType">
                   <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
                   <div className="CarInfo">
                   <p>
@@ -48,7 +48,6 @@ class CarImg extends React.Component {
                     {car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>}
                   </div>
                     <CarRentButton carId={car.id}/>
-                    {/*<CancelRentButton/>*/}
                 </div>
 
               )
