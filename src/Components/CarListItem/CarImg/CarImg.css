@@ -59,13 +59,12 @@
     }
 }
 
-
 #show.ShowLess {
     padding: 20px;
     margin: 10px 9.5rem;
     width: 250px;
     color: #FFF;
-    //background-color: coral;
+/ / background-color: coral;
     font-size: 26px;
     font-weight: bold;
     border: 0;
@@ -73,8 +72,6 @@
     cursor: pointer;
     transition: all .4s;
 }
-
-
 
 #show.ShowLess {
     background-color: rgba(89, 0, 8, 0.8);

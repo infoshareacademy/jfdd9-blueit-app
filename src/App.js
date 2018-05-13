@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './App.css';
 import NavbarMenu from './Components/Navbar/NavbarMenu'
 import RentCarScreen from "./Components/RentCarScreen";
 
@@ -31,12 +30,9 @@ class App extends Component {
             <nav>
               <NavbarMenu/>
             </nav>
-
-
             <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
             <Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
             <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
-            {/*<Route path="/rent-summary-screen" component={RentSummaryScreen}/>*/}
           </div>
         </Router>
       </ReservationProvider>

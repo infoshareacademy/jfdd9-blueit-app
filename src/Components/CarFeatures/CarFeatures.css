@@ -17,10 +17,9 @@
 
 }
 
-
 .CarFeatures p {
     padding: 2rem;
-    margin:1px;
+    margin: 1px;
     width: 220px;
 }
 
@@ -35,9 +34,10 @@
         justify-content: center;
         margin: auto;
     }
+
     .CarFeatures p {
         padding: 2rem;
-        margin:auto;
+        margin: auto;
         text-align: center;
 
     }
