@@ -14,8 +14,6 @@ const options = [
 ];
 
 
-
-
 class CarFeatures extends React.Component {
   render() {
     return (
