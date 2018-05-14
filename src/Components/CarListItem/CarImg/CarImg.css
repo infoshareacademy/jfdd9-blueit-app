@@ -1,27 +1,87 @@
-.CarImgContainer{
+.CarImgContainer {
     font-family: Arial, sans-serif;
     color: #0b1259;
 }
 
-.CarType{
+.CarType {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     background-color: rgba(24, 48, 255, 0.08);
     border-radius: 15px;
-    margin: 10px;
-    width: 50%;
+    margin: 10px auto;
+    width: 80%;
+    height: 120px;
+    font-size: 20px;
+    padding-left: 20px;
 }
 
-.CarImg{
+.CarImg {
     border: 1px #0b1259 solid;
     width: 10%;
-    margin-left: 3rem;
+    height: auto;
     padding: 5px;
     background: #fff;
 }
 
-.CarInfo{
-    width:50%;
+.CarInfo {
+    width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .CarType {
+        width: 100%;
+    }
+
+    .RentBtn {
+
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .CarImg {
+        display: none;
+    }
+
+    .CarInfo {
+        margin-left: 1rem;
+    }
+
+    .CarType {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .CarType {
+        height: 200px;
+    }
+}
+
+#show.ShowLess {
+    padding: 20px;
+    margin: 10px 9.5rem;
+    width: 250px;
+    color: #FFF;
+/ / background-color: coral;
+    font-size: 26px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+#show.ShowLess {
+    background-color: rgba(89, 0, 8, 0.8);
+}
+
+#show.ShowLess:hover {
+    background-color: rgba(89, 0, 8, 0.9);
+    transition: all .4s;
+}
+
+.ShowMore {
+    text-align: center;
 }

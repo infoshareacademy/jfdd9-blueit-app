@@ -1,26 +1,10 @@
-/*#rent {*/
-    /*background-color: #0b1259;*/
-    /*color: #fff;*/
-    /*padding: 5px 8px;*/
-    /*font-size: 1.2rem;*/
-    /*border-radius: 5%;*/
-    /*transition: color 0.2s;*/
-    /*margin: 2rem;*/
-/*}*/
-
-/*#rent:hover {*/
-    /*background-color: #fff;*/
-    /*color: #0b1259;*/
-    /*transition: color 0.2s;*/
-/*}*/
-
 .RentBtn,
 .RentBtnReserved {
     padding: 20px;
-    margin: 10px 0;
+    margin: 10px 1rem;
     width: 150px;
     color: #FFF;
-    background-color: rgba(11, 18, 89, 0.8);
+    background-color: #0B1152;
     font-size: 24px;
     border: 0;
     border-radius: 5px;

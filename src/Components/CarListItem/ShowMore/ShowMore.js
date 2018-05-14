@@ -1,5 +1,6 @@
 import React from 'react'
-import './ShowMore.css'
+import '../CarImg/ShowMore.css'
+
 
 class ShowMore extends React.Component {
   render() {

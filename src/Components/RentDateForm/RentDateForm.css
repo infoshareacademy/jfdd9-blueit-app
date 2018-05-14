@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin: 2rem auto;
+    text-align: center;
 }
 
 .RentDateForm {
