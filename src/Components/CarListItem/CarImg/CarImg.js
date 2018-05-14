@@ -53,7 +53,7 @@ class CarImg extends React.Component {
                 <div className="CarInfo">
                   <p>
                     <strong>{(options[car.carbody] || {}).label || 'Car Undefined'}</strong>
-                    <span>{car.make}, {car.model}</span>
+                    <span>{car.make}, {car.model}, {car.productionYear}</span>
                   </p>
                   {car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>}
                 </div>
