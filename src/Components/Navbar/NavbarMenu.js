@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './NabarMenu.css'
 
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 
 class NavbarMenu extends Component {
@@ -12,8 +12,8 @@ class NavbarMenu extends Component {
     return (
       <div className='menu__container'>
 
-        <div className='menu__button active'><Link to="/rent-car-screen">RENT A CAR</Link></div>
-        <div className='menu__button'><Link to="my-rentals-screen">MY RENTALS</Link></div>
+        <NavLink to="/" exact className='menu__button'>RENT A CAR</NavLink>
+        <NavLink to="/my-rentals-screen" className='menu__button'>MY RENTALS</NavLink>
 
       </div>
     )

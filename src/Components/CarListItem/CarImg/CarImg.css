@@ -4,6 +4,7 @@
 }
 
 .CarType {
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -46,10 +47,11 @@
 
     .CarInfo {
         margin-left: 1rem;
+        font-size: 16px;
     }
 
     .CarType {
-        height: 150px;
+        height: 200px;
     }
 }
 
@@ -61,7 +63,7 @@
 
 #show.ShowLess {
     padding: 20px;
-    margin: 10px 9.5rem;
+    margin: 10px auto;
     width: 250px;
     color: #FFF;
 / / background-color: coral;
