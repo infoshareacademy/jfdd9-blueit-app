@@ -23,40 +23,51 @@
     letter-spacing: 0.4rem;
 }
 
-.menu__button a {
+.menu__button {
     text-decoration: none;
     font-weight: bold;
     color: white;
 }
 
-.menu__button a:hover {
+.menu__button:hover {
     text-decoration: none;
     font-weight: bold;
     color: lightgray;
 }
 
-.menu__button a:focus {
+.menu__button:focus  {
     text-decoration: none;
     font-weight: bold;
     color: white;
     background-color: #3B417A;
     height: 70px;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 
 }
 
-.menu__button.active a:focus {
+.menu__button.active {
     text-decoration: none;
     font-weight: bold;
     color: white;
     background-color: #3B417A;
     height: 70px;
-    width: 100%;
+
     text-align: center;
 
 }
 
 
+@media screen and (max-width: 768px){
+    .menu__button {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .menu__button {
+        font-size: 0.8em;
+        letter-spacing: 0.2rem;
+    }
+}

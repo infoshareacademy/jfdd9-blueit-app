@@ -31,7 +31,7 @@ class App extends Component {
               <NavbarMenu/>
             </nav>
             <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
-            <Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
+            {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
             <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
           </div>
         </Router>
