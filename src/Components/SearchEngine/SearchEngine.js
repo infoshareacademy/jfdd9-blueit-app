@@ -13,14 +13,10 @@ const KEYS_TO_FILTERS = [
 ]
 
 class SearchEngine extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
+  state = {
       searchTerm: '',
       selectedOptions: []
     }
-    this.searchUpdated = this.searchUpdated.bind(this)
-  }
 
   toggleOption = optionName => this.setState(
     ({selectedOptions}) => ({
@@ -43,7 +39,7 @@ class SearchEngine extends Component {
     )
   }
 
-  searchUpdated(term) {
+  searchUpdated= (term) => {
     this.setState({searchTerm: term})
   }
 }
