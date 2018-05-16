@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import NavbarMenu from './Components/Navbar/NavbarMenu'
 import RentCarScreen from "./Components/RentCarScreen";
+import ReservationConfirm from './Components/CarListItem/ReservationConfirm/ReservationConfirm'
 
 import {
   BrowserRouter as Router,
@@ -35,6 +36,7 @@ class App extends Component {
               <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
               {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
               <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
+              <Route path="/rent-confirm" component={ReservationConfirm}/>
             </div>
           </Router>
         </SearchProvider>
