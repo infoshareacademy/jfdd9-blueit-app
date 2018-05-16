@@ -1,24 +1,19 @@
 import React from 'react'
 import './CarRentButton.css'
-import {ReservationConsumer} from "../../contexts/Reservation";
+import {withReservation} from "../../contexts/Reservation";
 
 class CarRentButton extends React.Component {
   render() {
+    const {reservedCarIds, cancelReservation, makeReservation} = this.props
     return (
-      <ReservationConsumer>
-        {
-          ({reservedCarIds, makeReservation, cancelReservation}) => (
-            <button
-              className={reservedCarIds.includes(this.props.carId) ? 'RentBtnReserved' : 'RentBtn'}
-              onClick={() => reservedCarIds.includes(this.props.carId) ? cancelReservation(this.props.carId) : makeReservation(this.props.carId)}
-            >
-              {reservedCarIds.includes(this.props.carId) ? 'Cancel' : 'Rent'}
-            </button>
-          )
-        }
-      </ReservationConsumer>
+      <button
+        className={reservedCarIds.includes(this.props.carId) ? 'RentBtnReserved' : 'RentBtn'}
+        onClick={() => reservedCarIds.includes(this.props.carId) ? cancelReservation(this.props.carId) : makeReservation(this.props.carId)}
+      >
+        {reservedCarIds.includes(this.props.carId) ? 'Cancel' : 'Rent'}
+      </button>
     )
   }
 }
 
-export default CarRentButton
+export default withReservation(CarRentButton)
