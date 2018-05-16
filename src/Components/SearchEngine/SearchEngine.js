@@ -29,10 +29,18 @@ class SearchEngine extends Component {
 
     return (
       <Fragment>
-        <SearchInput placeholder={"Type make, model and/or year of production here"} className="search-input"
-                     onChange={this.searchUpdated}/>
-        <CarFeatures selectedOptions={this.props.selectedOptions} toggleOption={this.props.toggleOption}/>
-        <CarImg cars={filteredCars}/>
+        <SearchInput
+          placeholder={"Type make, model and/or year of production here"}
+          className="search-input"
+          onChange={this.searchUpdated}
+        />
+        <CarFeatures
+          selectedOptions={this.props.selectedOptions}
+          toggleOption={this.props.toggleOption}
+        />
+        <CarImg
+          cars={filteredCars}
+        />
       </Fragment>
     )
   }
