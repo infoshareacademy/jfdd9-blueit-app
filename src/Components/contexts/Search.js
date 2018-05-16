@@ -8,6 +8,7 @@ export class SearchProvider extends Component {
 
   state = {
     selectedOptions: [],
+    searchTerm: '',
 
     toggleOption: optionName => this.setState(
       ({selectedOptions}) => ({
@@ -15,7 +16,11 @@ export class SearchProvider extends Component {
           selectedOptions.filter(option => option !== optionName) :
           selectedOptions.concat(optionName)
       })
-    )
+    ),
+
+    searchUpdated: (term) => {
+      this.setState({searchTerm: term})
+    }
   }
 
 

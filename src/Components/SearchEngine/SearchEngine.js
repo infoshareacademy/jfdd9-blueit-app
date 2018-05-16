@@ -14,16 +14,9 @@ const KEYS_TO_FILTERS = [
 ]
 
 class SearchEngine extends Component {
-  state = {
-    searchTerm: ''
-  }
-
-  searchUpdated = (term) => {
-    this.setState({searchTerm: term})
-  }
 
   render() {
-    const filteredCars = cars.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS)).filter(
+    const filteredCars = cars.filter(createFilter(this.props.searchTerm, KEYS_TO_FILTERS)).filter(
       car => this.props.selectedOptions.every(option => car.features.includes(option))
     )
 
@@ -32,7 +25,8 @@ class SearchEngine extends Component {
         <SearchInput
           placeholder={"Type make, model and/or year of production here"}
           className="search-input"
-          onChange={this.searchUpdated}
+          onChange={this.props.searchUpdated}
+          value={this.props.searchTerm}
         />
         <CarFeatures
           selectedOptions={this.props.selectedOptions}
