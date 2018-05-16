@@ -16,6 +16,13 @@
     height: 120px;
     font-size: 20px;
     padding-left: 20px;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+.CarType:hover {
+    background-color: rgba(24, 40, 214, 0.15);
+    transition: all .4s;
 }
 
 .CarImg {
