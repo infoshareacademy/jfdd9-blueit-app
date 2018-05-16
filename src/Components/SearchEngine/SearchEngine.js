@@ -4,6 +4,7 @@ import cars from './cars.json'
 import './SearchEngine.css'
 import CarFeatures from "../CarFeatures/CarFeatures";
 import CarImg from "../CarListItem/CarImg/CarImg";
+import {withSearch} from "../contexts/Search";
 
 const KEYS_TO_FILTERS = [
   'make',
@@ -14,34 +15,29 @@ const KEYS_TO_FILTERS = [
 
 class SearchEngine extends Component {
   state = {
-      searchTerm: '',
-      selectedOptions: []
-    }
+    searchTerm: ''
+  }
 
-  toggleOption = optionName => this.setState(
-    ({selectedOptions}) => ({
-      selectedOptions: selectedOptions.includes(optionName) ?
-        selectedOptions.filter(option => option !== optionName) :
-        selectedOptions.concat(optionName)
-    })
-  )
+  searchUpdated = (term) => {
+    this.setState({searchTerm: term})
+  }
 
   render() {
     const filteredCars = cars.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS)).filter(
-      car => this.state.selectedOptions.every(option => car.features.includes(option))
+      car => this.props.selectedOptions.every(option => car.features.includes(option))
     )
+
     return (
       <Fragment>
-        <SearchInput placeholder={"Type make, model and/or year of production here"} className="search-input" onChange={this.searchUpdated}/>
-        <CarFeatures selectedOptions={this.state.selectedOptions} toggleOption={this.toggleOption}/>
+        <SearchInput placeholder={"Type make, model and/or year of production here"} className="search-input"
+                     onChange={this.searchUpdated}/>
+        <CarFeatures selectedOptions={this.props.selectedOptions} toggleOption={this.props.toggleOption}/>
         <CarImg cars={filteredCars}/>
       </Fragment>
     )
   }
 
-  searchUpdated= (term) => {
-    this.setState({searchTerm: term})
-  }
+
 }
 
-export default SearchEngine
+export default withSearch(SearchEngine)

@@ -6,11 +6,24 @@ export const SearchConsumer = SearchContext.Consumer;
 
 export class SearchProvider extends Component {
 
-  state = {}
+  state = {
+    selectedOptions: [],
+
+    toggleOption: optionName => this.setState(
+      ({selectedOptions}) => ({
+        selectedOptions: selectedOptions.includes(optionName) ?
+          selectedOptions.filter(option => option !== optionName) :
+          selectedOptions.concat(optionName)
+      })
+    )
+  }
+
 
   render() {
     return (
-
+      <SearchContext.Provider value={this.state}>
+        {this.props.children}
+      </SearchContext.Provider>
     )
   }
 }
@@ -20,8 +33,8 @@ export function withSearch(Component) {
     return (
       <SearchConsumer>
         {
-          propsFromContext => (
-            <Component {...props} {...propsFromContext}/>
+          state => (
+            <Component {...props} {...state}/>
           )
         }
       </SearchConsumer>
