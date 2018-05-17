@@ -34,9 +34,9 @@ class App extends Component {
               <nav>
                 <NavbarMenu/>
               </nav>
+              <Route path="/login" component={LoginScreen}/>
               <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
               {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
-              <Route path="/login" component={LoginScreen}/>
               <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
               <Route path="/rent-confirm" component={ReservationConfirm}/>
             </div>

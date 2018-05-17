@@ -25,7 +25,7 @@ class SignUpForm extends Component {
   render() {
     return (
       <div>
-        <h2>Sign up</h2>
+        <h2>New customer? Sign up</h2>
         {this.state.error && <p>{this.state.error.message}</p>}
         <form onSubmit={this.handleSubmit}>
           <input
