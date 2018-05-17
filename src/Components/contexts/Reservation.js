@@ -16,14 +16,11 @@ export class ReservationProvider extends Component {
 
     currentReservation: null,
 
-    makeReservation: (carId, dateFrom, dateTo, place) => {
+    makeReservation: (reservation) => {
       this.setState({
         reservations: this.state.reservations.concat({
           id: Date.now(),
-          carId: carId,
-          dateFrom,
-          dateTo,
-          place
+          ...reservation
         })
       })
     },
