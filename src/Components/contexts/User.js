@@ -5,7 +5,6 @@ const UserContext = React.createContext()
 export const UserConsumer = UserContext.Consumer
 
 export class UserProvider extends Component {
-
   state= {
     signInError: null,
     user: null,
