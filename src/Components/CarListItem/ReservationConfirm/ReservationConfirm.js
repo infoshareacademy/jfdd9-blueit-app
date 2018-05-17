@@ -10,13 +10,17 @@ class ReservationConfirm extends Component {
 
   state = {
     carId: null,
-    dateFrom: null,
-    dateTo: null,
+    startDate: null,
+    endDate: null,
     place: null
   }
 
   static getDerivedStateFromProps(nextProps, currentState) {
-    return nextProps.currentReservation
+    return {
+      ...nextProps.currentReservation,
+      startDate: nextProps.startDate,
+      endDate: nextProps.endDate
+    }
   }
 
   handleSubmit = event => {
@@ -24,6 +28,26 @@ class ReservationConfirm extends Component {
 
     this.props.makeReservation(this.state)
   }
+
+  handleChangeStartDate = date => {
+    this.setState({
+      startDate: date
+    }, this.passToParent)
+  };
+
+  handleChangeEndDate = date => {
+    this.setState({
+      endDate: date
+    }, this.passToParent)
+  };
+
+  isStartDateEmpty = () => {
+    return this.state.startDate === null
+  };
+
+  // passToParent = () => {
+  //   this.props.rentDates(this.state.startDate, this.state.endDate)
+  // };
 
 
   render() {
@@ -40,10 +64,10 @@ class ReservationConfirm extends Component {
             todayButton={"Today"}
             minDate={moment()}
             maxDate={moment().add(1, "month")}
-            selected={this.state.dateFrom}
+            selected={this.state.startDate}
             selectsStart
-            startDate={this.state.dateFrom}
-            endDate={this.state.dateTo}
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
             onChange={this.handleChangeStartDate}
             // withPortal
             fixedHeight
@@ -54,14 +78,14 @@ class ReservationConfirm extends Component {
             locale="en-gb"
             dateFormat="YYYY/MM/DD"
             placeholderText="End date"
-            minDate={moment(this.state.dateFrom)}
-            maxDate={moment(this.state.dateFrom).add(14, "days")}
-            selected={this.state.dateTo}
+            minDate={moment(this.state.startDate)}
+            maxDate={moment(this.state.startDate).add(14, "days")}
+            selected={this.state.endDate}
             selectsEnd
-            startDate={this.state.dateFrom}
-            endDate={this.state.dateTo}
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
             onChange={this.handleChangeEndDate}
-            // disabled={this.isStartDateEmpty()}
+            disabled={this.isStartDateEmpty()}
             // withPortal
             fixedHeight
           >

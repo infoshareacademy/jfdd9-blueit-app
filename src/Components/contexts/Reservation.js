@@ -38,8 +38,8 @@ export class ReservationProvider extends Component {
       this.setState({
         currentReservation: {
           carId: carId,
-          dateFrom: null,
-          dateTo: null,
+          startDate: null,
+          endDate: null,
           place: null
         }
       })
