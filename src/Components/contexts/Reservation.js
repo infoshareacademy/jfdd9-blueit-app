@@ -12,20 +12,39 @@ export class ReservationProvider extends Component {
   state = {
     cars: [],
 
-    reservedCarIds: [],
+    reservations: [],
 
-    makeReservation: carId => {
+    currentReservation: null,
+
+    makeReservation: (carId, dateFrom, dateTo, place) => {
       this.setState({
-        reservedCarIds: this.state.reservedCarIds.concat(carId)
+        reservations: this.state.reservations.concat({
+          id: Date.now(),
+          carId: carId,
+          dateFrom,
+          dateTo,
+          place
+        })
       })
     },
 
-    cancelReservation: carId => {
+    cancelReservation: reservationId => {
       this.setState({
-        reservedCarIds: this.state.reservedCarIds.filter(
-          id =>
-            id !== carId
+        reservations: this.state.reservations.filter(
+          ({ id }) =>
+            id !== reservationId
         )
+      })
+    },
+
+    initReservation: carId => {
+      this.setState({
+        currentReservation: {
+          carId: carId,
+          dateFrom: null,
+          dateTo: null,
+          place: null
+        }
       })
     },
 
