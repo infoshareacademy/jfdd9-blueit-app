@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import NavbarMenu from './Components/Navbar/NavbarMenu'
 import RentCarScreen from "./Components/RentCarScreen";
+import ReservationConfirm from './Components/CarListItem/ReservationConfirm/ReservationConfirm'
 
 import {
   BrowserRouter as Router,
@@ -8,7 +9,7 @@ import {
 } from 'react-router-dom'
 import {ReservationProvider} from "./Components/contexts/Reservation";
 import MyRentsalsScreen from "./Components/MyRentsalsScreen";
-import SignUpForm from "./Components/core/auth/SignUpForm";
+import {SearchProvider} from "./Components/contexts/Search";
 import LoginScreen from "./Components/LoginScreen/LoginScreen";
 
 class App extends Component {
@@ -27,19 +28,21 @@ class App extends Component {
   render() {
     return (
       <ReservationProvider>
-        <Router>
-          <div className="App">
-            <nav>
-              <NavbarMenu/>
-            </nav>
-            <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
-            {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
-            <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
-            <Route path="/login" component={LoginScreen}/>
-          </div>
-        </Router>
+        <SearchProvider>
+          <Router>
+            <div className="App">
+              <nav>
+                <NavbarMenu/>
+              </nav>
+              <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
+              {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
+              <Route path="/login" component={LoginScreen}/>
+              <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
+              <Route path="/rent-confirm" component={ReservationConfirm}/>
+            </div>
+          </Router>
+        </SearchProvider>
       </ReservationProvider>
-
     );
   }
 }
