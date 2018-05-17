@@ -11,6 +11,7 @@ import {ReservationProvider} from "./Components/contexts/Reservation";
 import MyRentsalsScreen from "./Components/MyRentsalsScreen";
 import {SearchProvider} from "./Components/contexts/Search";
 import LoginScreen from "./Components/LoginScreen/LoginScreen";
+import { withUser } from './Components/contexts/User';
 
 class App extends Component {
 
@@ -31,14 +32,26 @@ class App extends Component {
         <SearchProvider>
           <Router>
             <div className="App">
-              <nav>
-                <NavbarMenu/>
-              </nav>
-              <Route path="/" component={LoginScreen}/>
-              <Route exact path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
-              {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
-              <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
-              <Route path="/rent-confirm" component={ReservationConfirm}/>
+              {
+                this.props.user === null ? (
+                  <div>
+                    <LoginScreen/>
+                  </div>
+                ) : (
+                  <div>
+                    <nav>
+                      <NavbarMenu/>
+                    </nav>
+
+                    <Route path="/" component={LoginScreen}/>
+                    <Route exact path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
+                    {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
+                    <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
+                    <Route path="/rent-confirm" component={ReservationConfirm}/>
+                  </div>
+                )
+              }
+
             </div>
           </Router>
         </SearchProvider>
@@ -47,5 +60,5 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withUser(App)
 
