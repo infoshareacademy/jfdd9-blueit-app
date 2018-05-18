@@ -3,7 +3,7 @@
     margin: 5px 1rem;
     width: 150px;
     color: #FFF;
-    background-color: indianred;
+    background-color: rgba(89, 0, 8, 0.8);
     font-size: 24px;
     border: 0;
     border-radius: 5px;
@@ -11,7 +11,11 @@
     transition: all .4s;
 }
 
-.SignUpButton:hover {
-    background-color: rgba(14, 18, 89, 0.9);
+.SignOutButton:hover {
+    background-color: indianred;
     transition: all .4s;
+}
+
+.SignOutButtonContainer {
+    text-align: right;
 }
