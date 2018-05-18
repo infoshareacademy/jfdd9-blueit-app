@@ -1,4 +1,8 @@
-.SignInForm  {
+.SignInForm {
+    text-align: center;
+}
+
+.SignInInput  {
     width: 30%;
     font-size: 16px;
     padding: 15px;
@@ -7,4 +11,17 @@
     border: none;
     box-shadow: 0 0 5px rgba(73, 78, 92, 0.45);
     margin-bottom: 30px;
+}
+
+.SignInButton {
+    background-color: #0b1259;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    border-radius: 5%;
+    transition: color 0.2s;
+}
+
+.SignInText {
+    font-size: 1.5rem;
 }

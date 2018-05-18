@@ -23,11 +23,11 @@ class SignInForm extends Component {
   render() {
     return (
       <div>
-        <h2>Sign in</h2>
+        <h2 className='SignInText'>SIGN IN</h2>
         {this.props.signInError && <p>{this.props.signInError.message}</p>}
-        <form onSubmit={this.handleSubmit}>
+        <form className='SignInForm' onSubmit={this.handleSubmit}>
           <div><input
-            className='SignInForm'
+            className='SignInInput'
             value={this.state.username}
             name="username"
             type="text"
@@ -35,14 +35,14 @@ class SignInForm extends Component {
             placeholder="email"
           /></div>
           <div><input
-            className='SignInForm'
+            className='SignInInput'
             value={this.state.password}
             name="password"
             type="password"
             onChange={this.handleChange}
             placeholder="password"
           /></div>
-          <button>Sign in</button>
+          <button className='SignInButton'>Sign in</button>
         </form>
       </div>
     )

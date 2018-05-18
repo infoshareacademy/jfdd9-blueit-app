@@ -1,4 +1,7 @@
-.SignUpForm  {
+.SignUpForm {
+    text-align: center;
+}
+.SignUpInput  {
     width: 30%;
     font-size: 16px;
     padding: 15px;
@@ -9,3 +12,16 @@
     margin-bottom: 30px;
 }
 
+.SignUpButton {
+    background-color: #0b1259;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    border-radius: 5%;
+    transition: color 0.2s;
+}
+
+.SignUpText {
+    margin-top: 50px;
+    font-size: 1.5rem;
+}
