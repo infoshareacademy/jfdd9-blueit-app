@@ -12,6 +12,7 @@ import MyRentsalsScreen from "./Components/MyRentsalsScreen";
 import {SearchProvider} from "./Components/contexts/Search";
 import LoginScreen from "./Components/LoginScreen/LoginScreen";
 import { withUser } from './Components/contexts/User';
+import './App.css'
 
 class App extends Component {
 
@@ -42,7 +43,7 @@ class App extends Component {
                     <nav>
                       <NavbarMenu/>
                       <p>
-                        logged in as: {this.props.user.email}) <button onClick={this.props.signOut}>Sign out</button>
+                        <button className='SignOutButton' onClick={this.props.signOut}>Sign out</button>
                       </p>
                     </nav>
 
