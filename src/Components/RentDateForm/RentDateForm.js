@@ -4,6 +4,7 @@ import moment from 'moment'
 import 'react-datepicker/dist/react-datepicker.css'
 import 'moment/locale/en-gb'
 import './RentDateForm.css'
+import {withReservation} from "../contexts/Reservation";
 
 class RentDateForm extends Component {
 
@@ -11,6 +12,13 @@ class RentDateForm extends Component {
     startDate: null,
     endDate: null
   };
+
+  static getDerivedStateFromProps(nextProps, currentState) {
+    return {
+      startDate: nextProps.startDate,
+      endDate: nextProps.endDate
+    }
+  }
 
   handleChangeStartDate = date => {
     this.setState({
@@ -79,4 +87,4 @@ class RentDateForm extends Component {
   }
 }
 
-export default RentDateForm
+export default withReservation(RentDateForm)

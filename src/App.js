@@ -13,17 +13,6 @@ import {SearchProvider} from "./Components/contexts/Search";
 
 class App extends Component {
 
-  state = {
-    startDate: null,
-    endDate: null
-  };
-
-  rentDates = (startDate, endDate) =>
-    this.setState({
-      startDate: startDate,
-      endDate: endDate
-    });
-
   render() {
     return (
       <ReservationProvider>

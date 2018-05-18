@@ -16,6 +16,16 @@ export class ReservationProvider extends Component {
 
     currentReservation: null,
 
+    startDate: null,
+
+    endDate: null,
+
+    rentDates: (startDate, endDate) =>
+      this.setState({
+        startDate: startDate,
+        endDate: endDate
+      }),
+
     makeReservation: (reservation) => {
       this.setState({
         reservations: this.state.reservations.concat({
