@@ -52,10 +52,12 @@ class ReservationConfirm extends Component {
 
 
   render() {
+
+    const car =
     return (
       <Fragment>
 
-
+        <CarItem />
 
         <form onSubmit={this.handleSubmit}>
 
