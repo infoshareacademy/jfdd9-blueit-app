@@ -25,18 +25,18 @@ class SignInForm extends Component {
         <h2>Sign in</h2>
         {this.props.signInError && <p>{this.props.signInError.message}</p>}
         <form onSubmit={this.handleSubmit}>
-          <input
+          <div><input
             value={this.state.username}
             name="username"
             type="text"
             onChange={this.handleChange}
-          />
-          <input
+          /></div>
+          <div><input
             value={this.state.password}
             name="password"
             type="password"
             onChange={this.handleChange}
-          />
+          /></div>
           <button>Sign in</button>
         </form>
       </div>

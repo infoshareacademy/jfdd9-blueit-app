@@ -28,18 +28,18 @@ class SignUpForm extends Component {
         <h2>New customer? Sign up</h2>
         {this.state.error && <p>{this.state.error.message}</p>}
         <form onSubmit={this.handleSubmit}>
-          <input
+          <div><input
             value={this.state.username}
             name="username"
             type="text"
             onChange={this.handleChange}
-          />
-          <input
+          /></div>
+          <div><input
             value={this.state.password}
             name="password"
             type="password"
             onChange={this.handleChange}
-          />
+          /></div>
           <button>Sign up</button>
         </form>
       </div>
