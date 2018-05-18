@@ -1,10 +1,17 @@
 .SignOutButton {
+    padding: 10px;
+    margin: 5px 1rem;
+    width: 150px;
+    color: #FFF;
     background-color: indianred;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 1.5em;
-    border-radius: 5%;
-    transition: color 0.2s;
-    text-align: right;
+    font-size: 24px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .4s;
 }
 
+.SignUpButton:hover {
+    background-color: rgba(14, 18, 89, 0.9);
+    transition: all .4s;
+}
