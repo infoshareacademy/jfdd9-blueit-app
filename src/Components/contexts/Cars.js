@@ -21,7 +21,7 @@ export class CarProvider extends Component {
   }
 
 
-  handleSnapshot = snapshot => {
+  handleCarSnapshot = snapshot => {
     this.setState({
         cars: Object.entries(snapshot.val() || {}).map(([id, other]) => ({id, ...other}))
       }, () => console.log(this.state)
@@ -30,12 +30,12 @@ export class CarProvider extends Component {
 
   componentDidMount() {
           this.carsRef = firebase.database().ref(`/cars`)
-          this.carsRef.on('value', this.handleSnapshot)
+          this.carsRef.on('value', this.handleCarSnapshot)
 
   }
   componentWillUnmount() {
     if (this.carsRef) {
-      this.carsRef.off('value', this.handleSnapshot)
+      this.carsRef.off('value', this.handleCarSnapshot)
     }
   }
 
