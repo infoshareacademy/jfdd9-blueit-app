@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withUser } from '../../contexts/User';
+import './SignInForm.css'
 
 class SignInForm extends Component {
 
@@ -26,6 +27,7 @@ class SignInForm extends Component {
         {this.props.signInError && <p>{this.props.signInError.message}</p>}
         <form onSubmit={this.handleSubmit}>
           <div><input
+            className='SignInForm'
             value={this.state.username}
             name="username"
             type="text"
@@ -33,6 +35,7 @@ class SignInForm extends Component {
             placeholder="email"
           /></div>
           <div><input
+            className='SignInForm'
             value={this.state.password}
             name="password"
             type="password"
