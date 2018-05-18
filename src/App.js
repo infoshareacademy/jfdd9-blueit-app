@@ -41,6 +41,9 @@ class App extends Component {
                   <div>
                     <nav>
                       <NavbarMenu/>
+                      <p>
+                        logged in as: {this.props.user.email}) <button onClick={this.props.signOut}>Sign out</button>
+                      </p>
                     </nav>
 
                     <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
