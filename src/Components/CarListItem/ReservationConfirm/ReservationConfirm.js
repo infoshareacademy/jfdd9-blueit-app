@@ -6,6 +6,8 @@ import 'react-datepicker/dist/react-datepicker.css'
 import 'moment/locale/en-gb'
 import '../../RentDateForm/RentDateForm.css'
 import '../../CarListItem/CarRentButton/CarRentButton.css'
+import {withCars} from "../../contexts/Cars";
+import CarItem from "../CarItem";
 
 class ReservationConfirm extends Component {
 
@@ -17,6 +19,7 @@ class ReservationConfirm extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, currentState) {
+    console.log(nextProps)
     return {
       ...nextProps.currentReservation,
       startDate: nextProps.startDate,
@@ -52,12 +55,13 @@ class ReservationConfirm extends Component {
 
 
   render() {
-
-    const car =
+    console.log(this.props)
     return (
       <Fragment>
 
-        <CarItem />
+        <CarItem car={this.props.cars.find(car =>
+          car.id === this.props.currentReservation.carId
+        )}/>
 
         <form onSubmit={this.handleSubmit}>
 
@@ -128,4 +132,4 @@ class ReservationConfirm extends Component {
   }
 }
 
-export default withReservation(ReservationConfirm)
+export default withCars(withReservation(ReservationConfirm))

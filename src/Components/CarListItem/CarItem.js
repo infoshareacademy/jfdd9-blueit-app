@@ -29,6 +29,10 @@ const options = {
 class CarItem extends Component {
   render() {
     const {car} = this.props
+    console.log(car)
+    if(typeof car === 'undefined') {
+      return (<div></div>)
+    }
     return (
       <div key={car.id} className="CarType">
         <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
