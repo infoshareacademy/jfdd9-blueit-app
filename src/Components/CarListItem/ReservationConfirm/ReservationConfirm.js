@@ -46,14 +46,17 @@ class ReservationConfirm extends Component {
     return this.state.startDate === null
   };
 
-  // passToParent = () => {
-  //   this.props.rentDates(this.state.startDate, this.state.endDate)
-  // };
+  passToParent = () => {
+    this.props.rentDates(this.state.startDate, this.state.endDate)
+  };
 
 
   render() {
     return (
       <Fragment>
+
+
+
         <form onSubmit={this.handleSubmit}>
 
           <div className="datePicker__container">
