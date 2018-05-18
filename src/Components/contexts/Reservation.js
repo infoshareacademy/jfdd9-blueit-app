@@ -3,6 +3,7 @@ import SUV from '../img/car-SUV.jpg'
 import fullsize from '../img/car-fullsize.jpg'
 import compact from '../img/car-compact.jpg'
 import minivan from '../img/car-minivan.jpg'
+import firebase from 'firebase'
 
 const ReservationContext = React.createContext();
 
@@ -27,21 +28,13 @@ export class ReservationProvider extends Component {
       }),
 
     makeReservation: (reservation) => {
-      this.setState({
-        reservations: this.state.reservations.concat({
-          id: Date.now(),
-          ...reservation
-        })
-      })
+      firebase.database().ref('/reservations').push(reservation)
+
     },
 
+
     cancelReservation: reservationId => {
-      this.setState({
-        reservations: this.state.reservations.filter(
-          ({ id }) =>
-            id !== reservationId
-        )
-      })
+      firebase.database().ref('/reservations').remove(reservationId)
     },
 
     initReservation: carId => {
@@ -83,29 +76,24 @@ export class ReservationProvider extends Component {
     )
   }
 
-  componentDidMount() {
-    const reservedCarsAsTextInJSONFormat = localStorage.getItem('storedReservedCarIds');
-    const reservedCarsFromLocalStorage = JSON.parse(reservedCarsAsTextInJSONFormat);
+  handleReservationSnapshot = snapshot => {
     this.setState({
-      reservedCarIds: reservedCarsFromLocalStorage || []
-    });
-
-    fetch(process.env.PUBLIC_URL + '/cars.json', {
-      method: 'GET'
-    }).then(response => {
-      return response.json();
-    }).then(cars => {
-      this.setState({
-        cars: cars
-      })
-    }).catch(error => {
-      console.log('Error', error)
+      reservations: Object.entries(snapshot.val() || {}).map(([id, other]) => ({id, ...other}))
     })
   }
 
-  componentDidUpdate() {
-    const reservedCarIds = this.state.reservedCarIds;
-    localStorage.setItem('storedReservedCarIds', JSON.stringify(reservedCarIds));
+
+  componentDidMount() {
+
+    this.reservationRef = firebase.database().ref(`/reservations/`)
+    this.reservationRef.on('value', this.handleReservationSnapshot)
+
+  }
+
+  componentWillUnmount() {
+    if (this.reservationRef) {
+      this.reservationRef.off('value', this.handleReservationSnapshot)
+    }
   }
 
 }

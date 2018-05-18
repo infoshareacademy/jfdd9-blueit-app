@@ -4,9 +4,11 @@ import './CarListItem/CarImg/CarImg.css'
 import CarRentButton from "./CarListItem/CarRentButton/CarRentButton";
 import './MyRentsalsScreen.css'
 import SUV from './img/car-SUV.jpg'
+import {withCars} from "./contexts/Cars";
 
 class MyRentsalsScreen extends Component {
   render() {
+    console.log(this.props)
     const {cars, reservedCarIds, options} = this.props;
     return (
       <div>
@@ -40,4 +42,4 @@ class MyRentsalsScreen extends Component {
   }
 }
 
-export default withReservation(MyRentsalsScreen)
+export default withCars(withReservation(MyRentsalsScreen))
