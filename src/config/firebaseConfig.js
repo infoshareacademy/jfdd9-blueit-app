@@ -1,4 +1,3 @@
-
 export default {
   apiKey: "AIzaSyD59DE3Ap3wRYlqL8RFCmvYMii6ua4Fcwo",
   authDomain: "blue-it-9aa89.firebaseapp.com",
