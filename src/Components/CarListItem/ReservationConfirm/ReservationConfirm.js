@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import 'moment/locale/en-gb'
 import '../../RentDateForm/RentDateForm.css'
+import '../../CarListItem/CarRentButton/CarRentButton.css'
 
 class ReservationConfirm extends Component {
 
@@ -101,6 +102,20 @@ class ReservationConfirm extends Component {
               className="RentDateForm"
             />
           </div>
+
+          <button
+            className="RentBtnReserved"
+            onClick={this.props.cancelReservation}
+          >
+            Cancel
+          </button>
+
+          <button
+            className="RentBtn"
+            onClick={this.props.makeReservation}
+          >
+            Confirm
+          </button>
 
         </form>
       </Fragment>
