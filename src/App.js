@@ -10,6 +10,7 @@ import {
 import {ReservationProvider} from "./Components/contexts/Reservation";
 import MyRentsalsScreen from "./Components/MyRentsalsScreen";
 import {SearchProvider} from "./Components/contexts/Search";
+import {CarProvider} from "./Components/contexts/Cars";
 
 class App extends Component {
 
@@ -26,6 +27,7 @@ class App extends Component {
 
   render() {
     return (
+      <CarProvider>
       <ReservationProvider>
         <SearchProvider>
           <Router>
@@ -41,6 +43,7 @@ class App extends Component {
           </Router>
         </SearchProvider>
       </ReservationProvider>
+      </CarProvider>
     );
   }
 }
