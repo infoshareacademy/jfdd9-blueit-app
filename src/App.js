@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 import {ReservationProvider} from "./Components/contexts/Reservation";
 import MyRentsalsScreen from "./Components/MyRentsalsScreen";
+import UserAddedCars from "./Components/UserAddedCars/UserAddedCars";
 
 class App extends Component {
 
@@ -33,6 +34,7 @@ class App extends Component {
             <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
             {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
             <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
+            <Route path="/user-added-cars" component={UserAddedCars}/>
           </div>
         </Router>
       </ReservationProvider>
