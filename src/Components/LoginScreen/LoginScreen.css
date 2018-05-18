@@ -1,4 +1,4 @@
-.LoginScreen {
+.LoginScreen div {
     display: flex;
     justify-content: center;
 }

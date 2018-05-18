@@ -30,12 +30,14 @@ class SignInForm extends Component {
             name="username"
             type="text"
             onChange={this.handleChange}
+            placeholder="email"
           /></div>
           <div><input
             value={this.state.password}
             name="password"
             type="password"
             onChange={this.handleChange}
+            placeholder="password"
           /></div>
           <button>Sign in</button>
         </form>
