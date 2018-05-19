@@ -1,0 +1,36 @@
+.SignUpForm {
+    text-align: center;
+}
+.SignUpInput  {
+    width: 30%;
+    font-size: 16px;
+    padding: 15px;
+    background-color: #ebf5f5;
+    color: #8a97a0;
+    border: none;
+    box-shadow: 0 0 5px rgba(73, 78, 92, 0.45);
+    margin-bottom: 30px;
+}
+
+.SignUpButton {
+    padding: 10px;
+    margin: 10px 1rem;
+    width: 150px;
+    color: #FFF;
+    background-color: #0B1152;
+    font-size: 24px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+.SignUpButton:hover {
+    background-color: rgba(14, 18, 89, 0.9);
+    transition: all .4s;
+}
+
+.SignUpText {
+    margin-top: 50px;
+    font-size: 1.5rem;
+}
