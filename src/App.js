@@ -18,17 +18,6 @@ import './App.css'
 
 class App extends Component {
 
-  state = {
-    startDate: null,
-    endDate: null
-  };
-
-  rentDates = (startDate, endDate) =>
-    this.setState({
-      startDate: startDate,
-      endDate: endDate
-    });
-
   render() {
     return (
       <CarProvider>
@@ -53,7 +42,7 @@ class App extends Component {
                     <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
                     {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
                     <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
-                    <Route path="/rent-confirm" component={ReservationConfirm}/>
+                    <Route path="/rent-confirm/:carId" component={ReservationConfirm}/>
                     <Route path="/user-added-cars" component={UserAddedCars}/>
                   </div>
                 )

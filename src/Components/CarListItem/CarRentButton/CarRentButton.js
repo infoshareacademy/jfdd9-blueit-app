@@ -10,7 +10,7 @@ class CarRentButton extends React.Component {
       <button
         className={'RentBtn'}
         onClick={() => {
-          this.props.history.push('/rent-confirm')
+          this.props.history.push(`/rent-confirm/${this.props.carId}`)
           initReservation(this.props.carId)
         }}
       >
