@@ -29,7 +29,7 @@ const options = {
 class CarItem extends Component {
   render() {
     const {car} = this.props
-    console.log(car)
+    console.log('CarItem render (this.props.car)', car)
     if(typeof car === 'undefined') {
       return (<div></div>)
     }

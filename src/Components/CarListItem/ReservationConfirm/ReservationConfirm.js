@@ -8,6 +8,8 @@ import '../../RentDateForm/RentDateForm.css'
 import '../../CarListItem/CarRentButton/CarRentButton.css'
 import {withCars} from "../../contexts/Cars";
 import CarItem from "../CarItem";
+import withRouter from "react-router-dom/es/withRouter";
+import Link from "react-router-dom/es/Link";
 
 class ReservationConfirm extends Component {
 
@@ -19,7 +21,7 @@ class ReservationConfirm extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, currentState) {
-    console.log(nextProps)
+    console.log('ReservationConfirm getDerivedStateFromProps, (nextProps):', nextProps)
     return {
       ...nextProps.currentReservation,
       startDate: nextProps.startDate,
@@ -53,14 +55,30 @@ class ReservationConfirm extends Component {
     this.props.rentDates(this.state.startDate, this.state.endDate)
   };
 
+  componentDidMount() {
+    this.setState({
+      carId: 5
+    })
+  }
+
 
   render() {
-    console.log(this.props)
+    console.log('ReservationConfirm render (this.props)', this.props)
+    console.log('Router id:', this.props.match.params.carId)
+    console.log(this.state)
     return (
       <Fragment>
 
+        {/*<CarItem car={this.props.cars.find(car =>*/}
+        {/*car.id === this.props.currentReservation.carId*/}
+        {/*)}/>*/}
+
+        {/*<CarItem car={this.props.cars.find(car =>*/}
+        {/*car.id === this.props.match.params.carId*/}
+        {/*)}/>*/}
+
         <CarItem car={this.props.cars.find(car =>
-          car.id === this.props.currentReservation.carId
+          car.id === this.state.carId
         )}/>
 
         <form onSubmit={this.handleSubmit}>
@@ -112,12 +130,13 @@ class ReservationConfirm extends Component {
             />
           </div>
 
-          <button
-            className="RentBtnReserved"
-            onClick={this.props.cancelReservation}
-          >
-            Cancel
-          </button>
+          <Link to="/">
+            <button
+              className="RentBtnReserved"
+            >
+              Cancel
+            </button>
+          </Link>
 
           <button
             className="RentBtn"
@@ -132,4 +151,4 @@ class ReservationConfirm extends Component {
   }
 }
 
-export default withCars(withReservation(ReservationConfirm))
+export default withRouter(withCars(withReservation(ReservationConfirm)))
