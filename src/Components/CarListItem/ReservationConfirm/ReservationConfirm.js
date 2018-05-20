@@ -54,11 +54,11 @@ class ReservationConfirm extends Component {
     this.props.rentDates(this.state.startDate, this.state.endDate)
   };
 
-  componentDidMount() {
-    this.setState({
-      carId: 5
-    })
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     carId: 5
+  //   })
+  // }
 
 
   render() {

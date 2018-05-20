@@ -27,7 +27,7 @@ class App extends Component {
               <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
               {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
               <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
-              <Route path="/rent-confirm" component={ReservationConfirm}/>
+              <Route path="/rent-confirm/:carId" component={ReservationConfirm}/>
             </div>
           </Router>
         </SearchProvider>
