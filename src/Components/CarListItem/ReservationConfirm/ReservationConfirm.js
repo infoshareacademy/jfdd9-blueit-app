@@ -18,7 +18,8 @@ class ReservationConfirm extends Component {
     carId: null,
     startDate: null,
     endDate: null,
-    place: null
+    place: null,
+    noRentBtn: true
   }
 
   static getDerivedStateFromProps(nextProps, currentState) {
@@ -78,7 +79,8 @@ class ReservationConfirm extends Component {
         {/*car.id === this.props.match.params.carId*/}
         {/*)}/>*/}
 
-        <CarItem car={this.props.cars.find(car =>
+        <CarItem noRentBtn={this.state.noRentBtn}
+          car={this.props.cars.find(car =>
           car.id === this.state.carId
         )}/>
 

@@ -43,7 +43,7 @@ class CarItem extends Component {
           </p>
           {car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>}
         </div>
-        <CarRentButton carId={car.id}/>
+        {this.props.noRentBtn === true ? <div></div> : <CarRentButton carId={car.id}/>}
 
       </div>
     )
