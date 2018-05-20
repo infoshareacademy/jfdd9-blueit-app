@@ -11,9 +11,9 @@ class NavbarMenu extends Component {
 
     return (
       <div className='menu__container'>
-
         <NavLink to="/" exact className='menu__button'>RENT A CAR</NavLink>
         <NavLink to="/my-rentals-screen" className='menu__button'>MY RENTALS</NavLink>
+
 
       </div>
     )
