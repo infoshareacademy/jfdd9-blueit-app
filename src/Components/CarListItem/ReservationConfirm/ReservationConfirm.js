@@ -10,6 +10,7 @@ import {withCars} from "../../contexts/Cars";
 import CarItem from "../CarItem";
 import withRouter from "react-router-dom/es/withRouter";
 import Link from "react-router-dom/es/Link";
+import MyRentsalsScreen from "../../MyRentsalsScreen";
 
 class ReservationConfirm extends Component {
 
@@ -31,8 +32,6 @@ class ReservationConfirm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-
-    this.props.makeReservation(this.state)
   }
 
   handleChangeStartDate = date => {
@@ -138,12 +137,14 @@ class ReservationConfirm extends Component {
             </button>
           </Link>
 
-          <button
-            className="RentBtn"
-            onClick={this.props.makeReservation}
-          >
-            Confirm
-          </button>
+          <Link to="/my-rentals-screen">
+            <button
+              className="RentBtn"
+              onClick={() => this.props.makeReservation(this.state)}
+            >
+              Confirm
+            </button>
+          </Link>
 
         </form>
       </Fragment>
