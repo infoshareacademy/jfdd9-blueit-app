@@ -9,7 +9,7 @@ export class CarProvider extends Component {
 
   state = {
     cars: [],
-    reservedCarIds: []
+
   }
 
   render() {

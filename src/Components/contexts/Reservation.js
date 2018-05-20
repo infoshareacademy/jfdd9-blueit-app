@@ -13,6 +13,8 @@ export class ReservationProvider extends Component {
   state = {
     // cars: [],
 
+    reservedCarIds: [],
+
     reservations: [],
 
     currentReservation: null,
@@ -30,6 +32,7 @@ export class ReservationProvider extends Component {
     makeReservation: (reservation) => {
       this.setState({
         reservations: this.state.reservations.concat(reservation),
+        reservedCarIds: this.state.reservedCarIds.concat(reservation.carId),
         currentReservation: null
       })
       // firebase.database().ref('/reservations').push(reservation)
