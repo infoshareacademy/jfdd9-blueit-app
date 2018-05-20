@@ -29,7 +29,8 @@ export class ReservationProvider extends Component {
 
     makeReservation: (reservation) => {
       this.setState({
-        reservations: this.state.reservations.concat(reservation)
+        reservations: this.state.reservations.concat(reservation),
+        currentReservation: null
       })
       // firebase.database().ref('/reservations').push(reservation)
 

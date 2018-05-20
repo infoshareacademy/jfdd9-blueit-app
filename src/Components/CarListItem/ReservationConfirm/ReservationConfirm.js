@@ -68,6 +68,8 @@ class ReservationConfirm extends Component {
     return (
       <Fragment>
 
+        <h2>Rental summary</h2>
+
         {/*<CarItem car={this.props.cars.find(car =>*/}
         {/*car.id === this.props.currentReservation.carId*/}
         {/*)}/>*/}
@@ -128,7 +130,7 @@ class ReservationConfirm extends Component {
               className="RentDateForm"
             />
           </div>
-
+          <div className="ReservationConfirmButtonsContainer">
           <Link to="/">
             <button
               className="RentBtnReserved"
@@ -145,6 +147,7 @@ class ReservationConfirm extends Component {
               Confirm
             </button>
           </Link>
+          </div>
 
         </form>
       </Fragment>
