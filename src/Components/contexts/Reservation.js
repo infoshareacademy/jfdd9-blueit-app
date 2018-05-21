@@ -39,8 +39,8 @@ export class ReservationProvider extends Component {
       // })
       firebase.database().ref('/reservations').push({
         ...reservation,
-        startDate: startDate.format(),
-        endDate: endDate.format()
+        startDate: startDate.format('YYYY-MM-DD'),
+        endDate: endDate.format('YYYY-MM-DD')
       })
 
     },
