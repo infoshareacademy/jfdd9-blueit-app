@@ -5,6 +5,7 @@ import CarRentButton from "./CarListItem/CarRentButton/CarRentButton";
 import './MyRentsalsScreen.css'
 import SUV from './img/car-SUV.jpg'
 import {withCars} from "./contexts/Cars";
+import CarCancelRentButton from "./CarListItem/CarRentButton/CarCancelRentButton";
 
 class MyRentsalsScreen extends Component {
   render() {
@@ -31,7 +32,7 @@ class MyRentsalsScreen extends Component {
                       </p>
                       {car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>}
                     </div>
-                    <CarRentButton carId={car.id}/>
+                    <CarCancelRentButton carId={car.id}/>
                   </div>
                 </div>
               </Fragment>
