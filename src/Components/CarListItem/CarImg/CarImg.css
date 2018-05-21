@@ -13,7 +13,7 @@
     border-radius: 15px;
     margin: 10px auto;
     width: 80%;
-    height: 120px;
+    height: 200px;
     font-size: 20px;
     padding-left: 20px;
     cursor: pointer;
@@ -64,7 +64,7 @@
 
 @media screen and (max-width: 450px) {
     .CarType {
-        height: 200px;
+        height: 300px;
     }
 }
 
