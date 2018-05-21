@@ -12,16 +12,12 @@ export const ReservationConsumer = ReservationContext.Consumer;
 export class ReservationProvider extends Component {
   state = {
     cars: [],
-
     reservations: [],
-
     currentReservation: null,
 
     makeReservation: (reservation) => {
       firebase.database().ref('/reservations').push(reservation)
-
     },
-
 
     cancelReservation: reservationId => {
       firebase.database().ref('/reservations').remove(reservationId)
@@ -74,10 +70,8 @@ export class ReservationProvider extends Component {
 
 
   componentDidMount() {
-
     this.reservationRef = firebase.database().ref(`/reservations/`)
     this.reservationRef.on('value', this.handleReservationSnapshot)
-
   }
 
   componentWillUnmount() {
@@ -85,7 +79,6 @@ export class ReservationProvider extends Component {
       this.reservationRef.off('value', this.handleReservationSnapshot)
     }
   }
-
 }
 
 export function withReservation(Component) {
