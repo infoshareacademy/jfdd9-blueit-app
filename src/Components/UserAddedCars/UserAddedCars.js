@@ -55,13 +55,13 @@ class UserAddedCars extends React.Component {
           <form onSubmit={this.handleSubmit} data-testid="car-form">
             {this.state.formError && <p data-testid="car-error">{this.state.formError.message}</p>}
             <h4>Car Type:</h4>
-            {/*<select className="UserAddedCarsSelector" required>*/}
-              {/*<option>choose one</option>*/}
-              {/*<option>SUV</option>*/}
-              {/*<option>minivan</option>*/}
-              {/*<option>fullsize</option>*/}
-              {/*<option>compact</option>*/}
-            {/*</select>*/}
+            <select className="UserAddedCarsSelector" required>
+              <option>choose one</option>
+              <option>SUV</option>
+              <option>minivan</option>
+              <option>fullsize</option>
+              <option>compact</option>
+            </select>
             <input
               className="UserAddedInput"
               data-testid="carType-input"
@@ -101,24 +101,25 @@ class UserAddedCars extends React.Component {
             <button className="UserAddedCarsBtn">ADD YOUR VEHICLE</button>
           </form>
           <div className="UserAddedCarsConfirmation">
+
             {
               this.state.cars.map(
-                car => <p>{car.carType}</p>
+                car => <p><strong>type: </strong>{car.carType}</p>
               )
             }
             {
               this.state.cars.map(
-              car => <p>{car.carMake}</p>
+              car => <p><strong>make: </strong>{car.carMake}</p>
               )
             }
             {
               this.state.cars.map(
-                car => <p>{car.carModel}</p>
+                car => <p><strong>model: </strong>{car.carModel}</p>
               )
             }
             {
               this.state.cars.map(
-                car => <p>{car.carYear}</p>
+                car => <p><strong>year: </strong>{car.carYear}</p>
               )
             }
           </div>

@@ -53,10 +53,11 @@ input:focus {
 }
 
 .UserAddedCarsConfirmation{
-    border: 1px black solid;
+    /*border: 1px black solid;*/
     width: 50%;
     position:absolute;
     top: 400px;
     left: 200px;
-    background-color: rgba(0, 0, 0, 0.23);
+    background-color: rgba(0, 0, 0, 0.62);
+    color: #fff;
 }
