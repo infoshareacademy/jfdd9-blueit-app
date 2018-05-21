@@ -30,3 +30,12 @@
     text-align: center;
     margin: 30px 10px;
 }
+
+@media screen and (max-width: 650px) {
+    .RentBtn,
+    .RentBtnReserved {
+        font-size: 16px;
+        width: 120px;
+
+    }
+}

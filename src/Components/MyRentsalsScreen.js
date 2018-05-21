@@ -30,7 +30,18 @@ class MyRentsalsScreen extends Component {
                         <strong>{(options[car.carbody] || {}).label || 'Car Undefined'}</strong>
                         <span>{car.make}, {car.model}</span>
                       </p>
-                      {car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>}
+                      {
+                        car.features.length === 0 ? '' :
+                          <p><strong>Features:</strong> {car.features.join(', ')}</p>
+                      }
+                      {
+                        reservations.filter(
+                          ({carId}) =>
+                            carId === car.id
+                        ).map(reservation =>
+                          <p><strong>Rent start date: </strong>{reservation.startDate}, <strong>end date: </strong>{reservation.endDate}</p>
+                        )
+                      }
                     </div>
                     <CarCancelRentButton carId={car.id}/>
                   </div>
