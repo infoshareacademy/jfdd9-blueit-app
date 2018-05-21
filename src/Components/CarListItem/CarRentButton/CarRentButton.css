@@ -25,3 +25,8 @@
     background-color: rgba(89, 0, 8, 0.9);
     transition: all .4s;
 }
+
+.ReservationConfirmButtonsContainer {
+    text-align: center;
+    margin: 30px 10px;
+}

@@ -8,7 +8,7 @@ import {withCars} from "./contexts/Cars";
 
 class MyRentsalsScreen extends Component {
   render() {
-    console.log(this.props)
+    console.log('MyRentals render (this.props)', this.props)
     const {cars, reservedCarIds, options} = this.props;
     return (
       <div>
