@@ -29,8 +29,9 @@ export class ReservationProvider extends Component {
         endDate: endDate
       }),
 
-    makeReservation: ({ startDate, endDate, ...reservation}) => {
-      firebase.database().ref('/reservations').push({
+    makeReservation: ({startDate, endDate, ...reservation}) => {
+      const user = firebase.auth().currentUser
+      firebase.database().ref(`/reservations/${user.uid}`).push({
         ...reservation,
         startDate: startDate.format(),
         endDate: endDate.format()
@@ -40,7 +41,8 @@ export class ReservationProvider extends Component {
 
 
     cancelReservation: reservationId => {
-      firebase.database().ref('/reservations/' + reservationId).remove()
+      const user = firebase.auth().currentUser
+      firebase.database().ref(`/reservations/${user.uid}/${reservationId}`).remove()
     },
 
     initReservation: carId => {
@@ -90,13 +92,23 @@ export class ReservationProvider extends Component {
 
 
   componentDidMount() {
-
-    this.reservationRef = firebase.database().ref(`/reservations/`)
-    this.reservationRef.on('value', this.handleReservationSnapshot)
+    this.unsubscribe = firebase.auth().onAuthStateChanged(
+      user => {
+        if (user !== null) {
+          this.reservationRef = firebase.database().ref(`reservations/${user.uid}`)
+          this.reservationRef.on('value', this.handleReservationSnapshot)
+        } else {
+          this.reservationRef.off('value', this.handleReservationSnapshot)
+        }
+      }
+    )
 
   }
 
   componentWillUnmount() {
+    if (this.unsubscribe){
+      this.unsubscribe()
+    }
     if (this.reservationRef) {
       this.reservationRef.off('value', this.handleReservationSnapshot)
     }

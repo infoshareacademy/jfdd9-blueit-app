@@ -1,7 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import {withReservation} from "./contexts/Reservation";
 import './CarListItem/CarImg/CarImg.css'
-import CarRentButton from "./CarListItem/CarRentButton/CarRentButton";
 import './MyRentsalsScreen.css'
 import SUV from './img/car-SUV.jpg'
 import {withCars} from "./contexts/Cars";
