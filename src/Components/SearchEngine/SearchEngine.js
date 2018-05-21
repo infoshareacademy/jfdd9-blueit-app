@@ -19,7 +19,7 @@ class SearchEngine extends Component {
   render() {
 
     const filteredCars = this.props.cars.filter(createFilter(this.props.searchTerm, KEYS_TO_FILTERS)).filter(
-      car => this.props.selectedOptions.every(option => car.features.includes(option))
+      car => this.props.selectedOptions.every(option => car.features && car.features.includes(option))
     )
 
     return (
