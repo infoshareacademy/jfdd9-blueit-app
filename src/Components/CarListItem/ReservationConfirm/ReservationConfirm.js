@@ -24,7 +24,10 @@ class ReservationConfirm extends Component {
 
   static getDerivedStateFromProps(nextProps, currentState) {
     console.log('ReservationConfirm getDerivedStateFromProps, (nextProps):', nextProps)
-    return {
+    if(nextProps.currentReservation === null) {
+      nextProps.history.push('/')
+      return null
+    } else return {
       ...nextProps.currentReservation,
       startDate: nextProps.startDate,
       endDate: nextProps.endDate
@@ -67,6 +70,11 @@ class ReservationConfirm extends Component {
     console.log('ReservationConfirm render (this.props)', this.props)
     console.log('Router id:', this.props.match.params.carId)
     console.log(this.state)
+
+    if(this.state.carId === null) {
+      return <div/>
+    }
+
     return (
       <Fragment>
 

@@ -31,7 +31,7 @@ export class ReservationProvider extends Component {
 
     makeReservation: ({ startDate, endDate, ...reservation}) => {
       console.log(reservation)
-      debugger
+      // debugger
       // this.setState({
       //   reservations: this.state.reservations.concat(reservation),
       //   reservedCarIds: this.state.reservedCarIds.concat(reservation.carId),
