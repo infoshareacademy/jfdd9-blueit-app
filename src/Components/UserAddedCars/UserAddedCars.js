@@ -55,17 +55,16 @@ class UserAddedCars extends React.Component {
     })
   }
 
-
   render() {
     return (
       <Fragment>
         <div className="UserAddedCarsContainer">
-          <h1>Here is an option to add your own vehicle to our fleet</h1>
-          <h2>Please fill in all fields thoroughly:</h2>
+          <h1>Register your car with us and become part of Blue Sky Family</h1>
+          <h2>Please fill in each field thoroughly:</h2>
           <form onSubmit={this.handleSubmit} data-testid="car-form">
             {this.state.formError && <p data-testid="car-error">{this.state.formError.message}</p>}
             <h4>Car Type:</h4>
-            <select
+            <select required
                     className="UserAddedCarsSelector"
                     value={this.state.carType}
                     onChange={this.handleChange}
@@ -77,15 +76,6 @@ class UserAddedCars extends React.Component {
               <option>fullsize</option>
               <option>compact</option>
             </select>
-            {/*<input*/}
-              {/*className="UserAddedInput"*/}
-              {/*data-testid="carType-input"*/}
-              {/*name="carType"*/}
-              {/*value={this.state.carType}*/}
-              {/*onChange={this.handleChange}*/}
-              {/*placeholder="choose between: SUV, minivan, fullsize, compact"*/}
-              {/*required*/}
-            {/*/>*/}
             <h4>Car make:</h4>
             <input
               className="UserAddedInput"
@@ -108,19 +98,20 @@ class UserAddedCars extends React.Component {
             />
             <h4>Car make year:</h4>
             <input
-              type="number"
+              maxLength="4"
+              // type="number"
               className="UserAddedInput"
               data-testid="carYear-input"
               name="carYear"
               value={this.state.carYear}
               onChange={this.handleChange}
-              placeholder="enter year in xxxx -format"
+              placeholder="enter year in xxxx -format, numbers only"
               required
             />
             <CarFeatures selectedOptions={this.state.selectedOptions} toggleOption={this.handleOptionChange}/>,
             <button className="UserAddedCarsBtn">ADD YOUR VEHICLE</button>
           </form>
-          <div className="UserAddedCarsConfirmation">
+          {/*<div className="UserAddedCarsConfirmation">*/}
 
             {
               this.state.cars.map(
@@ -135,7 +126,7 @@ class UserAddedCars extends React.Component {
               )
             }
           </div>
-        </div>
+        {/*</div>*/}
       </Fragment>
     )
   }

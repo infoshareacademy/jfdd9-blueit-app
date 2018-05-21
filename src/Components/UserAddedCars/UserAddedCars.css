@@ -4,44 +4,22 @@
     align-content: center;
     text-align: center;
 }
+
+/*    select options     */
 .UserAddedCarsSelector {
-    width: 52%;
+    box-sizing: content-box;
+    width: 50%;
     font-size: 16px;
     padding: 15px;
     background-color: #ebf5f5;
     color: #8a97a0;
     border: none;
     box-shadow: 0 0 5px rgba(73, 78, 92, 0.45);
+    outline: none;
 }
 
-.UserAddedCarsBtn{
-    padding: 20px;
-    width: fit-content;
-    color: #FFF;
-    background-color: #0B1152;
-    font-size: 24px;
-    border: 0;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all .4s;
-
-}
-
-.UserAddedCarsBtn:hover {
-    background-color: rgba(14, 18, 89, 0.9);
-    transition: all .4s;
-
-}
-/*.UserAddedInput {*/
-    /*padding: 10px 10px 40px 10px;*/
-    /*height: 52px;*/
-    /*position: relative;*/
-    /*text-align: center;*/
-/*}*/
-
-
+ /*   input fields       */
 .UserAddedInput {
-
     width: 50%;
     font-size: 16px;
     padding: 15px;
@@ -55,8 +33,24 @@ input:focus {
     outline: none;
 }
 
-.UserAddedCarsConfirmation{
-    /*border: 1px black solid;*/
+.UserAddedCarsBtn {
+    padding: 20px;
+    width: fit-content;
+    color: #FFF;
+    background-color: #0B1152;
+    font-size: 24px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+.UserAddedCarsBtn:hover {
+    background-color: rgba(14, 18, 89, 0.9);
+    transition: all .4s;
+}
+
+.UserAddedCarsConfirmation {
     width: 50%;
     position:absolute;
     top: 30%;
