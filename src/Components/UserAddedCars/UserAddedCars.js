@@ -65,7 +65,8 @@ class UserAddedCars extends React.Component {
           <form onSubmit={this.handleSubmit} data-testid="car-form">
             {this.state.formError && <p data-testid="car-error">{this.state.formError.message}</p>}
             <h4>Car Type:</h4>
-            <select className="UserAddedCarsSelector" required
+            <select
+                    className="UserAddedCarsSelector"
                     value={this.state.carType}
                     onChange={this.handleChange}
                     name="carType"

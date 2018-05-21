@@ -4,11 +4,14 @@
     align-content: center;
     text-align: center;
 }
-.UserAddedCarsSelector{
-width:40%;
-    height:3rem;
-    background-color: #0b1259;
-    color: #ffffff;
+.UserAddedCarsSelector {
+    width: 52%;
+    font-size: 16px;
+    padding: 15px;
+    background-color: #ebf5f5;
+    color: #8a97a0;
+    border: none;
+    box-shadow: 0 0 5px rgba(73, 78, 92, 0.45);
 }
 
 .UserAddedCarsBtn{
@@ -60,7 +63,4 @@ input:focus {
     left: 30%;
     background-color: rgba(0, 0, 0, 0.62);
     color: #fff;
-}
-.carYear{
-
 }
