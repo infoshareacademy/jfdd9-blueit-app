@@ -37,7 +37,8 @@ class ReservationConfirm extends Component {
 
   handleChangeStartDate = date => {
     this.setState({
-      startDate: date
+      startDate: date,
+      // endDate: (this.state.endDate < this.state.startDate) ? this.state.startDate : this.state.endDate
     }, this.passToParent)
   };
 
@@ -80,9 +81,9 @@ class ReservationConfirm extends Component {
         {/*)}/>*/}
 
         <CarItem noRentBtn={this.state.noRentBtn}
-          car={this.props.cars.find(car =>
-          car.id === this.state.carId
-        )}/>
+                 car={this.props.cars.find(car =>
+                   car.id === this.state.carId
+                 )}/>
 
         <form onSubmit={this.handleSubmit}>
 
@@ -133,22 +134,26 @@ class ReservationConfirm extends Component {
             />
           </div>
           <div className="ReservationConfirmButtonsContainer">
-          <Link to="/">
-            <button
-              className="RentBtnReserved"
-            >
-              Cancel
-            </button>
-          </Link>
+            <Link to="/">
+              <button
+                className="RentBtnReserved"
+              >
+                Cancel
+              </button>
+            </Link>
 
-          <Link to="/my-rentals-screen">
-            <button
-              className="RentBtn"
-              onClick={() => this.props.makeReservation(this.state)}
-            >
-              Confirm
-            </button>
-          </Link>
+            <Link to="/my-rentals-screen">
+              <button
+                className="RentBtn"
+                onClick={
+                  () => {
+                    this.props.makeReservation(this.state)
+                  }
+                }
+              >
+                Confirm
+              </button>
+            </Link>
           </div>
 
         </form>

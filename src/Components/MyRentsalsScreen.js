@@ -5,18 +5,19 @@ import CarRentButton from "./CarListItem/CarRentButton/CarRentButton";
 import './MyRentsalsScreen.css'
 import SUV from './img/car-SUV.jpg'
 import {withCars} from "./contexts/Cars";
+import CarCancelRentButton from "./CarListItem/CarRentButton/CarCancelRentButton";
 
 class MyRentsalsScreen extends Component {
   render() {
     console.log('MyRentals render (this.props)', this.props)
-    const {cars, reservedCarIds, options} = this.props;
+    const {cars, reservedCarIds, options, reservations} = this.props;
     return (
       <div>
         {
-          reservedCarIds.length === 0 ?
+          reservations && reservations.length === 0 ?
             <h2>You don't have any active reservations.</h2> :
             cars.filter(car => (
-              reservedCarIds.includes(car.id)
+              reservations.map(({carId}) => carId).includes(car.id)
             )).map(car => (
 
               <Fragment key={car.id}>
@@ -31,7 +32,7 @@ class MyRentsalsScreen extends Component {
                       </p>
                       {car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>}
                     </div>
-                    <CarRentButton carId={car.id}/>
+                    <CarCancelRentButton carId={car.id}/>
                   </div>
                 </div>
               </Fragment>
