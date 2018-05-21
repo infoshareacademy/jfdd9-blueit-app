@@ -30,13 +30,6 @@ export class ReservationProvider extends Component {
       }),
 
     makeReservation: ({ startDate, endDate, ...reservation}) => {
-      console.log(reservation)
-      debugger
-      // this.setState({
-      //   reservations: this.state.reservations.concat(reservation),
-      //   reservedCarIds: this.state.reservedCarIds.concat(reservation.carId),
-      //   currentReservation: null
-      // })
       firebase.database().ref('/reservations').push({
         ...reservation,
         startDate: startDate.format(),
@@ -47,7 +40,7 @@ export class ReservationProvider extends Component {
 
 
     cancelReservation: reservationId => {
-      firebase.database().ref('/reservations').remove(reservationId)
+      firebase.database().ref('/reservations/' + reservationId).remove()
     },
 
     initReservation: carId => {
