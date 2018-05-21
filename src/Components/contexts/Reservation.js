@@ -29,13 +29,19 @@ export class ReservationProvider extends Component {
         endDate: endDate
       }),
 
-    makeReservation: (reservation) => {
-      this.setState({
-        reservations: this.state.reservations.concat(reservation),
-        reservedCarIds: this.state.reservedCarIds.concat(reservation.carId),
-        currentReservation: null
+    makeReservation: ({ startDate, endDate, ...reservation}) => {
+      console.log(reservation)
+      debugger
+      // this.setState({
+      //   reservations: this.state.reservations.concat(reservation),
+      //   reservedCarIds: this.state.reservedCarIds.concat(reservation.carId),
+      //   currentReservation: null
+      // })
+      firebase.database().ref('/reservations').push({
+        ...reservation,
+        startDate: startDate.format(),
+        endDate: endDate.format()
       })
-      // firebase.database().ref('/reservations').push(reservation)
 
     },
 
