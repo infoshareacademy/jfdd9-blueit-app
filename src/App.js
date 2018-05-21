@@ -9,21 +9,14 @@ import {
 } from 'react-router-dom'
 import {ReservationProvider} from "./Components/contexts/Reservation";
 import MyRentsalsScreen from "./Components/MyRentsalsScreen";
+import UserAddedCars from "./Components/UserAddedCars/UserAddedCars";
 import {SearchProvider} from "./Components/contexts/Search";
 import {CarProvider} from "./Components/contexts/Cars";
+import LoginScreen from "./Components/LoginScreen/LoginScreen";
+import { withUser } from './Components/contexts/User';
+import './App.css'
 
 class App extends Component {
-
-  state = {
-    startDate: null,
-    endDate: null
-  };
-
-  rentDates = (startDate, endDate) =>
-    this.setState({
-      startDate: startDate,
-      endDate: endDate
-    });
 
   render() {
     return (
@@ -32,13 +25,29 @@ class App extends Component {
         <SearchProvider>
           <Router>
             <div className="App">
-              <nav>
-                <NavbarMenu/>
-              </nav>
-              <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
-              {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
-              <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
-              <Route path="/rent-confirm" component={ReservationConfirm}/>
+              {
+                this.props.user === null ? (
+                  <div>
+                    <LoginScreen/>
+                  </div>
+                ) : (
+                  <div>
+                    <nav>
+                      <NavbarMenu/>
+                      <div className='SignOutButtonContainer'>
+                        <button className='SignOutButton' onClick={this.props.signOut}>Sign out</button>
+                      </div>
+                    </nav>
+
+                    <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
+                    {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
+                    <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
+                    <Route path="/rent-confirm/:carId" component={ReservationConfirm}/>
+                    <Route path="/user-added-cars" component={UserAddedCars}/>
+                  </div>
+                )
+              }
+
             </div>
           </Router>
         </SearchProvider>
@@ -48,4 +57,5 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withUser(App)
+

@@ -11,13 +11,34 @@ export const ReservationConsumer = ReservationContext.Consumer;
 
 export class ReservationProvider extends Component {
   state = {
-    cars: [],
+    // cars: [],
+
+    reservedCarIds: [],
+
     reservations: [],
+
     currentReservation: null,
 
+    startDate: null,
+
+    endDate: null,
+
+    rentDates: (startDate, endDate) =>
+      this.setState({
+        startDate: startDate,
+        endDate: endDate
+      }),
+
     makeReservation: (reservation) => {
-      firebase.database().ref('/reservations').push(reservation)
+      this.setState({
+        reservations: this.state.reservations.concat(reservation),
+        reservedCarIds: this.state.reservedCarIds.concat(reservation.carId),
+        currentReservation: null
+      })
+      // firebase.database().ref('/reservations').push(reservation)
+
     },
+
 
     cancelReservation: reservationId => {
       firebase.database().ref('/reservations').remove(reservationId)
@@ -27,8 +48,8 @@ export class ReservationProvider extends Component {
       this.setState({
         currentReservation: {
           carId: carId,
-          dateFrom: null,
-          dateTo: null,
+          startDate: null,
+          endDate: null,
           place: null
         }
       })
@@ -70,8 +91,10 @@ export class ReservationProvider extends Component {
 
 
   componentDidMount() {
+
     this.reservationRef = firebase.database().ref(`/reservations/`)
     this.reservationRef.on('value', this.handleReservationSnapshot)
+
   }
 
   componentWillUnmount() {
@@ -79,6 +102,7 @@ export class ReservationProvider extends Component {
       this.reservationRef.off('value', this.handleReservationSnapshot)
     }
   }
+
 }
 
 export function withReservation(Component) {
