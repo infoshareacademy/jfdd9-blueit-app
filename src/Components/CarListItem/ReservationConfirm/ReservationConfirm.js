@@ -24,7 +24,10 @@ class ReservationConfirm extends Component {
 
   static getDerivedStateFromProps(nextProps, currentState) {
     console.log('ReservationConfirm getDerivedStateFromProps, (nextProps):', nextProps)
-    return {
+    if(nextProps.currentReservation === null) {
+      nextProps.history.push('/')
+      return null
+    } else return {
       ...nextProps.currentReservation,
       startDate: nextProps.startDate,
       endDate: nextProps.endDate
@@ -38,7 +41,9 @@ class ReservationConfirm extends Component {
   handleChangeStartDate = date => {
     this.setState({
       startDate: date,
-      // endDate: (this.state.endDate < this.state.startDate) ? this.state.startDate : this.state.endDate
+      endDate: (this.state.endDate > moment(date).add(14, "days")) ?
+        moment(date).add(14, "days") :
+        this.state.endDate
     }, this.passToParent)
   };
 
@@ -67,6 +72,11 @@ class ReservationConfirm extends Component {
     console.log('ReservationConfirm render (this.props)', this.props)
     console.log('Router id:', this.props.match.params.carId)
     console.log(this.state)
+
+    if(this.state.carId === null) {
+      return <div/>
+    }
+
     return (
       <Fragment>
 
@@ -106,21 +116,27 @@ class ReservationConfirm extends Component {
             />
 
             <DatePicker
-              className="RentDateForm"
-              locale="en-gb"
-              dateFormat="YYYY/MM/DD"
-              placeholderText="End date"
-              minDate={moment(this.state.startDate)}
-              maxDate={moment(this.state.startDate).add(14, "days")}
-              selected={this.state.endDate}
-              selectsEnd
-              startDate={this.state.startDate}
-              endDate={this.state.endDate}
-              onChange={this.handleChangeEndDate}
-              disabled={this.isStartDateEmpty()}
-              // withPortal
-              fixedHeight
-            >
+            className="RentDateForm"
+            locale="en-gb"
+            dateFormat="YYYY/MM/DD"
+            placeholderText="End date"
+            minDate={moment(this.state.startDate)}
+            maxDate={moment(this.state.startDate).add(14, "days")}
+            selected={this.state.startDate === null ?
+              undefined :
+              (this.state.startDate > this.state.endDate) ?
+                this.state.startDate :
+                (this.state.endDate > moment(this.state.startDate).add(14, "days")) ?
+                  moment(this.state.startDate).add(14, "days") :
+                  this.state.endDate}
+            selectsEnd
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
+            onChange={this.handleChangeEndDate}
+            disabled={this.isStartDateEmpty()}
+            // withPortal
+            fixedHeight
+          >
               <div className="CalendarDateTo">
                 Maximum rent period is 14 days
               </div>
