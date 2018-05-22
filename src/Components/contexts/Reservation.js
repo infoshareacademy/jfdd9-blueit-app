@@ -19,8 +19,8 @@ export class ReservationProvider extends Component {
 
     currentReservation: null,
 
+    // State from datepicker (RentCarScreen) passed in rentDates():
     startDate: null,
-
     endDate: null,
 
     rentDates: (startDate, endDate) =>
