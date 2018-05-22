@@ -33,8 +33,8 @@ export class ReservationProvider extends Component {
       const user = firebase.auth().currentUser
       firebase.database().ref(`/reservations/${user.uid}`).push({
         ...reservation,
-        startDate: startDate.format(),
-        endDate: endDate.format()
+        startDate: startDate.format('YYYY-MM-DD'),
+        endDate: endDate.format('YYYY-MM-DD')
       })
 
     },
