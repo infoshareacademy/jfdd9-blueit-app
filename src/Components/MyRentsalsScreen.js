@@ -50,7 +50,7 @@ class MyRentsalsScreen extends Component {
                           )
                         }
                       </div>
-                      <CarCancelRentButton reservationId={reservation.id}/>
+                      <CarCancelRentButton reservationId={reservation.id} carId={car.id}/>
                     </div>
                   </div>
                 </Fragment>

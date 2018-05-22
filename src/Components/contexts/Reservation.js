@@ -47,9 +47,10 @@ export class ReservationProvider extends Component {
     },
 
 
-    cancelReservation: reservationId => {
+    cancelReservation: (reservationId, carId) => {
       const user = firebase.auth().currentUser
       firebase.database().ref(`/reservations/${user.uid}/${reservationId}`).remove()
+      firebase.database().ref(`/cars/${carId}/reservedFor/${reservationId}`).remove()
     },
 
     initReservation: carId => {
