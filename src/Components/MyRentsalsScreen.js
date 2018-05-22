@@ -16,6 +16,9 @@ class MyRentsalsScreen extends Component {
           reservations && reservations.length === 0 ?
             <h2>You don't have any active reservations.</h2> :
             reservations.map(reservation => {
+              console.log('MyRentals - reservations', reservations)
+              console.log('MyRentals - reservation', reservation)
+              console.log('MyRentals - cars', cars)
               const car = cars && cars.find(car => car.id === reservation.carId)
               if (car === undefined) {
                 return <p>ni ma</p>

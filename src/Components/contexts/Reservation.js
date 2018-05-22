@@ -29,14 +29,21 @@ export class ReservationProvider extends Component {
         endDate: endDate
       }),
 
-    makeReservation: ({startDate, endDate, ...reservation}) => {
+    makeReservation: ({carId, startDate, endDate, ...reservation}) => {
       const user = firebase.auth().currentUser
-      firebase.database().ref(`/reservations/${user.uid}`).push({
+      const id = firebase.database().ref(`/reservations/${user.uid}`).push({
         ...reservation,
+        carId: carId,
         startDate: startDate.format('YYYY-MM-DD'),
         endDate: endDate.format('YYYY-MM-DD')
       })
+      const reservationId = id.key
+      console.log('ID rezerwacji z firebase', reservationId)
 
+      firebase.database().ref(`/cars/${carId}/reservedFor/${reservationId}`).set({
+        startDate: startDate.format('YYYY-MM-DD'),
+        endDate: endDate.format('YYYY-MM-DD')
+      })
     },
 
 
@@ -77,6 +84,7 @@ export class ReservationProvider extends Component {
   };
 
   render() {
+    console.log('Reservation render this.state.reservations', this.state.reservations)
     return (
       <ReservationContext.Provider value={this.state}>
         {this.props.children}

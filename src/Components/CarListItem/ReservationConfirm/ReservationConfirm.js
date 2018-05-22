@@ -166,6 +166,7 @@ class ReservationConfirm extends Component {
                 onClick={
                   () => {
                     this.props.makeReservation(this.state)
+                    console.log("ReservationConfirm this.state:", this.state)
                   }
                 }
               >
