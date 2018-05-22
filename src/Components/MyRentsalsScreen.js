@@ -1,7 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import {withReservation} from "./contexts/Reservation";
 import './CarListItem/CarImg/CarImg.css'
-import CarRentButton from "./CarListItem/CarRentButton/CarRentButton";
 import './MyRentsalsScreen.css'
 import SUV from './img/car-SUV.jpg'
 import {withCars} from "./contexts/Cars";
@@ -10,7 +9,7 @@ import CarCancelRentButton from "./CarListItem/CarRentButton/CarCancelRentButton
 class MyRentsalsScreen extends Component {
   render() {
     console.log('MyRentals render (this.props)', this.props)
-    const {cars, reservedCarIds, options, reservations} = this.props;
+    const {cars, options, reservations} = this.props;
     return (
       <div>
         {
@@ -38,8 +37,11 @@ class MyRentsalsScreen extends Component {
                         reservations.filter(
                           ({carId}) =>
                             carId === car.id
-                        ).map(reservation =>
-                          <p><strong>Rent start date: </strong>{reservation.startDate}, <strong>end date: </strong>{reservation.endDate}</p>
+                        ).map(reservation => {
+                          console.log('RESERVATION', reservation)
+                          return <p key={reservation.id}><strong>Rent start date: </strong>{reservation.startDate}, <strong>end date: </strong>{reservation.endDate}</p>
+                        }
+
                         )
                       }
                     </div>

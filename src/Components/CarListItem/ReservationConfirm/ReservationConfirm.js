@@ -10,7 +10,6 @@ import {withCars} from "../../contexts/Cars";
 import CarItem from "../CarItem";
 import withRouter from "react-router-dom/es/withRouter";
 import Link from "react-router-dom/es/Link";
-import MyRentsalsScreen from "../../MyRentsalsScreen";
 
 class ReservationConfirm extends Component {
 

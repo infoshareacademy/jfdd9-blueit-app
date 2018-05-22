@@ -21,7 +21,7 @@ class CarImg extends React.Component {
         {
           this.props.cars.slice(0, 5).map(
             car => (
-              <CarItem car={car}/>
+              <CarItem key={car.id} car={car}/>
             )
           )
         }
@@ -37,7 +37,7 @@ class CarImg extends React.Component {
         {
           this.state.showMore && this.props.cars.slice(5, this.state.showMore ? undefined : 5).map(
             car => (
-              <CarItem car={car}/>
+              <CarItem key={car.id} car={car}/>
             )
           )
         }
