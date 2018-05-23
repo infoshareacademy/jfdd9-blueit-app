@@ -1,0 +1,19 @@
+.rentsum {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(24, 48, 255, 0.08);
+    border-radius: 15px;
+    position: relative;
+}
+
+.rentsumform {
+align-self: left;
+    width: 50%;
+}
+
+.rentmap {
+align-self: right;
+
+}
