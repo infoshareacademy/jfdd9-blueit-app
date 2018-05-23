@@ -6,6 +6,8 @@ import CarImg from "../CarListItem/CarImg/CarImg";
 import {withSearch} from "../contexts/Search";
 import {withCars} from "../contexts/Cars";
 import RentDateForm from "../RentDateForm/RentDateForm";
+import {withReservation} from "../contexts/Reservation";
+import moment from 'moment'
 
 
 const KEYS_TO_FILTERS = [
@@ -99,12 +101,29 @@ obj4[0].startDate
 class SearchEngine extends Component {
 
   render() {
-    console.log('SearchEngine Cars object', this.props.cars)
+    console.log('SearchEngine Cars object', Object.values(this.props.cars))
 
-    const filteredCars = this.props.cars.filter(createFilter(this.props.searchTerm, KEYS_TO_FILTERS)).filter(
-      car => this.props.selectedOptions.every(option => car.features && car.features.includes(option))
-    )
-    // .filter(car => car.startDate && car.startDate.map(date => date) !== this.props.startDate)
+    const {startDate: startDateFromDatePicker, endDate: endDateFromDatePicker} = this.props
+    console.log('SearchEngine dates from reservation', startDateFromDatePicker, endDateFromDatePicker)
+
+    const filteredCars = this.props.cars.filter(
+      createFilter(this.props.searchTerm, KEYS_TO_FILTERS)
+    ).filter(
+      car => this.props.selectedOptions.every(
+        option =>
+          car.features && car.features.includes(option))
+    ).filter(car => {
+      if (!car.reservedFor) {
+        return true
+      }
+      const reservations = Object.values(car.reservedFor)
+      return reservations.every(
+        reservation => {
+        console.log('MOMENT', moment(reservation.endDate))
+        moment(reservation.endDate).isBefore(startDateFromDatePicker) || moment(reservation.startDate).isAfter(endDateFromDatePicker)
+        }
+      )
+    })
 
 
     return (
@@ -130,4 +149,4 @@ class SearchEngine extends Component {
 
 }
 
-export default withCars(withSearch(SearchEngine))
+export default withReservation(withCars(withSearch(SearchEngine)))
