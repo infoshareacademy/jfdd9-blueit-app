@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import './CarMap.css'
 
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
@@ -39,36 +39,14 @@ class CarMap extends Component {
     });
   }
 
-  renderMarkers(carRentals) {
-    return (
-      carRentals.map(
-        carRental => (
-          <Marker
-            key={carRental.name}
-            title={carRental.name}
-            name={carRental.name}
-            onClick={this.onClick}
-            position={{lat: carRental.lat, lng: carRental.lng}} />
-        )
-      )
-    )
-  }
-
   render() {
-
-    const carRentalsArray = this.props.carRental ?
-      carRentals.filter( carRental => carRental.name === this.props.carRental) : carRentals
-
-    const avgLat = carRentalsArray.map(carRental => carRental.lat).reduce((total, next) => total + next, 0) / carRentalsArray.length
-    const avgLng = carRentalsArray.map(carRental => carRental.lng).reduce((total, next) => total + next, 0) / carRentalsArray.length
+const car = this.props.car
+    console.log(car)
 
     return (
       <div>
-        <Map style={{ boxShadow: '0 0 5px rgba(73, 78, 92, 0.45)', AlignSelf: "right" }}  google={this.props.google}
-             initialCenter={{
-               lat: avgLat,
-               lng: avgLng
-             }}
+        <Map style={{boxShadow: '0 0 5px rgba(73, 78, 92, 0.45)', AlignSelf: "right"}} google={this.props.google}
+             initialCenter={{lat: this.props.car.lat, lng: this.props.car.lng}}
              gestureHandling={this.props.gestureHandling || 'greedy'}
              zoom={12}
              onClick={this.onMapClicked}
@@ -76,7 +54,9 @@ class CarMap extends Component {
 
         >
 
-          {this.renderMarkers(carRentalsArray)}
+          <Marker
+            onClick={this.onClick}
+            position={{lat: this.props.car.lat, lng: this.props.car.lng}}/>
 
           <InfoWindow onOpen={this.onInfoWindowOpen}
                       marker={this.state.activeMarker}

@@ -78,6 +78,10 @@ class ReservationConfirm extends Component {
       return <div/>
     }
 
+    const car = this.props.cars.find(car =>
+      car.id === this.state.carId
+    )
+
     return (
       <Fragment>
 
@@ -92,9 +96,7 @@ class ReservationConfirm extends Component {
         {/*)}/>*/}
 
         <CarItem noRentBtn={this.state.noRentBtn}
-                 car={this.props.cars.find(car =>
-                   car.id === this.state.carId
-                 )}/>
+                 car={car}/>
         <div className={'rentsum'}>
           <form onSubmit={this.handleSubmit} className={'rentsumform'}>
 
@@ -169,7 +171,7 @@ class ReservationConfirm extends Component {
             </div>
           </form>
           <div className={'rentmap'} style={{width: '50%', height: '90%', position: 'absolute', right: '5%', top: '5%' }}>
-            <CarMap/>
+            <CarMap car={car}/>
           </div>
         </div>
       </Fragment>
