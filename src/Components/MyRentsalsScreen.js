@@ -38,17 +38,7 @@ class MyRentsalsScreen extends Component {
                         {
                           car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>
                         }
-                        {
-                          reservations.filter(
-                            ({carId}) =>
-                              carId === car.id
-                          ).map(reservation => {
-                              console.log('RESERVATION', reservation)
-                              return <p key={reservation.id}><strong>Rent start date: </strong>{reservation.startDate}, <strong>end date: </strong>{reservation.endDate}</p>
-                            }
-
-                          )
-                        }
+                        <p key={reservation.id}><strong>Rent start date: </strong>{reservation.startDate}, <strong>end date: </strong>{reservation.endDate}</p>
                       </div>
                       <CarCancelRentButton reservationId={reservation.id} carId={car.id}/>
                     </div>
