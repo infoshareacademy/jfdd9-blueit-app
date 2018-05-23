@@ -1,3 +1,17 @@
+/*.Confirm{*/
+    /*visibility: hidden;*/
+/*}*/
+
+.ConfirmVisible{
+    width: 50%;
+    height: 30%;
+    position:absolute;
+    top: 30%;
+    left: 25%;
+    background-color: rgba(0, 0, 0, 0.62);
+    color: #fff;
+}
+
 .UserAddedCarsContainer{
     display: flex;
     flex-direction: column;
@@ -48,13 +62,4 @@ input:focus {
 .UserAddedCarsBtn:hover {
     background-color: rgba(14, 18, 89, 0.9);
     transition: all .4s;
-}
-
-.UserAddedCarsConfirmation {
-    width: 50%;
-    position:absolute;
-    top: 30%;
-    left: 30%;
-    background-color: rgba(0, 0, 0, 0.62);
-    color: #fff;
 }

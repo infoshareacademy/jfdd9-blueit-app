@@ -5,12 +5,12 @@ import {withRouter} from 'react-router-dom'
 
 class CarCancelRentButton extends React.Component {
   render() {
-    const {cancelReservation} = this.props
+    // const {cancelReservation} = this.props
     return (
       <button
         className="RentBtnReserved"
-        onClick={() => {
-          cancelReservation(this.props.carId)
+        onClick={ () => {
+          this.props.cancelReservation(this.props.reservationId)
         }}
       >
         Cancel

@@ -22,11 +22,15 @@ class RentDateForm extends Component {
 
   handleChangeStartDate = date => {
     this.setState({
-      startDate: date
+      startDate: date,
+      endDate: (this.state.endDate > moment(date).add(14, "days")) ?
+        moment(date).add(14, "days") :
+        this.state.endDate
     }, this.passToParent)
   };
 
   handleChangeEndDate = date => {
+    console.log('handleChangeEndDate:', date)
     this.setState({
       endDate: date
     }, this.passToParent)
@@ -68,7 +72,13 @@ class RentDateForm extends Component {
             placeholderText="End date"
             minDate={moment(this.state.startDate)}
             maxDate={moment(this.state.startDate).add(14, "days")}
-            selected={this.state.endDate}
+            selected={this.state.startDate === null ?
+              undefined :
+              (this.state.startDate > this.state.endDate) ?
+                this.state.startDate :
+                (this.state.endDate > moment(this.state.startDate).add(14, "days")) ?
+                  moment(this.state.startDate).add(14, "days") :
+                  this.state.endDate}
             selectsEnd
             startDate={this.state.startDate}
             endDate={this.state.endDate}

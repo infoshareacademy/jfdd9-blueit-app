@@ -12,7 +12,9 @@ class UserAddedCars extends React.Component {
     carYear: '',
     selectedOptions: [],
     cars: []
-  }
+      }
+
+
 
   handleOptionChange = option => this.setState({
     selectedOptions: this.state.selectedOptions.includes(option) ?
@@ -25,6 +27,7 @@ class UserAddedCars extends React.Component {
     // this.setState({
     //   cars: this.state.cars.concat(rest)
     // })
+
     firebase.database().ref('/cars').push({
       carbody: this.state.carType,
       make: this.state.carMake,
@@ -32,6 +35,17 @@ class UserAddedCars extends React.Component {
       productionYear: this.state.carYear,
       features: this.state.selectedOptions
     })
+
+
+
+    const confirm = document.querySelector('.Confirm')
+    confirm.textContent='dorota dorota'
+    confirm.classList.add('.ConfirmVisible')
+
+
+
+
+
   }
 
   handleSubmit = event => {
@@ -54,6 +68,8 @@ class UserAddedCars extends React.Component {
       formError: null
     })
   }
+
+
 
   render() {
     return (
@@ -109,9 +125,12 @@ class UserAddedCars extends React.Component {
               required
             />
             <CarFeatures selectedOptions={this.state.selectedOptions} toggleOption={this.handleOptionChange}/>,
-            <button className="UserAddedCarsBtn">ADD YOUR VEHICLE</button>
+            <button className="UserAddedCarsBtn" >ADD YOUR VEHICLE</button>
           </form>
-          {/*<div className="UserAddedCarsConfirmation">*/}
+
+
+
+        <div className="Confirm ConfirmVisible">
 
             {
               this.state.cars.map(
@@ -126,7 +145,7 @@ class UserAddedCars extends React.Component {
               )
             }
           </div>
-        {/*</div>*/}
+        </div>
       </Fragment>
     )
   }
