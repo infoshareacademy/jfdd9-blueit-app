@@ -25,7 +25,7 @@ class RentDateForm extends Component {
       startDate: date,
       endDate: (this.state.endDate > moment(date).add(14, "days")) ?
         moment(date).add(14, "days") :
-        this.state.endDate
+        date
     }, this.passToParent)
   };
 
