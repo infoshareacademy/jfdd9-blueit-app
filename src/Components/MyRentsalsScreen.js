@@ -25,7 +25,7 @@ class MyRentsalsScreen extends Component {
               }
               return (
 
-                <Fragment key={car.id}>
+                <Fragment key={reservation.id}>
                   <div className="CarImgContainer">
                     <div className="CarType">
                       <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
@@ -38,7 +38,7 @@ class MyRentsalsScreen extends Component {
                         {
                           car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>
                         }
-                        <p key={reservation.id}><strong>Rent start date: </strong>{reservation.startDate}, <strong>end date: </strong>{reservation.endDate}</p>
+                        <p><strong>Rent start date: </strong>{reservation.startDate}, <strong>end date: </strong>{reservation.endDate}</p>
                       </div>
                       <CarCancelRentButton reservationId={reservation.id} carId={car.id}/>
                     </div>

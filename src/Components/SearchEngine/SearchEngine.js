@@ -32,14 +32,16 @@ class SearchEngine extends Component {
         option =>
           car.features && car.features.includes(option))
     ).filter(car => {
-      if (!car.reservedFor) {
+      if (!car.reservedFor || !startDateFromDatePicker) {
         return true
       }
       const reservations = Object.values(car.reservedFor)
+      //console.log(moment(reservations[0].endDate).format())
+      //debugger
       return reservations.every(
         reservation => {
         console.log('MOMENT', moment(reservation.endDate))
-        moment(reservation.endDate).isBefore(startDateFromDatePicker) || moment(reservation.startDate).isAfter(endDateFromDatePicker)
+        return moment(reservation.endDate).isBefore(startDateFromDatePicker) || moment(reservation.startDate).isAfter(endDateFromDatePicker)
         }
       )
     })
