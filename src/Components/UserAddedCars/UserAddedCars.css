@@ -1,16 +1,17 @@
-/*.Confirm{*/
-    /*visibility: hidden;*/
-/*}*/
-
-.ConfirmVisible{
-    width: 50%;
-    height: 30%;
-    position:absolute;
-    top: 30%;
-    left: 25%;
-    background-color: rgba(0, 0, 0, 0.62);
-    color: #fff;
+.Confirm{
+    visibility:hidden;
 }
+
+/*.ConfirmVisible{*/
+    /*width: 50%;*/
+    /*height: 30%;*/
+    /*position:absolute;*/
+    /*top: 30%;*/
+    /*left: 25%;*/
+    /*background-color: rgba(0, 0, 0, 0.62);*/
+    /*color: #fff;*/
+    /*visibility: visible;*/
+/*}*/
 
 .UserAddedCarsContainer{
     display: flex;

@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react'
 import CarFeatures from '../CarFeatures/CarFeatures'
 import firebase from 'firebase'
 import './UserAddedCars.css'
-
+import {NavLink} from 'react-router-dom'
 
 class UserAddedCars extends React.Component {
   state = {
@@ -24,10 +24,6 @@ class UserAddedCars extends React.Component {
 
   addCar = () => {
     const {cars, ...rest} = this.state
-    // this.setState({
-    //   cars: this.state.cars.concat(rest)
-    // })
-
     firebase.database().ref('/cars').push({
       carbody: this.state.carType,
       make: this.state.carMake,
@@ -36,16 +32,9 @@ class UserAddedCars extends React.Component {
       features: this.state.selectedOptions
     })
 
-
-
-    const confirm = document.querySelector('.Confirm')
-    confirm.textContent='dorota dorota'
-    confirm.classList.add('.ConfirmVisible')
-
-
-
-
-
+    // const confirm = document.querySelector('.Confirm');
+    // confirm.textContent='dorota dorota';
+    // confirm.classList.add('ConfirmVisible')
   }
 
   handleSubmit = event => {
@@ -125,13 +114,11 @@ class UserAddedCars extends React.Component {
               required
             />
             <CarFeatures selectedOptions={this.state.selectedOptions} toggleOption={this.handleOptionChange}/>,
-            <button className="UserAddedCarsBtn" >ADD YOUR VEHICLE</button>
+            <NavLink to="/"><button className="UserAddedCarsBtn" >ADD YOUR VEHICLE</button></NavLink>
           </form>
 
-
-
-        <div className="Confirm ConfirmVisible">
-
+        {/*<div className="Confirm ConfirmVisible">*/}
+        <div>
             {
               this.state.cars.map(
                 car =>
