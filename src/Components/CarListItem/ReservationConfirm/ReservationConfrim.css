@@ -1,0 +1,40 @@
+
+
+.rentsum {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(24, 48, 255, 0.08);
+    border-radius: 15px;
+    position: relative;
+}
+
+.rentsumform {
+align-self: left;
+    width: 50%;
+}
+
+.rentmap {
+align-self: right;
+
+}
+
+@media screen and (max-width: 768px) {
+    .CarType {
+        width: 100%;
+    }
+
+    .rentsum {
+        flex-direction: column;
+        width: 100%;
+    }
+    .rentsumform {
+        align-self: center;
+    }
+
+    .rentmap {
+        position: initial !important;
+
+    }
+}

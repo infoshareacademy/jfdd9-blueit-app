@@ -19,8 +19,8 @@ export class ReservationProvider extends Component {
 
     currentReservation: null,
 
+    // State from datepicker (RentCarScreen) passed in rentDates():
     startDate: null,
-
     endDate: null,
 
     rentDates: (startDate, endDate) =>
@@ -29,20 +29,28 @@ export class ReservationProvider extends Component {
         endDate: endDate
       }),
 
-    makeReservation: ({startDate, endDate, ...reservation}) => {
+    makeReservation: ({carId, startDate, endDate, ...reservation}) => {
       const user = firebase.auth().currentUser
-      firebase.database().ref(`/reservations/${user.uid}`).push({
+      const firebaseId = firebase.database().ref(`/reservations/${user.uid}`).push({
         ...reservation,
-        startDate: startDate.format(),
-        endDate: endDate.format()
+        carId: carId,
+        startDate: startDate.format('YYYY-MM-DD'),
+        endDate: endDate.format('YYYY-MM-DD')
       })
+      const reservationId = firebaseId.key
+      console.log('ID rezerwacji z firebase', reservationId)
 
+      firebase.database().ref(`/cars/${carId}/reservedFor/${reservationId}`).set({
+        startDate: startDate.format('YYYY-MM-DD'),
+        endDate: endDate.format('YYYY-MM-DD')
+      })
     },
 
 
-    cancelReservation: reservationId => {
+    cancelReservation: (reservationId, carId) => {
       const user = firebase.auth().currentUser
       firebase.database().ref(`/reservations/${user.uid}/${reservationId}`).remove()
+      firebase.database().ref(`/cars/${carId}/reservedFor/${reservationId}`).remove()
     },
 
     initReservation: carId => {
@@ -77,6 +85,7 @@ export class ReservationProvider extends Component {
   };
 
   render() {
+    console.log('Reservation render this.state.reservations', this.state.reservations)
     return (
       <ReservationContext.Provider value={this.state}>
         {this.props.children}
@@ -106,7 +115,7 @@ export class ReservationProvider extends Component {
   }
 
   componentWillUnmount() {
-    if (this.unsubscribe){
+    if (this.unsubscribe) {
       this.unsubscribe()
     }
     if (this.reservationRef) {

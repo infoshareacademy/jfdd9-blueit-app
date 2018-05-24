@@ -1,16 +1,20 @@
-import React, {Component, Fragment} from 'react'
+import React, {Fragment, Component} from 'react'
 import CarFeatures from '../CarFeatures/CarFeatures'
 import firebase from 'firebase'
 import './UserAddedCars.css'
+import Geocode from "react-geocode";
 import {NavLink} from 'react-router-dom'
 
-class UserAddedCars extends React.Component {
+class UserAddedCars extends Component {
   state = {
     carType: '',
     carMake: '',
     carModel: '',
     carYear: '',
     selectedOptions: [],
+    location: '',
+    lat: '',
+    lng: '',
     cars: []
       }
 
@@ -22,14 +26,15 @@ class UserAddedCars extends React.Component {
       this.state.selectedOptions.concat(option)
   })
 
-  addCar = () => {
-    const {cars, ...rest} = this.state
+  addCar = (lat, lng) => {
     firebase.database().ref('/cars').push({
       carbody: this.state.carType,
       make: this.state.carMake,
       model: this.state.carModel,
       productionYear: this.state.carYear,
-      features: this.state.selectedOptions
+      features: this.state.selectedOptions,
+      location: this.state.location,
+      lat, lng
     })
 
     const confirm = document.querySelector('.Confirm');
@@ -47,15 +52,27 @@ class UserAddedCars extends React.Component {
       return
     }
 
-    this.addCar()
+    Geocode.fromAddress(this.state.location).then(
+      response => {
+        const {lat, lng} = response.results[0].geometry.location;
+        console.log(lat, lng);
+        this.addCar(lat, lng)
+      },
+      error => {
+        console.error(error);
+      }
+    )
+
   }
 
   handleChange = event => {
+    console.log(event.target.value)
     this.setState({
       [event.target.name]: event.target.value,
       formError: null
     })
   }
+
 
   render() {
     return (
@@ -66,17 +83,18 @@ class UserAddedCars extends React.Component {
           <form onSubmit={this.handleSubmit} data-testid="car-form">
             {this.state.formError && <p data-testid="car-error">{this.state.formError.message}</p>}
             <h4>Car Type:</h4>
-            <select required
-                    className="UserAddedCarsSelector"
-                    value={this.state.carType}
-                    onChange={this.handleChange}
-                    name="carType"
+            <select
+              required
+              className="UserAddedCarsSelector"
+              value={this.state.carType}
+              onChange={this.handleChange}
+              name="carType"
             >
               <option>choose one</option>
-              <option>SUV</option>
-              <option>minivan</option>
-              <option>fullsize</option>
-              <option>compact</option>
+              <option value={'suv'}>SUV</option>
+              <option value={'minivan'}>minivan</option>
+              <option value={'fullsize'}>fullsize</option>
+              <option value={'compact'}>compact</option>
             </select>
             <h4>Car make:</h4>
             <input
@@ -110,6 +128,17 @@ class UserAddedCars extends React.Component {
               placeholder="enter year in xxxx -format, numbers only"
               required
             />
+            <h4>Car location</h4>
+            <input
+              type="text"
+              className="UserAddedInput"
+              data-testid="location-input"
+              name="location"
+              value={this.state.location}
+              onChange={this.handleChange}
+              placeholder="enter address "
+              required
+            />
             <CarFeatures selectedOptions={this.state.selectedOptions} toggleOption={this.handleOptionChange}/>,
             <button className="UserAddedCarsBtn">ADD YOUR VEHICLE</button>
           </form>
@@ -129,6 +158,7 @@ class UserAddedCars extends React.Component {
                     <p><strong>model: </strong>{car.carModel}</p>
                     <p><strong>year: </strong>{car.carYear}</p>
                     <p><strong>features: </strong>{car.selectedOptions}</p>
+                    <p><strong>location:</strong>{car.location}</p>
                   </Fragment>
               )
             }
