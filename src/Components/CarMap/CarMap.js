@@ -3,26 +3,6 @@ import './CarMap.css'
 
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-const carRentals = [
-  {
-    name:
-      'Promyk',
-    lat: 54.374760,
-    lng: 18.449328
-  },
-  {
-    name: 'Ciapkowo',
-    lat: 54.492730,
-    lng: 18.527670
-  },
-  {
-    name:
-      'Schronisko Sopot',
-    lat: 54.443741,
-    lng: 18.552334
-  }
-]
-
 class CarMap extends Component {
 
   state = {

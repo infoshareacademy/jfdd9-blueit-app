@@ -10,6 +10,7 @@
     "react": "^16.3.2",
     "react-datepicker": "^1.4.1",
     "react-dom": "^16.3.2",
+    "react-geocode": "^0.0.9",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "react-search-input": "^0.11.3"
