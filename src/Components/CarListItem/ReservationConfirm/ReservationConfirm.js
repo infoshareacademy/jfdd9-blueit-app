@@ -66,6 +66,7 @@ class ReservationConfirm extends Component {
     console.log('ReservationConfirm render (this.props)', this.props)
     console.log('Router id:', this.props.match.params.carId)
     console.log(this.state)
+    console.log('RESERVATIONS IN STATE', this.props.reservations)
 
     if (this.state.carId === null) {
       return <div/>
@@ -99,6 +100,7 @@ class ReservationConfirm extends Component {
                 startDate={this.state.startDate}
                 endDate={this.state.endDate}
                 onChange={this.handleChangeStartDate}
+                excludeDates={[moment('2018-06-01'), moment().add(1, "days"), moment().add(2, "days")]}
                 // withPortal
                 fixedHeight
               />
