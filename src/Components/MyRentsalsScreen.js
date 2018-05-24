@@ -9,7 +9,7 @@ import CarCancelRentButton from "./CarListItem/CarRentButton/CarCancelRentButton
 class MyRentsalsScreen extends Component {
   render() {
     console.log('MyRentals render (this.props)', this.props)
-    const {cars, reservedCarIds, options, reservations} = this.props;
+    const {cars, options, reservations} = this.props;
     return (
       <div>
         {

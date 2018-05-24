@@ -10,7 +10,8 @@ import {withCars} from "../../contexts/Cars";
 import CarItem from "../CarItem";
 import withRouter from "react-router-dom/es/withRouter";
 import Link from "react-router-dom/es/Link";
-import MyRentsalsScreen from "../../MyRentsalsScreen";
+import CarMap from "../../CarMap/CarMap.js";
+import './ReservationConfrim.css'
 
 class ReservationConfirm extends Component {
 
@@ -24,7 +25,7 @@ class ReservationConfirm extends Component {
 
   static getDerivedStateFromProps(nextProps, currentState) {
     console.log('ReservationConfirm getDerivedStateFromProps, (nextProps):', nextProps)
-    if(nextProps.currentReservation === null) {
+    if (nextProps.currentReservation === null) {
       nextProps.history.push('/')
       return null
     } else return {
@@ -73,9 +74,13 @@ class ReservationConfirm extends Component {
     console.log('Router id:', this.props.match.params.carId)
     console.log(this.state)
 
-    if(this.state.carId === null) {
+    if (this.state.carId === null) {
       return <div/>
     }
+
+    const car = this.props.cars.find(car =>
+      car.id === this.state.carId
+    )
 
     return (
       <Fragment>
@@ -91,88 +96,84 @@ class ReservationConfirm extends Component {
         {/*)}/>*/}
 
         <CarItem noRentBtn={this.state.noRentBtn}
-                 car={this.props.cars.find(car =>
-                   car.id === this.state.carId
-                 )}/>
+                 car={car}/>
+        <div className={'rentsum'}>
+          <form onSubmit={this.handleSubmit} className={'rentsumform'}>
 
-        <form onSubmit={this.handleSubmit}>
+            <div className="datePicker__container">
+              <DatePicker
+                className="RentDateForm"
+                locale="en-gb"
+                dateFormat="YYYY/MM/DD"
+                placeholderText="Start date"
+                todayButton={"Today"}
+                minDate={moment()}
+                maxDate={moment().add(1, "month")}
+                selected={this.state.startDate}
+                selectsStart
+                startDate={this.state.startDate}
+                endDate={this.state.endDate}
+                onChange={this.handleChangeStartDate}
+                // withPortal
+                fixedHeight
+              />
 
-          <div className="datePicker__container">
-            <DatePicker
-              className="RentDateForm"
-              locale="en-gb"
-              dateFormat="YYYY/MM/DD"
-              placeholderText="Start date"
-              todayButton={"Today"}
-              minDate={moment()}
-              maxDate={moment().add(1, "month")}
-              selected={this.state.startDate}
-              selectsStart
-              startDate={this.state.startDate}
-              endDate={this.state.endDate}
-              onChange={this.handleChangeStartDate}
-              // withPortal
-              fixedHeight
-            />
-
-            <DatePicker
-            className="RentDateForm"
-            locale="en-gb"
-            dateFormat="YYYY/MM/DD"
-            placeholderText="End date"
-            minDate={moment(this.state.startDate)}
-            maxDate={moment(this.state.startDate).add(14, "days")}
-            selected={this.state.startDate === null ?
-              undefined :
-              (this.state.startDate > this.state.endDate) ?
-                this.state.startDate :
-                (this.state.endDate > moment(this.state.startDate).add(14, "days")) ?
-                  moment(this.state.startDate).add(14, "days") :
-                  this.state.endDate}
-            selectsEnd
-            startDate={this.state.startDate}
-            endDate={this.state.endDate}
-            onChange={this.handleChangeEndDate}
-            disabled={this.isStartDateEmpty()}
-            // withPortal
-            fixedHeight
-          >
-              <div className="CalendarDateTo">
-                Maximum rent period is 14 days
-              </div>
-            </DatePicker>
-          </div>
-
-          <div className="PlaceContainer">
-            <input
-              placeholder="Choose the rent place"
-              className="RentDateForm"
-            />
-          </div>
-          <div className="ReservationConfirmButtonsContainer">
-            <Link to="/">
-              <button
-                className="RentBtnReserved"
+              <DatePicker
+                className="RentDateForm"
+                locale="en-gb"
+                dateFormat="YYYY/MM/DD"
+                placeholderText="End date"
+                minDate={moment(this.state.startDate)}
+                maxDate={moment(this.state.startDate).add(14, "days")}
+                selected={this.state.startDate === null ?
+                  undefined :
+                  (this.state.startDate > this.state.endDate) ?
+                    this.state.startDate :
+                    (this.state.endDate > moment(this.state.startDate).add(14, "days")) ?
+                      moment(this.state.startDate).add(14, "days") :
+                      this.state.endDate}
+                selectsEnd
+                startDate={this.state.startDate}
+                endDate={this.state.endDate}
+                onChange={this.handleChangeEndDate}
+                disabled={this.isStartDateEmpty()}
+                // withPortal
+                fixedHeight
               >
-                Cancel
-              </button>
-            </Link>
+                <div className="CalendarDateTo">
+                  Maximum rent period is 14 days
+                </div>
+              </DatePicker>
+            </div>
 
-            <Link to="/my-rentals-screen">
-              <button
-                className="RentBtn"
-                onClick={
-                  () => {
-                    this.props.makeReservation(this.state)
+
+            <div className="ReservationConfirmButtonsContainer">
+              <Link to="/">
+                <button
+                  className="RentBtnReserved"
+                >
+                  Cancel
+                </button>
+              </Link>
+
+              <Link to="/my-rentals-screen">
+                <button
+                  className="RentBtn"
+                  onClick={
+                    () => {
+                      this.props.makeReservation(this.state)
+                    }
                   }
-                }
-              >
-                Confirm
-              </button>
-            </Link>
+                >
+                  Confirm
+                </button>
+              </Link>
+            </div>
+          </form>
+          <div className={'rentmap'} style={{width: '50%', height: '90%', position: 'absolute', right: '5%', top: '5%' }}>
+            <CarMap car={car}/>
           </div>
-
-        </form>
+        </div>
       </Fragment>
     )
   }
