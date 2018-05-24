@@ -24,7 +24,7 @@ class ReservationConfirm extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, currentState) {
-    console.log('ReservationConfirm getDerivedStateFromProps, (nextProps):', nextProps)
+    // console.log('ReservationConfirm getDerivedStateFromProps, (nextProps):', nextProps)
     if (nextProps.currentReservation === null) {
       nextProps.history.push('/')
       return null
@@ -62,11 +62,43 @@ class ReservationConfirm extends Component {
     this.props.rentDates(this.state.startDate, this.state.endDate)
   };
 
+  excludedDates = (startDate, endDate) => {
+    debugger
+    let datesArray = []
+
+    const currentDateConst = moment(startDate)
+    const endDateConst = moment(endDate)
+    datesArray.push(currentDateConst.format('YYYY-MM-DD'))
+    while(currentDateConst.add(1, 'days').diff(endDateConst) <= 0) {
+      // console.log('currentDateConst:', currentDateConst, 'endDateConst', endDateConst)
+      datesArray.push(currentDateConst.clone().format('YYYY-MM-DD'))
+    }
+    // console.log('datesArray', datesArray)
+    return datesArray
+  };
+
+  componentDidMount() {
+    this.props.reservations.filter(reservation =>
+      reservation.carId === this.state.carId
+    ).map(reservation =>
+      this.excludedDates(reservation.startDate, reservation.endDate)
+    )
+  }
+
   render() {
-    console.log('ReservationConfirm render (this.props)', this.props)
-    console.log('Router id:', this.props.match.params.carId)
-    console.log(this.state)
-    console.log('RESERVATIONS IN STATE', this.props.reservations)
+    // console.log('EXCLUDED FUNCTION', this.excludedDates('2018-06-07', '2018-06-09'))
+    // let excludedDates2 = []
+    // console.log('ReservationConfirm render (this.props)', this.props)
+    // console.log('Router id:', this.props.match.params.carId)
+    // console.log(this.state)
+    // console.log('RESERVATIONS IN STATE', this.props.reservations)
+    // console.log('MOMENT SUBSTRACTION', (moment('2018-06-05').diff(moment('2018-06-01'), 'days')+1))
+    // console.log('FIND RESERVATION', this.props.reservations.filter(reservation =>
+    //   reservation.carId === this.state.carId
+    // ).map(reservation =>
+    //   console.log(this.excludedDates(reservation.startDate, reservation.endDate))
+    // ))
+    // console.log('EXCLUDED DATES ARRAY', excludedDates2)
 
     if (this.state.carId === null) {
       return <div/>
@@ -75,6 +107,12 @@ class ReservationConfirm extends Component {
     const car = this.props.cars.find(car =>
       car.id === this.state.carId
     )
+
+    // let excluded = this.props.reservations.find(reservation =>
+    //   reservation.carId === this.state.carId
+    // ).calculateExcludedDates(reservation.startDate, reservation.endDate)
+
+
 
     return (
       <Fragment>
@@ -100,7 +138,7 @@ class ReservationConfirm extends Component {
                 startDate={this.state.startDate}
                 endDate={this.state.endDate}
                 onChange={this.handleChangeStartDate}
-                excludeDates={[moment('2018-06-01'), moment().add(1, "days"), moment().add(2, "days")]}
+                // excludeDates={excludedDates}
                 // withPortal
                 fixedHeight
               />
