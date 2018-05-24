@@ -32,9 +32,8 @@ class UserAddedCars extends React.Component {
       features: this.state.selectedOptions
     })
 
-    // const confirm = document.querySelector('.Confirm');
-    // confirm.textContent='dorota dorota';
-    // confirm.classList.add('ConfirmVisible')
+    const confirm = document.querySelector('.Confirm');
+    confirm.classList.add('ConfirmVisible')
   }
 
   handleSubmit = event => {
@@ -57,8 +56,6 @@ class UserAddedCars extends React.Component {
       formError: null
     })
   }
-
-
 
   render() {
     return (
@@ -114,11 +111,15 @@ class UserAddedCars extends React.Component {
               required
             />
             <CarFeatures selectedOptions={this.state.selectedOptions} toggleOption={this.handleOptionChange}/>,
-            <NavLink to="/"><button className="UserAddedCarsBtn" >ADD YOUR VEHICLE</button></NavLink>
+            <button className="UserAddedCarsBtn">ADD YOUR VEHICLE</button>
           </form>
 
-        {/*<div className="Confirm ConfirmVisible">*/}
-        <div>
+        <div className="Confirm">
+          <NavLink to="/" className="UserAddedCarsBtnConfirm">
+            <p>THANK YOU FOR JOINING.</p>
+            <p>YOUR CAR HAS BEEN ADDED </p>
+            <p><small>go back to main page</small></p>
+          </NavLink>
             {
               this.state.cars.map(
                 car =>
