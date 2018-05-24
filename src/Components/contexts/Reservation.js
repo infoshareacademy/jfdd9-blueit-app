@@ -115,7 +115,7 @@ export class ReservationProvider extends Component {
   }
 
   componentWillUnmount() {
-    if (this.unsubscribe){
+    if (this.unsubscribe) {
       this.unsubscribe()
     }
     if (this.reservationRef) {

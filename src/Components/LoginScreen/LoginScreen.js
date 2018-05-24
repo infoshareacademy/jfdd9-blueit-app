@@ -7,8 +7,8 @@ class LoginScreen extends Component {
   render() {
     return (
       <Fragment>
-      <SignInForm/>
-      <SignUpForm/>
+        <SignInForm/>
+        <SignUpForm/>
       </Fragment>
     )
   }

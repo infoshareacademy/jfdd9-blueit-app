@@ -41,6 +41,15 @@
     .CarType {
         width: 100%;
     }
+    .rentsum {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .rentmap {
+
+    }
+
 }
 
 @media screen and (max-width: 650px) {
