@@ -12,6 +12,7 @@ class UserAddedCars extends Component {
     carModel: '',
     carYear: '',
     selectedOptions: [],
+    location: '',
     lat: '',
     lng: '',
     cars: []
@@ -24,16 +25,13 @@ class UserAddedCars extends Component {
   })
 
   addCar = (lat, lng) => {
-    const {cars, ...rest} = this.state
-    // this.setState({
-    //   cars: this.state.cars.concat(rest)
-    // })
     firebase.database().ref('/cars').push({
       carbody: this.state.carType,
       make: this.state.carMake,
       model: this.state.carModel,
       productionYear: this.state.carYear,
       features: this.state.selectedOptions,
+      location: this.state.location,
       lat, lng
     })
   }

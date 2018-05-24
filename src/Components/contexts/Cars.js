@@ -1,4 +1,4 @@
-import React, { Component} from 'react'
+import React, {Component} from 'react'
 import firebase from 'firebase'
 
 const CarContext = React.createContext()
@@ -29,10 +29,11 @@ export class CarProvider extends Component {
   }
 
   componentDidMount() {
-          this.carsRef = firebase.database().ref(`/cars`)
-          this.carsRef.on('value', this.handleCarSnapshot)
+    this.carsRef = firebase.database().ref(`/cars`)
+    this.carsRef.on('value', this.handleCarSnapshot)
 
   }
+
   componentWillUnmount() {
     if (this.carsRef) {
       this.carsRef.off('value', this.handleCarSnapshot)
@@ -40,7 +41,8 @@ export class CarProvider extends Component {
   }
 
 }
-export function withCars (Component) {
+
+export function withCars(Component) {
   function CarAwareComponent(props) {
     return (
       <CarConsumer>

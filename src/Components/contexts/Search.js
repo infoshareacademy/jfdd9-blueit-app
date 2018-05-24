@@ -5,7 +5,6 @@ const SearchContext = React.createContext();
 export const SearchConsumer = SearchContext.Consumer;
 
 
-
 export class SearchProvider extends Component {
 
   state = {
@@ -24,8 +23,6 @@ export class SearchProvider extends Component {
       this.setState({searchTerm: term})
     }
   }
-
-
 
 
   render() {
