@@ -12,6 +12,7 @@ import withRouter from "react-router-dom/es/withRouter";
 import Link from "react-router-dom/es/Link";
 import CarMap from "../../CarMap/CarMap.js";
 import './ReservationConfrim.css'
+import {flattenArrayOfArrays} from "../../../_utils_/flattenArrayOfArrays";
 
 class ReservationConfirm extends Component {
 
@@ -63,7 +64,7 @@ class ReservationConfirm extends Component {
   };
 
   excludedDates = (startDate, endDate) => {
-    debugger
+    // debugger
     let datesArray = []
 
     const currentDateConst = moment(startDate)
@@ -77,15 +78,14 @@ class ReservationConfirm extends Component {
     return datesArray
   };
 
-  componentDidMount() {
+  render() {
+    let datesToExclude = []
     this.props.reservations.filter(reservation =>
       reservation.carId === this.state.carId
     ).map(reservation =>
-      this.excludedDates(reservation.startDate, reservation.endDate)
+      datesToExclude.push(this.excludedDates(reservation.startDate, reservation.endDate))
     )
-  }
 
-  render() {
     // console.log('EXCLUDED FUNCTION', this.excludedDates('2018-06-07', '2018-06-09'))
     // let excludedDates2 = []
     // console.log('ReservationConfirm render (this.props)', this.props)
@@ -138,7 +138,7 @@ class ReservationConfirm extends Component {
                 startDate={this.state.startDate}
                 endDate={this.state.endDate}
                 onChange={this.handleChangeStartDate}
-                // excludeDates={excludedDates}
+                excludeDates={flattenArrayOfArrays(datesToExclude)}
                 // withPortal
                 fixedHeight
               />
@@ -162,6 +162,7 @@ class ReservationConfirm extends Component {
                 endDate={this.state.endDate}
                 onChange={this.handleChangeEndDate}
                 disabled={this.isStartDateEmpty()}
+                excludeDates={flattenArrayOfArrays(datesToExclude)}
                 // withPortal
                 fixedHeight
               >
