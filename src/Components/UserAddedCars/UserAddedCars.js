@@ -1,16 +1,19 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, Component} from 'react'
 import CarFeatures from '../CarFeatures/CarFeatures'
 import firebase from 'firebase'
 import './UserAddedCars.css'
+import Geocode from "react-geocode";
 
 
-class UserAddedCars extends React.Component {
+class UserAddedCars extends Component {
   state = {
     carType: '',
     carMake: '',
     carModel: '',
     carYear: '',
     selectedOptions: [],
+    lat: '',
+    lng: '',
     cars: []
   }
 
@@ -20,7 +23,7 @@ class UserAddedCars extends React.Component {
       this.state.selectedOptions.concat(option)
   })
 
-  addCar = () => {
+  addCar = (lat, lng) => {
     const {cars, ...rest} = this.state
     // this.setState({
     //   cars: this.state.cars.concat(rest)
@@ -30,7 +33,8 @@ class UserAddedCars extends React.Component {
       make: this.state.carMake,
       model: this.state.carModel,
       productionYear: this.state.carYear,
-      features: this.state.selectedOptions
+      features: this.state.selectedOptions,
+      lat, lng
     })
   }
 
@@ -45,16 +49,26 @@ class UserAddedCars extends React.Component {
       return
     }
 
-    this.addCar()
+    Geocode.fromAddress(this.state.location).then(
+      response => {
+        const {lat, lng} = response.results[0].geometry.location;
+        console.log(lat, lng);
+        this.addCar(lat, lng)
+      },
+      error => {
+        console.error(error);
+      }
+    )
+
   }
 
   handleChange = event => {
+    console.log(event.target.value)
     this.setState({
       [event.target.name]: event.target.value,
       formError: null
     })
   }
-
 
   render() {
     return (
@@ -66,26 +80,18 @@ class UserAddedCars extends React.Component {
             {this.state.formError && <p data-testid="car-error">{this.state.formError.message}</p>}
             <h4>Car Type:</h4>
             <select
-                    className="UserAddedCarsSelector"
-                    value={this.state.carType}
-                    onChange={this.handleChange}
-                    name="carType"
+              className="UserAddedCarsSelector"
+              value={this.state.carType}
+              onChange={this.handleChange}
+              name="carType"
             >
               <option>choose one</option>
-              <option>SUV</option>
-              <option>minivan</option>
-              <option>fullsize</option>
-              <option>compact</option>
+              <option value={'suv'}>SUV</option>
+              <option value={'minivan'}>minivan</option>
+              <option value={'fullsize'}>fullsize</option>
+              <option value={'compact'}>compact</option>
             </select>
-            {/*<input*/}
-              {/*className="UserAddedInput"*/}
-              {/*data-testid="carType-input"*/}
-              {/*name="carType"*/}
-              {/*value={this.state.carType}*/}
-              {/*onChange={this.handleChange}*/}
-              {/*placeholder="choose between: SUV, minivan, fullsize, compact"*/}
-              {/*required*/}
-            {/*/>*/}
+
             <h4>Car make:</h4>
             <input
               className="UserAddedInput"
@@ -117,6 +123,17 @@ class UserAddedCars extends React.Component {
               placeholder="enter year in xxxx -format"
               required
             />
+            <h4>Car location</h4>
+            <input
+              type="text"
+              className="UserAddedInput"
+              data-testid="location-input"
+              name="location"
+              value={this.state.location}
+              onChange={this.handleChange}
+              placeholder="enter address "
+              required
+            />
             <CarFeatures selectedOptions={this.state.selectedOptions} toggleOption={this.handleOptionChange}/>,
             <button className="UserAddedCarsBtn">ADD YOUR VEHICLE</button>
           </form>
@@ -131,6 +148,7 @@ class UserAddedCars extends React.Component {
                     <p><strong>model: </strong>{car.carModel}</p>
                     <p><strong>year: </strong>{car.carYear}</p>
                     <p><strong>features: </strong>{car.selectedOptions}</p>
+                    <p><strong>location:</strong>{car.location}</p>
                   </Fragment>
               )
             }
