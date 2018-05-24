@@ -21,23 +21,28 @@ class CarImg extends React.Component {
         {
           this.props.cars.slice(0, 5).map(
             car => (
-              <CarItem car={car}/>
+              <CarItem key={car.id} car={car}/>
             )
           )
         }
 
-        <div className="ShowMore">
-          <button id="show"
-                  className={this.clickHeandler.includes ? 'ShowMore' : 'ShowLess'}
-                  onClick={this.clickHeandler}
-          >
-            {this.state.buttonText}</button>
-        </div>
+        {
+          this.props.cars.length > 5 ?
+            <div className="ShowMore">
+              <button id="show"
+                      className={this.clickHeandler.includes ? 'ShowMore' : 'ShowLess'}
+                      onClick={this.clickHeandler}
+              >
+                {this.state.buttonText}</button>
+            </div> :
+            undefined
+        }
+
 
         {
           this.state.showMore && this.props.cars.slice(5, this.state.showMore ? undefined : 5).map(
             car => (
-              <CarItem car={car}/>
+              <CarItem key={car.id} car={car}/>
             )
           )
         }

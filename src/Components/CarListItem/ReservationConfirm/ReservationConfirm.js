@@ -44,7 +44,7 @@ class ReservationConfirm extends Component {
       startDate: date,
       endDate: (this.state.endDate > moment(date).add(14, "days")) ?
         moment(date).add(14, "days") :
-        this.state.endDate
+        date
     }, this.passToParent)
   };
 
@@ -61,13 +61,6 @@ class ReservationConfirm extends Component {
   passToParent = () => {
     this.props.rentDates(this.state.startDate, this.state.endDate)
   };
-
-  // componentDidMount() {
-  //   this.setState({
-  //     carId: 5
-  //   })
-  // }
-
 
   render() {
     console.log('ReservationConfirm render (this.props)', this.props)
@@ -86,14 +79,6 @@ class ReservationConfirm extends Component {
       <Fragment>
 
         <h2>Rental summary</h2>
-
-        {/*<CarItem car={this.props.cars.find(car =>*/}
-        {/*car.id === this.props.currentReservation.carId*/}
-        {/*)}/>*/}
-
-        {/*<CarItem car={this.props.cars.find(car =>*/}
-        {/*car.id === this.props.match.params.carId*/}
-        {/*)}/>*/}
 
         <CarItem noRentBtn={this.state.noRentBtn}
                  car={car}/>
@@ -170,7 +155,8 @@ class ReservationConfirm extends Component {
               </Link>
             </div>
           </form>
-          <div className={'rentmap'} style={{width: '50%', height: '90%', position: 'absolute', right: '5%', top: '5%' }}>
+          <div className={'rentmap'}
+               style={{width: '50%', height: '90%', position: 'absolute', right: '5%', top: '5%'}}>
             <CarMap car={car}/>
           </div>
         </div>
