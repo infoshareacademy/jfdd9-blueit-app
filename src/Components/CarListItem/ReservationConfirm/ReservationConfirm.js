@@ -149,13 +149,12 @@ class ReservationConfirm extends Component {
                 placeholderText="End date"
                 minDate={moment(this.state.startDate)}
                 maxDate={
-                  datesToExclude.length > 0 && flattenArrayOfArrays(datesToExclude
+                  (datesToExclude.length > 0 && flattenArrayOfArrays(
+                    datesToExclude
                   ).map(item => moment(item)).filter(
                     date =>
                       date.isAfter(this.state.startDate)
-                  ).sort()[0]
-                  ||
-                  moment(this.state.startDate).add(14, "days")
+                  ).sort((a, b) => a.isBefore(b) ? -1 : a.isAfter(b) ? 1 : 0)[0]) || moment(this.state.startDate).add(14, "days")
                 }
                 selected={this.state.startDate === null ?
                   undefined :
