@@ -1,23 +1,30 @@
 .ConfirmScreen{
-    /*visibility:hidden;*/
+    visibility:hidden;
+}
+
+.ConfirmScreenVisible{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-direction: column;
     position:absolute;
     top: 20%;
     left: 25%;
-    min-width: 50%;
+    right: 25%;
+    /*right: %;*/
+    max-width: 50%;
     min-height: 30%;
-    background-color: rgba(11, 17, 82, 0.76);
+    padding: 2em;
+    background-color: rgb(11, 17, 82);
     color: #fff;
     visibility: visible;
     border-radius: 5px;
-    box-shadow: 0 20px 10px 5px #0b1139;
+    box-shadow: 0 10px 10px 5px rgba(11, 17, 57, 0.68);
 }
 
-.ConfirmScreenVisible{
-
+.ConfirmScreenBtn{
+    display: flex;
+    flex-direction: row;
 }
 
 .UserAddedCarsContainer{
@@ -68,12 +75,17 @@ input:focus {
     text-decoration: none;
 }
 
+.UserAddedCarsBtn:hover {
+    background-color: rgba(14, 18, 89, 0.9);
+    transition: all .4s;
+}
+
 .UserAddedCarsBtnConfirm{
-    padding: 20px;
+    padding: 10px;
     width: fit-content;
     color: #0b1139;
     background-color: rgb(255, 255, 255);
-    font-size: 24px;
+    font-size: 1.4rem;
     border: 1px solid #0b1139;
     border-radius: 5px;
     cursor: pointer;
@@ -81,7 +93,7 @@ input:focus {
     text-decoration: none;
 }
 
-.UserAddedCarsBtn:hover {
-    background-color: rgba(14, 18, 89, 0.9);
+.UserAddedCarsBtnConfirm:hover{
+    background-color: rgb(219, 219, 219);
     transition: all .4s;
 }
