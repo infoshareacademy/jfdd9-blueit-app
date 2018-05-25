@@ -36,13 +36,13 @@ class UserAddedCars extends Component {
       location: this.state.location,
       lat, lng
     })
-
-    const confirm = document.querySelector('.Confirm');
-    confirm.classList.add('ConfirmVisible')
   }
 
   handleSubmit = event => {
     event.preventDefault()
+
+    const confirm = document.querySelector('.Confirm');
+    confirm.classList.add('ConfirmScreenVisible')
 
     if (this.state.carType.trim() === '') {
       this.setState({
@@ -62,7 +62,6 @@ class UserAddedCars extends Component {
         console.error(error);
       }
     )
-
   }
 
   handleChange = event => {
@@ -72,7 +71,6 @@ class UserAddedCars extends Component {
       formError: null
     })
   }
-
 
   render() {
     return (
@@ -142,13 +140,13 @@ class UserAddedCars extends Component {
             <CarFeatures selectedOptions={this.state.selectedOptions} toggleOption={this.handleOptionChange}/>,
             <button className="UserAddedCarsBtn">ADD YOUR VEHICLE</button>
           </form>
-
-        <div className="Confirm">
+        <div className="ConfirmScreen">
+          <h1>THANK YOU FOR JOINING.</h1>
+          <h1>YOUR CAR HAS BEEN ADDED </h1>
           <NavLink to="/" className="UserAddedCarsBtnConfirm">
-            <p>THANK YOU FOR JOINING.</p>
-            <p>YOUR CAR HAS BEEN ADDED </p>
-            <p><small>go back to main page</small></p>
+            GO BACK TO MAIN PAGE
           </NavLink>
+        </div><div>
             {
               this.state.cars.map(
                 car =>
