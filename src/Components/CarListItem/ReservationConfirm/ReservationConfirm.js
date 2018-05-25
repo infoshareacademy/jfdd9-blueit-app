@@ -79,10 +79,14 @@ class ReservationConfirm extends Component {
   };
 
   render() {
+    const car = this.props.cars.find(car =>
+      car.id === this.state.carId
+    )
+    if (this.state.carId === null) {
+      return <div/>
+    }
     let datesToExclude = []
-    this.props.reservations.filter(reservation =>
-      reservation.carId === this.state.carId
-    ).map(reservation =>
+    car.reservedFor && Object.values(car.reservedFor).forEach(reservation =>
       datesToExclude.push(this.excludedDates(reservation.startDate, reservation.endDate))
     )
 
@@ -92,6 +96,7 @@ class ReservationConfirm extends Component {
     // console.log('Router id:', this.props.match.params.carId)
     // console.log(this.state)
     // console.log('RESERVATIONS IN STATE', this.props.reservations)
+    console.log('CARS IN STATE', this.props.cars)
     // console.log('MOMENT SUBSTRACTION', (moment('2018-06-05').diff(moment('2018-06-01'), 'days')+1))
     // console.log('FIND RESERVATION', this.props.reservations.filter(reservation =>
     //   reservation.carId === this.state.carId
@@ -100,13 +105,9 @@ class ReservationConfirm extends Component {
     // ))
     // console.log('EXCLUDED DATES ARRAY', excludedDates2)
 
-    if (this.state.carId === null) {
-      return <div/>
-    }
 
-    const car = this.props.cars.find(car =>
-      car.id === this.state.carId
-    )
+
+
 
     // let excluded = this.props.reservations.find(reservation =>
     //   reservation.carId === this.state.carId
@@ -152,7 +153,8 @@ class ReservationConfirm extends Component {
                   ).map(item => moment(item)).filter(
                     date =>
                       date.isAfter(this.state.startDate)
-                  ).sort()[0] ||
+                  ).sort()[0]
+                  ||
                   moment(this.state.startDate).add(14, "days")
                 }
                 selected={this.state.startDate === null ?
