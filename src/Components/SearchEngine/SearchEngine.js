@@ -8,6 +8,8 @@ import {withCars} from "../contexts/Cars";
 import RentDateForm from "../RentDateForm/RentDateForm";
 import {withReservation} from "../contexts/Reservation";
 import moment from 'moment'
+import CarOwned from '../CarOwned/CarOwned'
+import {withUser} from "../contexts/User";
 
 
 const KEYS_TO_FILTERS = [
@@ -26,6 +28,8 @@ class SearchEngine extends Component {
     console.log('SearchEngine dates from reservation', startDateFromDatePicker, endDateFromDatePicker)
 
     const filteredCars = this.props.cars.filter(
+      car => this.props.isOwned ? car.ownerId === this.props.user.uid : true
+    ).filter(
       createFilter(this.props.searchTerm, KEYS_TO_FILTERS)
     ).filter(
       car => this.props.selectedOptions.every(
@@ -40,8 +44,8 @@ class SearchEngine extends Component {
       //debugger
       return reservations.every(
         reservation => {
-        console.log('MOMENT', moment(reservation.endDate))
-        return moment(reservation.endDate).isBefore(startDateFromDatePicker) || moment(reservation.startDate).isAfter(endDateFromDatePicker)
+          console.log('MOMENT', moment(reservation.endDate))
+          return moment(reservation.endDate).isBefore(startDateFromDatePicker) || moment(reservation.startDate).isAfter(endDateFromDatePicker)
         }
       )
     })
@@ -59,7 +63,11 @@ class SearchEngine extends Component {
         <CarFeatures
           selectedOptions={this.props.selectedOptions}
           toggleOption={this.props.toggleOption}
+          toogleOwned={this.props.toggleOwned}
         />
+
+      <CarOwned/>
+
         <CarImg
           cars={filteredCars}
         />
@@ -70,4 +78,4 @@ class SearchEngine extends Component {
 
 }
 
-export default withReservation(withCars(withSearch(SearchEngine)))
+export default withUser(withReservation(withCars(withSearch(SearchEngine))))

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import './CarFeatures.css'
 
 const options = [
@@ -9,14 +9,17 @@ const options = [
   'Pet friendly',
   'Tour guide',
   'Cable TV',
-  'Private bathroom'
+  'Private bathroom',
+
 
 ];
+
 
 
 class CarFeatures extends React.Component {
   render() {
     return (
+      <Fragment>
       <div className='CarFeatures'>
         {options.map(
           option => (
@@ -31,7 +34,8 @@ class CarFeatures extends React.Component {
             </p>
           )
         )}
-      </div>
+        </div>
+      </Fragment>
     )
   }
 }

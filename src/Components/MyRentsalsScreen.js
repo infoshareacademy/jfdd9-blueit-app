@@ -35,6 +35,7 @@ class MyRentsalsScreen extends Component {
                           <strong>{(options[car.carbody] || {}).label || 'Car Undefined'}</strong>
                           <span>{car.make}, {car.model}</span>
                         </p>
+                        <span><strong>Location: </strong>{car.location}</span>
                         {
                           car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>
                         }

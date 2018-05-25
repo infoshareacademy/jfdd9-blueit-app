@@ -15,6 +15,7 @@ class UserAddedCars extends Component {
     location: '',
     lat: '',
     lng: '',
+    ownerId: '',
     cars: []
   }
 
@@ -32,9 +33,12 @@ class UserAddedCars extends Component {
       productionYear: this.state.carYear,
       features: this.state.selectedOptions,
       location: this.state.location,
+      ownerId: firebase.auth().currentUser.uid,
       lat, lng
     })
   }
+
+
 
   handleSubmit = event => {
     event.preventDefault()
@@ -152,6 +156,7 @@ class UserAddedCars extends Component {
             }
           </div>
         </div>
+
       </Fragment>
     )
   }
