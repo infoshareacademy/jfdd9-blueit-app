@@ -70,7 +70,7 @@ class ReservationConfirm extends Component {
     const currentDateConst = moment(startDate)
     const endDateConst = moment(endDate)
     datesArray.push(currentDateConst.format('YYYY-MM-DD'))
-    while(currentDateConst.add(1, 'days').diff(endDateConst) <= 0) {
+    while (currentDateConst.add(1, 'days').diff(endDateConst) <= 0) {
       // console.log('currentDateConst:', currentDateConst, 'endDateConst', endDateConst)
       datesArray.push(currentDateConst.clone().format('YYYY-MM-DD'))
     }
@@ -112,8 +112,6 @@ class ReservationConfirm extends Component {
     //   reservation.carId === this.state.carId
     // ).calculateExcludedDates(reservation.startDate, reservation.endDate)
 
-
-
     return (
       <Fragment>
 
@@ -149,7 +147,14 @@ class ReservationConfirm extends Component {
                 dateFormat="YYYY/MM/DD"
                 placeholderText="End date"
                 minDate={moment(this.state.startDate)}
-                maxDate={moment(this.state.startDate).add(14, "days")}
+                maxDate={
+                  datesToExclude.length > 0 && flattenArrayOfArrays(datesToExclude
+                  ).map(item => moment(item)).filter(
+                    date =>
+                      date.isAfter(this.state.startDate)
+                  ).sort()[0] ||
+                  moment(this.state.startDate).add(14, "days")
+                }
                 selected={this.state.startDate === null ?
                   undefined :
                   (this.state.startDate > this.state.endDate) ?
