@@ -11,7 +11,7 @@
     align-items: center;
     background-color: rgba(24, 48, 255, 0.08);
     border-radius: 15px;
-    margin: 10px auto;
+    margin: 20px auto;
     width: 80%;
     height: 220px;
     font-size: 20px;
@@ -30,6 +30,28 @@
     width: 55%;
 }
 
+#show.ShowLess {
+    display: block;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    color: #FFF;
+    font-size: 20px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+#show.ShowLess {
+    background-color: rgba(89, 0, 8, 0.8);
+}
+
+#show.ShowLess:hover {
+    background-color: rgba(89, 0, 8, 0.9);
+    transition: all .4s;
+}
+
 @media screen and (max-width: 1200px) {
     .CarInfo {
         width: 45%;
@@ -38,8 +60,9 @@
 }
 
 @media screen and (max-width: 768px) {
-    .CarType {
-        width: 100%;
+    .CarType,
+    #show.ShowLess {
+        width: 98%;
     }
 }
 
@@ -67,31 +90,4 @@
     .CarType {
         height: 250px;
     }
-}
-
-#show.ShowLess {
-    padding: 20px;
-    margin: 10px auto;
-    width: 250px;
-    color: #FFF;
-/ / background-color: coral;
-    font-size: 26px;
-    font-weight: bold;
-    border: 0;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all .4s;
-}
-
-#show.ShowLess {
-    background-color: rgba(89, 0, 8, 0.8);
-}
-
-#show.ShowLess:hover {
-    background-color: rgba(89, 0, 8, 0.9);
-    transition: all .4s;
-}
-
-.ShowMore {
-    text-align: center;
 }

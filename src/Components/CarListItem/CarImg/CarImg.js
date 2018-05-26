@@ -1,18 +1,18 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import '../CarImg/ShowMore.css'
 import CarItem from "../CarItem";
 
 class CarImg extends React.Component {
   state = {
     showMore: false,
-    buttonText: 'SHOW MORE'
+    buttonText: 'Show more'
   }
 
   clickHeandler = () => {
     this.state.showMore ?
-      this.setState({showMore: false, buttonText: 'SHOW MORE'})
+      this.setState({showMore: false, buttonText: 'Show more'})
       :
-      this.setState({showMore: true, buttonText: 'SHOW LESS'})
+      this.setState({showMore: true, buttonText: 'Show less'})
   }
 
   render() {
@@ -28,13 +28,13 @@ class CarImg extends React.Component {
 
         {
           this.props.cars.length > 5 ?
-            <div className="ShowMore">
+            <Fragment>
               <button id="show"
                       className={this.clickHeandler.includes ? 'ShowMore' : 'ShowLess'}
                       onClick={this.clickHeandler}
               >
                 {this.state.buttonText}</button>
-            </div> :
+            </Fragment> :
             undefined
         }
 
