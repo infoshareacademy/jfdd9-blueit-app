@@ -1,5 +1,6 @@
 .ButtonBlue,
-.ButtonRed {
+.ButtonRed,
+.ButtonDisabled {
     padding: 13px;
     margin: 20px 1rem;
     width: 150px;
@@ -29,6 +30,12 @@
 .ReservationConfirmButtonsContainer {
     text-align: center;
     margin: 30px 10px;
+}
+
+.ButtonDisabled,
+.ButtonDisabled:hover {
+    background-color: #aaa;
+    cursor: inherit;
 }
 
 @media screen and (max-width: 650px) {

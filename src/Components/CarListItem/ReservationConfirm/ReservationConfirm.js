@@ -185,18 +185,32 @@ class ReservationConfirm extends Component {
                 </button>
               </Link>
 
-              <Link to="/my-rentals-screen">
-                <button
-                  className="ButtonBlue"
-                  onClick={
-                    () => {
-                      this.props.makeReservation(this.state)
-                    }
-                  }
-                >
-                  Confirm
-                </button>
-              </Link>
+              {
+                this.state.startDate && this.state.endDate ?
+                  (
+                    <Link to="/my-rentals-screen">
+                      <button
+                        className="ButtonBlue"
+                        onClick={
+                          () => {
+                            this.props.makeReservation(this.state)
+                          }
+                        }
+                      >
+                        Confirm
+                      </button>
+                    </Link>
+                  ) :
+                  (
+                    <button
+                      className="ButtonBlue ButtonDisabled"
+                      disabled="true"
+                    >
+                      Confirm
+                    </button>
+                  )
+              }
+
             </div>
           </form>
           <div className={'rentmap'}>
