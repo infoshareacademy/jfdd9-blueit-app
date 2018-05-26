@@ -20,7 +20,7 @@
     height: 100%;
     font-family: Nunito, sans-serif;;
     font-size: 2em;
-    letter-spacing: 0.4rem;
+    letter-spacing: 0.2rem;
     text-align: center;
     padding: 0 5px;
 }
@@ -37,7 +37,7 @@
     color: lightgray;
 }
 
-.menu__button:focus  {
+.menu__button:focus {
     text-decoration: none;
     font-weight: bold;
     color: white;
@@ -60,19 +60,19 @@
 
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) {
     .menu__button {
         font-size: 1.5em;
     }
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
     .menu__button {
         font-size: 1em;
     }
 }
 
-@media screen and (max-width: 550px){
+@media screen and (max-width: 550px) {
     .menu__button {
         font-size: 0.7em;
         letter-spacing: 0.1rem;

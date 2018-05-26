@@ -64,7 +64,8 @@ class RentDateForm extends Component {
             // withPortal
             fixedHeight
           />
-
+        {/*</div>*/}
+        {/*<div className="datePicker__container">*/}
           <DatePicker
             className="RentDateForm"
             locale="en-gb"

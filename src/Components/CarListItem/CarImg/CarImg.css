@@ -13,7 +13,7 @@
     border-radius: 15px;
     margin: 20px auto;
     width: 80%;
-    height: 220px;
+    min-height: 150px;
     font-size: 20px;
     padding-left: 20px;
 }
@@ -64,15 +64,11 @@
     #show.ShowLess {
         width: 98%;
     }
+
     .rentsum {
         flex-direction: column;
         width: 100%;
     }
-
-    .rentmap {
-
-    }
-
 }
 
 @media screen and (max-width: 650px) {
@@ -82,21 +78,21 @@
 
     .CarInfo {
         margin-left: 0;
-        font-size: 16px;
+        font-size: 20px;
         width: 100%;
 
     }
 
     .CarType {
-        height: 240px;
+        /*height: auto;*/
         padding: 0 10px;
         flex-direction: column;
         justify-content: space-around;
     }
 }
 
-@media screen and (max-width: 450px) {
-    .CarType {
-        height: 250px;
-    }
-}
+/*@media screen and (max-width: 450px) {*/
+/*.CarType {*/
+/*height: 250px;*/
+/*}*/
+/*}*/

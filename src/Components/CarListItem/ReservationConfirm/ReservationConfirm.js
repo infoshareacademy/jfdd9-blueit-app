@@ -106,9 +106,6 @@ class ReservationConfirm extends Component {
     // console.log('EXCLUDED DATES ARRAY', excludedDates2)
 
 
-
-
-
     // let excluded = this.props.reservations.find(reservation =>
     //   reservation.carId === this.state.carId
     // ).calculateExcludedDates(reservation.startDate, reservation.endDate)
@@ -123,9 +120,9 @@ class ReservationConfirm extends Component {
         <div className={'rentsum'}>
           <form onSubmit={this.handleSubmit} className={'rentsumform'}>
 
-            <div className="datePicker__container">
+            <div className="datePicker__container__ReservationConfirm">
               <DatePicker
-                className="RentDateForm"
+                className="RentDateForm__ReservationConfirm"
                 locale="en-gb"
                 dateFormat="YYYY/MM/DD"
                 placeholderText="Start date"
@@ -143,7 +140,7 @@ class ReservationConfirm extends Component {
               />
 
               <DatePicker
-                className="RentDateForm"
+                className="RentDateForm__ReservationConfirm"
                 locale="en-gb"
                 dateFormat="YYYY/MM/DD"
                 placeholderText="End date"
@@ -202,8 +199,7 @@ class ReservationConfirm extends Component {
               </Link>
             </div>
           </form>
-          <div className={'rentmap'}
-               style={{width: '50%', height: '90%', position: 'absolute', right: '5%', top: '5%'}}>
+          <div className={'rentmap'}>
             <CarMap car={car}/>
           </div>
         </div>
