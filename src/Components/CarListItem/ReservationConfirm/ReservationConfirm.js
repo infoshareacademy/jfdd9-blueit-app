@@ -182,7 +182,7 @@ class ReservationConfirm extends Component {
             <div className="ReservationConfirmButtonsContainer">
               <Link to="/">
                 <button
-                  className="RentBtnReserved"
+                  className="ButtonRed"
                 >
                   Cancel
                 </button>
@@ -190,7 +190,7 @@ class ReservationConfirm extends Component {
 
               <Link to="/my-rentals-screen">
                 <button
-                  className="RentBtn"
+                  className="ButtonBlue"
                   onClick={
                     () => {
                       this.props.makeReservation(this.state)

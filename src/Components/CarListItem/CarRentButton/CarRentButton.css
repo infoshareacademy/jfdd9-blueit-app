@@ -1,5 +1,5 @@
-.RentBtn,
-.RentBtnReserved {
+.ButtonBlue,
+.ButtonRed {
     padding: 20px;
     margin: 10px 1rem;
     width: 150px;
@@ -12,16 +12,16 @@
     transition: all .4s;
 }
 
-.RentBtn:hover {
+.ButtonBlue:hover {
     background-color: rgba(14, 18, 89, 0.9);
     transition: all .4s;
 }
 
-.RentBtnReserved {
+.ButtonRed {
     background-color: rgba(89, 0, 8, 0.8);
 }
 
-.RentBtnReserved:hover {
+.ButtonRed:hover {
     background-color: rgba(89, 0, 8, 0.9);
     transition: all .4s;
 }
@@ -32,8 +32,8 @@
 }
 
 @media screen and (max-width: 650px) {
-    .RentBtn,
-    .RentBtnReserved {
+    .ButtonBlue,
+    .ButtonRed {
         font-size: 16px;
         width: 120px;
 

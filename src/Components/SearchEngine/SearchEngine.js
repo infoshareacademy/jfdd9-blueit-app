@@ -55,6 +55,7 @@ class SearchEngine extends Component {
     return (
       <Fragment>
         <button
+          className="ButtonRed"
           onClick={this.clearFilters}
         >
           Clear filters
