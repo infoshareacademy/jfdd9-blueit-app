@@ -19,6 +19,11 @@ const KEYS_TO_FILTERS = [
 
 class SearchEngine extends Component {
 
+  clearFilters = () =>{
+    this.props.clearSearchState()
+    this.props.clearReservationDates()
+  }
+
   render() {
     console.log('SearchEngine Cars object', Object.values(this.props.cars))
 
@@ -49,6 +54,11 @@ class SearchEngine extends Component {
 
     return (
       <Fragment>
+        <button
+          onClick={this.clearFilters}
+        >
+          Clear filters
+        </button>
         <RentDateForm rentDates={this.props.rentDates}/>
         <SearchInput
           placeholder={"Type make, model and/or year of production here"}

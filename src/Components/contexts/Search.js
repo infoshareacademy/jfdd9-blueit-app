@@ -22,9 +22,15 @@ export class SearchProvider extends Component {
 
     searchUpdated: (term) => {
       this.setState({searchTerm: term})
-    }
-  }
+    },
 
+
+  clearSearchState: () =>
+    this.setState({
+      selectedOptions: [],
+      searchTerm: ''
+    })
+  }
 
 
 
