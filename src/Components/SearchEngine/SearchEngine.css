@@ -42,7 +42,6 @@
 }
 
 @media screen and (max-width: 768px) {
-    /*.ButtonClearFilters,*/
     .search-input > input {
         width: 98%;
     }
