@@ -3,7 +3,7 @@ import CarFeatures from '../CarFeatures/CarFeatures'
 import firebase from 'firebase'
 import './UserAddedCars.css'
 import Geocode from "react-geocode";
-
+import {NavLink} from 'react-router-dom'
 
 class UserAddedCars extends Component {
   state = {
@@ -12,10 +12,13 @@ class UserAddedCars extends Component {
     carModel: '',
     carYear: '',
     selectedOptions: [],
+    location: '',
     lat: '',
     lng: '',
     cars: []
-  }
+      }
+
+
 
   handleOptionChange = option => this.setState({
     selectedOptions: this.state.selectedOptions.includes(option) ?
@@ -24,18 +27,18 @@ class UserAddedCars extends Component {
   })
 
   addCar = (lat, lng) => {
-    const {cars, ...rest} = this.state
-    // this.setState({
-    //   cars: this.state.cars.concat(rest)
-    // })
     firebase.database().ref('/cars').push({
       carbody: this.state.carType,
       make: this.state.carMake,
       model: this.state.carModel,
       productionYear: this.state.carYear,
       features: this.state.selectedOptions,
+      location: this.state.location,
       lat, lng
     })
+
+    const confirm = document.querySelector('.Confirm');
+    confirm.classList.add('ConfirmVisible')
   }
 
   handleSubmit = event => {
@@ -70,16 +73,18 @@ class UserAddedCars extends Component {
     })
   }
 
+
   render() {
     return (
       <Fragment>
         <div className="UserAddedCarsContainer">
-          <h1>Here is an option to add your own vehicle to our fleet</h1>
-          <h2>Please fill in all fields thoroughly:</h2>
+          <h1>Register your car with us and become part of Blue Sky Family</h1>
+          <h2>Please fill in each field thoroughly:</h2>
           <form onSubmit={this.handleSubmit} data-testid="car-form">
             {this.state.formError && <p data-testid="car-error">{this.state.formError.message}</p>}
             <h4>Car Type:</h4>
             <select
+              required
               className="UserAddedCarsSelector"
               value={this.state.carType}
               onChange={this.handleChange}
@@ -91,7 +96,6 @@ class UserAddedCars extends Component {
               <option value={'fullsize'}>fullsize</option>
               <option value={'compact'}>compact</option>
             </select>
-
             <h4>Car make:</h4>
             <input
               className="UserAddedInput"
@@ -114,13 +118,14 @@ class UserAddedCars extends Component {
             />
             <h4>Car make year:</h4>
             <input
-              type="number"
+              maxLength="4"
+              // type="number"
               className="UserAddedInput"
               data-testid="carYear-input"
               name="carYear"
               value={this.state.carYear}
               onChange={this.handleChange}
-              placeholder="enter year in xxxx -format"
+              placeholder="enter year in xxxx -format, numbers only"
               required
             />
             <h4>Car location</h4>
@@ -137,8 +142,13 @@ class UserAddedCars extends Component {
             <CarFeatures selectedOptions={this.state.selectedOptions} toggleOption={this.handleOptionChange}/>,
             <button className="UserAddedCarsBtn">ADD YOUR VEHICLE</button>
           </form>
-          <div className="UserAddedCarsConfirmation">
 
+        <div className="Confirm">
+          <NavLink to="/" className="UserAddedCarsBtnConfirm">
+            <p>THANK YOU FOR JOINING.</p>
+            <p>YOUR CAR HAS BEEN ADDED </p>
+            <p><small>go back to main page</small></p>
+          </NavLink>
             {
               this.state.cars.map(
                 car =>

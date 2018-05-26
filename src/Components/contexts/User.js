@@ -5,11 +5,11 @@ const UserContext = React.createContext()
 export const UserConsumer = UserContext.Consumer
 
 export class UserProvider extends Component {
-  state= {
+  state = {
     signInError: null,
     user: null,
     signIn: (username, password) => {
-      firebase.auth().signInWithEmailAndPassword(username, password).catch (
+      firebase.auth().signInWithEmailAndPassword(username, password).catch(
         error => this.setState({
           signInError: error
         })
@@ -17,20 +17,22 @@ export class UserProvider extends Component {
     },
     signOut: () => firebase.auth().signOut(),
     signUp: (username, password) => {
-    return firebase.auth().createUserWithEmailAndPassword(username, password)
+      return firebase.auth().createUserWithEmailAndPassword(username, password)
     }
   }
 
   componentDidMount() {
     this.unsubscribe = firebase.auth().onAuthStateChanged(
-      user => this.setState({ user: user })
+      user => this.setState({user: user})
     )
   }
+
   componentWillUnmount() {
     if (this.unsubscribe) {
       this.unsubscribe()
     }
   }
+
   render() {
     return (
       <UserContext.Provider value={this.state}>
@@ -39,6 +41,7 @@ export class UserProvider extends Component {
     )
   }
 }
+
 export function withUser(Component) {
   function UserAwareComponent(props) {
     return (

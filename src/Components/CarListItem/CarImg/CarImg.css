@@ -64,6 +64,15 @@
     #show.ShowLess {
         width: 98%;
     }
+    .rentsum {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .rentmap {
+
+    }
+
 }
 
 @media screen and (max-width: 650px) {

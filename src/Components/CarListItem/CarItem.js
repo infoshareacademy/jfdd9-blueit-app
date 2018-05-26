@@ -42,6 +42,7 @@ class CarItem extends Component {
           <p>
             <strong>{(options[car.carbody] || {}).label || 'Car Undefined'}</strong>
             <span>{car.make}, {car.model}, {car.productionYear}</span>
+            <p>{car.location}</p>
           </p>
           {car.features && car.features.length === 0 ? '' :
             <p><strong>Features:</strong> {car.features && car.features.join(', ')}</p>}
