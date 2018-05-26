@@ -17,7 +17,8 @@
 }
 
 .RentDateForm,
-.RentDateForm__ReservationConfirm {
+.RentDateForm__ReservationConfirm,
+.RentDateForm__ReservationConfirm__Disabled {
     box-sizing: border-box;
     display: block;
     font-size: 16px;
@@ -31,8 +32,17 @@
     box-shadow: 0 0 5px rgba(73, 78, 92, 0.45);
 }
 
-.RentDateForm__ReservationConfirm {
+.RentDateForm__ReservationConfirm,
+.RentDateForm__ReservationConfirm__Disabled {
     width: 35vw;
+}
+
+.RentDateForm__ReservationConfirm__Disabled {
+    background-color: #aaa;
+}
+
+.RentDateForm__ReservationConfirm__Disabled::placeholder {
+    color: #fff;
 }
 
 .CalendarDateTo {
