@@ -12,6 +12,7 @@ import withRouter from "react-router-dom/es/withRouter";
 import Link from "react-router-dom/es/Link";
 import CarMap from "../../CarMap/CarMap.js";
 import './ReservationConfrim.css'
+import {flattenArrayOfArrays} from "../../../_utils_/flattenArrayOfArrays";
 
 class ReservationConfirm extends Component {
 
@@ -24,7 +25,7 @@ class ReservationConfirm extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, currentState) {
-    console.log('ReservationConfirm getDerivedStateFromProps, (nextProps):', nextProps)
+    // console.log('ReservationConfirm getDerivedStateFromProps, (nextProps):', nextProps)
     if (nextProps.currentReservation === null) {
       nextProps.history.push('/')
       return null
@@ -62,18 +63,52 @@ class ReservationConfirm extends Component {
     this.props.rentDates(this.state.startDate, this.state.endDate)
   };
 
-  render() {
-    console.log('ReservationConfirm render (this.props)', this.props)
-    console.log('Router id:', this.props.match.params.carId)
-    console.log(this.state)
+  excludedDates = (startDate, endDate) => {
+    // debugger
+    let datesArray = []
 
-    if (this.state.carId === null) {
-      return <div/>
+    const currentDateConst = moment(startDate)
+    const endDateConst = moment(endDate)
+    datesArray.push(currentDateConst.format('YYYY-MM-DD'))
+    while (currentDateConst.add(1, 'days').diff(endDateConst) <= 0) {
+      // console.log('currentDateConst:', currentDateConst, 'endDateConst', endDateConst)
+      datesArray.push(currentDateConst.clone().format('YYYY-MM-DD'))
     }
+    // console.log('datesArray', datesArray)
+    return datesArray
+  };
 
+  render() {
     const car = this.props.cars.find(car =>
       car.id === this.state.carId
     )
+    if (this.state.carId === null) {
+      return <div/>
+    }
+    let datesToExclude = []
+    car.reservedFor && Object.values(car.reservedFor).forEach(reservation =>
+      datesToExclude.push(this.excludedDates(reservation.startDate, reservation.endDate))
+    )
+
+    // console.log('EXCLUDED FUNCTION', this.excludedDates('2018-06-07', '2018-06-09'))
+    // let excludedDates2 = []
+    // console.log('ReservationConfirm render (this.props)', this.props)
+    // console.log('Router id:', this.props.match.params.carId)
+    // console.log(this.state)
+    // console.log('RESERVATIONS IN STATE', this.props.reservations)
+    console.log('CARS IN STATE', this.props.cars)
+    // console.log('MOMENT SUBSTRACTION', (moment('2018-06-05').diff(moment('2018-06-01'), 'days')+1))
+    // console.log('FIND RESERVATION', this.props.reservations.filter(reservation =>
+    //   reservation.carId === this.state.carId
+    // ).map(reservation =>
+    //   console.log(this.excludedDates(reservation.startDate, reservation.endDate))
+    // ))
+    // console.log('EXCLUDED DATES ARRAY', excludedDates2)
+
+
+    // let excluded = this.props.reservations.find(reservation =>
+    //   reservation.carId === this.state.carId
+    // ).calculateExcludedDates(reservation.startDate, reservation.endDate)
 
     return (
       <Fragment>
@@ -85,9 +120,9 @@ class ReservationConfirm extends Component {
         <div className={'rentsum'}>
           <form onSubmit={this.handleSubmit} className={'rentsumform'}>
 
-            <div className="datePicker__container">
+            <div className="datePicker__container__ReservationConfirm">
               <DatePicker
-                className="RentDateForm"
+                className="RentDateForm__ReservationConfirm"
                 locale="en-gb"
                 dateFormat="YYYY/MM/DD"
                 placeholderText="Start date"
@@ -99,17 +134,25 @@ class ReservationConfirm extends Component {
                 startDate={this.state.startDate}
                 endDate={this.state.endDate}
                 onChange={this.handleChangeStartDate}
+                excludeDates={flattenArrayOfArrays(datesToExclude)}
                 // withPortal
                 fixedHeight
               />
 
               <DatePicker
-                className="RentDateForm"
+                className="RentDateForm__ReservationConfirm"
                 locale="en-gb"
                 dateFormat="YYYY/MM/DD"
                 placeholderText="End date"
                 minDate={moment(this.state.startDate)}
-                maxDate={moment(this.state.startDate).add(14, "days")}
+                maxDate={
+                  (datesToExclude.length > 0 && flattenArrayOfArrays(
+                    datesToExclude
+                  ).map(item => moment(item)).filter(
+                    date =>
+                      date.isAfter(this.state.startDate)
+                  ).sort((a, b) => a.isBefore(b) ? -1 : a.isAfter(b) ? 1 : 0)[0]) || moment(this.state.startDate).add(14, "days")
+                }
                 selected={this.state.startDate === null ?
                   undefined :
                   (this.state.startDate > this.state.endDate) ?
@@ -122,6 +165,7 @@ class ReservationConfirm extends Component {
                 endDate={this.state.endDate}
                 onChange={this.handleChangeEndDate}
                 disabled={this.isStartDateEmpty()}
+                excludeDates={flattenArrayOfArrays(datesToExclude)}
                 // withPortal
                 fixedHeight
               >
@@ -135,7 +179,7 @@ class ReservationConfirm extends Component {
             <div className="ReservationConfirmButtonsContainer">
               <Link to="/">
                 <button
-                  className="RentBtnReserved"
+                  className="ButtonRed"
                 >
                   Cancel
                 </button>
@@ -143,7 +187,7 @@ class ReservationConfirm extends Component {
 
               <Link to="/my-rentals-screen">
                 <button
-                  className="RentBtn"
+                  className="ButtonBlue"
                   onClick={
                     () => {
                       this.props.makeReservation(this.state)
@@ -155,8 +199,7 @@ class ReservationConfirm extends Component {
               </Link>
             </div>
           </form>
-          <div className={'rentmap'}
-               style={{width: '50%', height: '90%', position: 'absolute', right: '5%', top: '5%'}}>
+          <div className={'rentmap'}>
             <CarMap car={car}/>
           </div>
         </div>
