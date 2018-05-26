@@ -19,7 +19,7 @@ const KEYS_TO_FILTERS = [
 
 class SearchEngine extends Component {
 
-  clearFilters = () =>{
+  clearFilters = () => {
     this.props.clearSearchState()
     this.props.clearReservationDates()
   }
@@ -45,8 +45,8 @@ class SearchEngine extends Component {
       //debugger
       return reservations.every(
         reservation => {
-        console.log('MOMENT', moment(reservation.endDate))
-        return moment(reservation.endDate).isBefore(startDateFromDatePicker) || moment(reservation.startDate).isAfter(endDateFromDatePicker)
+          console.log('MOMENT', moment(reservation.endDate))
+          return moment(reservation.endDate).isBefore(startDateFromDatePicker) || moment(reservation.startDate).isAfter(endDateFromDatePicker)
         }
       )
     })
@@ -54,6 +54,7 @@ class SearchEngine extends Component {
 
     return (
       <Fragment>
+        <h2 className="H2__SectionBar">Filters</h2>
         <RentDateForm rentDates={this.props.rentDates}/>
         <SearchInput
           placeholder={"Type make, model and/or year of production here"}
@@ -71,6 +72,7 @@ class SearchEngine extends Component {
         >
           Clear filters
         </button>
+        <h2 className="H2__SectionBar">Available cars</h2>
         <CarImg
           cars={filteredCars}
         />

@@ -1,3 +1,17 @@
+.H2__SectionBar {
+    text-transform: uppercase;
+    color: #FFF;
+    background: rgb(59, 65, 122);
+    height: 50px;
+    width: 80%;
+    margin: 40px auto 20px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
 .search-input {
     margin: 10px 0;
     height: 52px;
@@ -22,13 +36,13 @@
 }
 
 .ButtonClearFilters {
-    width: 80%;
+    width: 50%;
     display: block;
     margin: 0 auto;
 }
 
 @media screen and (max-width: 768px) {
-    .ButtonClearFilters,
+    /*.ButtonClearFilters,*/
     .search-input > input {
         width: 98%;
     }

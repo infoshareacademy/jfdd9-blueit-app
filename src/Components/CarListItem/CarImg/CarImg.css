@@ -34,7 +34,7 @@
     display: block;
     padding: 20px;
     margin: 20px auto;
-    width: 80%;
+    width: 50%;
     color: #FFF;
     font-size: 20px;
     border: 0;
@@ -62,7 +62,7 @@
 @media screen and (max-width: 768px) {
     .CarType,
     #show.ShowLess {
-        width: 98%;
+        width: 50%;
     }
 
     .rentsum {
