@@ -64,10 +64,8 @@ class RentDateForm extends Component {
             // withPortal
             fixedHeight
           />
-        {/*</div>*/}
-        {/*<div className="datePicker__container">*/}
           <DatePicker
-            className="RentDateForm"
+            className={this.state.startDate ? 'RentDateForm' : 'RentDateForm__Disabled'}
             locale="en-gb"
             dateFormat="YYYY/MM/DD"
             placeholderText="End date"

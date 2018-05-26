@@ -140,7 +140,6 @@ class ReservationConfirm extends Component {
               />
 
               <DatePicker
-                // className="RentDateForm__ReservationConfirm RentDateForm__ReservationConfirm__Disabled"
                 className={this.state.startDate ? 'RentDateForm__ReservationConfirm' : 'RentDateForm__ReservationConfirm__Disabled'}
                 locale="en-gb"
                 dateFormat="YYYY/MM/DD"
