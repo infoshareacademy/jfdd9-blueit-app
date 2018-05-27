@@ -13,6 +13,7 @@ import Link from "react-router-dom/es/Link";
 import CarMap from "../../CarMap/CarMap.js";
 import './ReservationConfrim.css'
 import {flattenArrayOfArrays} from "../../../_utils_/flattenArrayOfArrays";
+import '../../SearchEngine/SearchEngine.css'
 
 class ReservationConfirm extends Component {
 
@@ -120,8 +121,7 @@ class ReservationConfirm extends Component {
 
     return (
       <Fragment>
-
-        <h2>Rental summary</h2>
+        <h2 className="H2__SectionBar">Rental summary</h2>
 
         <CarItem noRentBtn={this.state.noRentBtn}
                  car={car}/>
