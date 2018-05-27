@@ -34,17 +34,17 @@ class UserAddedCars extends Component {
       location: this.state.location,
       lat, lng
     })
-
-    const confirm = document.querySelector('.ConfirmScreenHidden');
-    confirm.classList.add('ConfirmScreenVisible')
   }
 
   handleSubmit = event => {
     event.preventDefault()
 
+    const confirm = document.querySelector('.ConfirmScreenHidden');
+    confirm.classList.add('ConfirmScreenVisible')
+
     if (this.state.carType.trim() === '') {
       this.setState({
-        formError: new Error('Please specify car type !')
+        formError: new Error('Please select car type below:')
       })
 
       return
@@ -63,7 +63,6 @@ class UserAddedCars extends Component {
   }
 
   handleChange = event => {
-    console.log(event.target.value)
     this.setState({
       [event.target.name]: event.target.value,
       formError: null
@@ -76,11 +75,11 @@ class UserAddedCars extends Component {
         <div className="ConfirmScreenHidden">
           <h1>THANK YOU FOR JOINING.</h1>
           <h2>YOUR CAR HAS BEEN ADDED TO OUR FLEET</h2>
-          <div className="ConfirmScreenBtn">
+          <div className="ConfirmScreenBtnContainer">
             <NavLink to="/" className="UserAddedCarsBtnConfirm">
               MAIN PAGE
             </NavLink>
-            <NavLink to="/user-added-cars" className="UserAddedCarsBtnConfirm">
+            <NavLink onClick={this.forceUpdate} to={"/UserAddedCars"} className="UserAddedCarsBtnConfirm">
               START OVER
             </NavLink>
           </div>
@@ -126,8 +125,9 @@ class UserAddedCars extends Component {
             />
             <h4>Car Make Year:</h4>
             <input
-              maxLength="4"
-              // type="number"
+              type="number"
+              min="2000"
+              max="2018"
               className="UserAddedInput"
               data-testid="carYear-input"
               name="carYear"
