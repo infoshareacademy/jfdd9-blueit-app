@@ -11,9 +11,9 @@
     align-items: center;
     background-color: rgba(24, 48, 255, 0.08);
     border-radius: 15px;
-    margin: 10px auto;
+    margin: 20px auto;
     width: 80%;
-    height: 220px;
+    min-height: 150px;
     font-size: 20px;
     padding-left: 20px;
 }
@@ -30,62 +30,13 @@
     width: 55%;
 }
 
-@media screen and (max-width: 1200px) {
-    .CarInfo {
-        width: 45%;
-    }
-
-}
-
-@media screen and (max-width: 768px) {
-    .CarType {
-        width: 100%;
-    }
-    .rentsum {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .rentmap {
-
-    }
-
-}
-
-@media screen and (max-width: 650px) {
-    .CarImg {
-        display: none;
-    }
-
-    .CarInfo {
-        margin-left: 0;
-        font-size: 16px;
-        width: 100%;
-
-    }
-
-    .CarType {
-        height: 240px;
-        padding: 0 10px;
-        flex-direction: column;
-        justify-content: space-around;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .CarType {
-        height: 250px;
-    }
-}
-
 #show.ShowLess {
-    padding: 20px;
-    margin: 10px auto;
-    width: 250px;
+    display: block;
+    padding: 13px;
+    margin: 20px auto;
+    width: 50%;
     color: #FFF;
-/ / background-color: coral;
-    font-size: 26px;
-    font-weight: bold;
+    font-size: 20px;
     border: 0;
     border-radius: 5px;
     cursor: pointer;
@@ -101,6 +52,47 @@
     transition: all .4s;
 }
 
-.ShowMore {
-    text-align: center;
+@media screen and (max-width: 1200px) {
+    .CarInfo {
+        width: 45%;
+    }
+
 }
+
+@media screen and (max-width: 768px) {
+    .CarType,
+    #show.ShowLess {
+        width: 50%;
+    }
+
+    .rentsum {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .CarImg {
+        display: none;
+    }
+
+    .CarInfo {
+        margin-left: 0;
+        font-size: 20px;
+        width: 100%;
+
+    }
+
+    .CarType {
+        /*height: auto;*/
+        padding: 0 10px;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+/*@media screen and (max-width: 450px) {*/
+/*.CarType {*/
+/*height: 250px;*/
+/*}*/
+/*}*/

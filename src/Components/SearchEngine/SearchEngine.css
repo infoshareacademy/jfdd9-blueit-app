@@ -1,19 +1,33 @@
+.H2__SectionBar {
+    text-transform: uppercase;
+    color: #FFF;
+    background: rgb(59, 65, 122);
+    height: 50px;
+    width: 80%;
+    margin: 40px auto 20px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
 .search-input {
-    padding: 10px 10px 40px 10px;
+    margin: 10px 0;
     height: 52px;
     position: relative;
     text-align: center;
 }
 
-
 .search-input > input {
 
-    width: 50%;
+    width: 80%;
     font-size: 16px;
     padding: 15px;
     background-color: #ebf5f5;
     color: #8a97a0;
     border: none;
+    border-radius: 5px;
     box-shadow: 0 0 5px rgba(73, 78, 92, 0.45);
 }
 
@@ -21,8 +35,20 @@
     outline: none;
 }
 
-@media screen and (max-width: 550px){
+.ButtonClearFilters {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
     .search-input > input {
-        width: 95%;
+        width: 98%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .search-input > input {
+        width: 98%;
     }
 }

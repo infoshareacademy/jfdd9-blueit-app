@@ -64,6 +64,12 @@ export class ReservationProvider extends Component {
       })
     },
 
+    clearReservationDates: () =>
+      this.setState({
+        startDate: null,
+        endDate: null
+      }),
+
     options: {
       minivan: {
         label: 'MINIVAN ',

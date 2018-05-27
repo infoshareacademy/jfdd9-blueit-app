@@ -76,7 +76,7 @@ class UserAddedCars extends Component {
         <div className="ConfirmScreenHidden">
           <h1>THANK YOU FOR JOINING.</h1>
           <h2>YOUR CAR HAS BEEN ADDED TO OUR FLEET</h2>
-          <div className=".ConfirmScreenBtn">
+          <div className="ConfirmScreenBtn">
             <NavLink to="/" className="UserAddedCarsBtnConfirm">
               MAIN PAGE
             </NavLink>

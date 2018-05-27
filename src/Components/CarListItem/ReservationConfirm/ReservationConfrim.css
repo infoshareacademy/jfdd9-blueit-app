@@ -1,5 +1,3 @@
-
-
 .rentsum {
     display: flex;
     flex-direction: row;
@@ -11,26 +9,32 @@
 }
 
 .rentsumform {
-align-self: left;
+    align-self: left;
     width: 50%;
 }
 
 .rentmap {
-align-self: right;
-
+    align-self: right;
+    width: 45%;
+    height: 90%;
+    position: absolute;
+    right: 3%;
+    top: 5%
 }
 
 @media screen and (max-width: 768px) {
     .CarType {
-        width: 100%;
+        width: 98%;
     }
 
     .rentsum {
         flex-direction: column;
-        width: 100%;
+        width: 98%;
     }
+
     .rentsumform {
         align-self: center;
+        width: 90%;
     }
 
     .rentmap {

@@ -1,12 +1,13 @@
-.ConfirmScreenHidden{
+.ConfirmScreenHidden {
     visibility:hidden;
 }
 
-.ConfirmScreenVisible{
+.ConfirmScreenVisible {
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+    text-align: center;
     position:absolute;
     top: 20%;
     left: 25%;
@@ -21,12 +22,12 @@
     box-shadow: 0 10px 10px 5px rgba(11, 17, 57, 0.68);
 }
 
-.ConfirmScreenBtn{
+.ConfirmScreenBtn {
     display: flex;
     flex-direction: row;
 }
 
-.UserAddedCarsContainer{
+.UserAddedCarsContainer {
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -80,10 +81,10 @@ input:focus {
     transition: all .4s;
 }
 
-.UserAddedCarsBtnConfirm{
+.UserAddedCarsBtnConfirm {
     padding: 10px;
-    margin: 2px;
-    width: fit-content;
+    margin: 3px;
+    width: 10ch;
     color: #0b1139;
     background-color: rgb(255, 255, 255);
     font-size: 1.4rem;
@@ -94,7 +95,23 @@ input:focus {
     text-decoration: none;
 }
 
-.UserAddedCarsBtnConfirm:hover{
+.UserAddedCarsBtnConfirm:hover {
     background-color: rgb(219, 219, 219);
     transition: all .4s;
+}
+
+@media screen and (max-width: 768px) {
+    .ConfirmScreenBtn {
+        display: flex;
+        flex-direction: column;
+    }
+    .UserAddedCarsBtnConfirm {
+        width: 10ch;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .UserAddedCarsBtnConfirm {
+        width: 70%;
+    }
 }
