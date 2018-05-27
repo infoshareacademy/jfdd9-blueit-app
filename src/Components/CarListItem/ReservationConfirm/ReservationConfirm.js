@@ -229,7 +229,7 @@ class ReservationConfirm extends Component {
                   (
                     <Link to="/my-rentals-screen">
                       <button
-                        className="ButtonBlue"
+                        className="ButtonGreen"
                         onClick={
                           () => {
                             this.props.makeReservation(this.state)
@@ -242,7 +242,7 @@ class ReservationConfirm extends Component {
                   ) :
                   (
                     <button
-                      className="ButtonBlue ButtonDisabled"
+                      className="ButtonGreen ButtonDisabled"
                       disabled="true"
                     >
                       Confirm
