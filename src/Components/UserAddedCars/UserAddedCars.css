@@ -99,7 +99,7 @@ input:focus {
 }
 
 @media screen and (max-width: 768px) {
-    .ConfirmScreenBtn {
+    .ConfirmScreenBtnContainer {
         display: flex;
         flex-direction: column;
     }
