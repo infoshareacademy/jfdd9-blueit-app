@@ -34,17 +34,17 @@ class UserAddedCars extends Component {
       location: this.state.location,
       lat, lng
     })
+
+    const confirm = document.querySelector('.ConfirmScreenHidden');
+    confirm.classList.add('ConfirmScreenVisible')
   }
 
   handleSubmit = event => {
     event.preventDefault()
 
-    const confirm = document.querySelector('Confirm');
-    confirm.classList.add('ConfirmScreenVisible')
-
     if (this.state.carType.trim() === '') {
       this.setState({
-        formError: new Error('Please specify car type')
+        formError: new Error('Please specify car type !')
       })
 
       return
@@ -73,6 +73,18 @@ class UserAddedCars extends Component {
   render() {
     return (
       <Fragment>
+        <div className="ConfirmScreenHidden">
+          <h1>THANK YOU FOR JOINING.</h1>
+          <h2>YOUR CAR HAS BEEN ADDED TO OUR FLEET</h2>
+          <div className=".ConfirmScreenBtn">
+            <NavLink to="/" className="UserAddedCarsBtnConfirm">
+              MAIN PAGE
+            </NavLink>
+            <NavLink to="/user-added-cars" className="UserAddedCarsBtnConfirm">
+              START OVER
+            </NavLink>
+          </div>
+        </div>
         <div className="UserAddedCarsContainer">
           <h1>Register your car with us and become part of Blue Sky Family</h1>
           <h2>Please fill in each field thoroughly:</h2>
@@ -138,20 +150,6 @@ class UserAddedCars extends Component {
             <CarFeatures selectedOptions={this.state.selectedOptions} toggleOption={this.handleOptionChange}/>,
             <button className="UserAddedCarsBtn">ADD YOUR VEHICLE</button>
           </form>
-
-          <div className="ConfirmScreen">
-            <h1>THANK YOU FOR JOINING.</h1>
-            <h2>YOUR CAR HAS BEEN ADDED TO OUR FLEET</h2>
-            <div className=".ConfirmScreenBtn">
-            <NavLink to="/" className="UserAddedCarsBtnConfirm">
-              GO TO MAIN PAGE
-            </NavLink>
-            {/*<NavLink to="/user-added-cars" className="UserAddedCarsBtnConfirm">*/}
-              {/*STAY ON THIS PAGE*/}
-            {/*</NavLink>*/}
-            </div>
-          </div>
-
           <div>
             {
               this.state.cars.map(
