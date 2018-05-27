@@ -49,27 +49,26 @@ class RentDateForm extends Component {
       <Fragment>
         <div className="datePicker__container">
           <DatePicker
+            selectsStart
             className="RentDateForm"
             locale="en-gb"
-            dateFormat="YYYY/MM/DD"
+            dateFormat="YYYY-MM-DD"
             placeholderText="Start date"
             todayButton={"Today"}
             minDate={moment()}
             maxDate={moment().add(1, "month")}
             selected={this.state.startDate}
-            selectsStart
             startDate={this.state.startDate}
             endDate={this.state.endDate}
             onChange={this.handleChangeStartDate}
             // withPortal
             fixedHeight
           />
-        {/*</div>*/}
-        {/*<div className="datePicker__container">*/}
           <DatePicker
-            className="RentDateForm"
+            selectsEnd
+            className={this.state.startDate ? 'RentDateForm' : 'RentDateForm__Disabled'}
             locale="en-gb"
-            dateFormat="YYYY/MM/DD"
+            dateFormat="YYYY-MM-DD"
             placeholderText="End date"
             minDate={moment(this.state.startDate)}
             maxDate={moment(this.state.startDate).add(14, "days")}
@@ -80,7 +79,6 @@ class RentDateForm extends Component {
                 (this.state.endDate > moment(this.state.startDate).add(14, "days")) ?
                   moment(this.state.startDate).add(14, "days") :
                   this.state.endDate}
-            selectsEnd
             startDate={this.state.startDate}
             endDate={this.state.endDate}
             onChange={this.handleChangeEndDate}

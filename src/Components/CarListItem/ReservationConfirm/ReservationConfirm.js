@@ -13,6 +13,7 @@ import Link from "react-router-dom/es/Link";
 import CarMap from "../../CarMap/CarMap.js";
 import './ReservationConfrim.css'
 import {flattenArrayOfArrays} from "../../../_utils_/flattenArrayOfArrays";
+import '../../SearchEngine/SearchEngine.css'
 
 class ReservationConfirm extends Component {
 
@@ -20,7 +21,6 @@ class ReservationConfirm extends Component {
     carId: null,
     startDate: null,
     endDate: null,
-    place: null,
     noRentBtn: true
   }
 
@@ -46,6 +46,9 @@ class ReservationConfirm extends Component {
       endDate: (this.state.endDate > moment(date).add(14, "days")) ?
         moment(date).add(14, "days") :
         date
+      // endDate: this.state.startDate > this.state.endDate ?
+      //   null :
+      //   this.state.endDate
     }, this.passToParent)
   };
 
@@ -77,6 +80,12 @@ class ReservationConfirm extends Component {
     // console.log('datesArray', datesArray)
     return datesArray
   };
+
+  clearDates = () =>
+    this.setState({
+      startDate: null,
+      endDate: null
+    })
 
   render() {
     const car = this.props.cars.find(car =>
@@ -112,8 +121,7 @@ class ReservationConfirm extends Component {
 
     return (
       <Fragment>
-
-        <h2>Rental summary</h2>
+        <h2 className="H2__SectionBar">Rental summary</h2>
 
         <CarItem noRentBtn={this.state.noRentBtn}
                  car={car}/>
@@ -122,15 +130,22 @@ class ReservationConfirm extends Component {
 
             <div className="datePicker__container__ReservationConfirm">
               <DatePicker
+                selectsStart
                 className="RentDateForm__ReservationConfirm"
                 locale="en-gb"
-                dateFormat="YYYY/MM/DD"
+                dateFormat="YYYY-MM-DD"
                 placeholderText="Start date"
                 todayButton={"Today"}
-                minDate={moment()}
+                minDate={
+                  (datesToExclude.length > 0 && this.state.endDate && flattenArrayOfArrays(
+                    datesToExclude
+                  ).map(item => moment(item)).filter(
+                    date =>
+                      date.isBefore(this.state.startDate)
+                  ).sort((a, b) => a.isBefore(b) ? 1 : a.isAfter(b) ? -1 : 0)[0]) || moment()
+                }
                 maxDate={moment().add(1, "month")}
                 selected={this.state.startDate}
-                selectsStart
                 startDate={this.state.startDate}
                 endDate={this.state.endDate}
                 onChange={this.handleChangeStartDate}
@@ -140,9 +155,10 @@ class ReservationConfirm extends Component {
               />
 
               <DatePicker
-                className="RentDateForm__ReservationConfirm"
+                selectsEnd
+                className={this.state.startDate ? 'RentDateForm__ReservationConfirm' : 'RentDateForm__ReservationConfirm__Disabled'}
                 locale="en-gb"
-                dateFormat="YYYY/MM/DD"
+                dateFormat="YYYY-MM-DD"
                 placeholderText="End date"
                 minDate={moment(this.state.startDate)}
                 maxDate={
@@ -158,9 +174,27 @@ class ReservationConfirm extends Component {
                   (this.state.startDate > this.state.endDate) ?
                     this.state.startDate :
                     (this.state.endDate > moment(this.state.startDate).add(14, "days")) ?
+                      // (datesToExclude.length > 0 && flattenArrayOfArrays(
+                      //   datesToExclude
+                      // ).map(item => moment(item)).filter(
+                      //   date =>
+                      //     date.isAfter(this.state.startDate) && date.isBefore(this.state.endDate)
+                      // ).sort((a, b) => a.isBefore(b) ? -1 : a.isAfter(b) ? 1 : 0)[0]) :
                       moment(this.state.startDate).add(14, "days") :
                       this.state.endDate}
-                selectsEnd
+                // selected={this.state.startDate === null ?
+                //   undefined :
+                //   (this.state.startDate > this.state.endDate) ?
+                //     this.state.startDate :
+                //     datesToExclude.length > 0 ?
+                //       (flattenArrayOfArrays(
+                //         datesToExclude
+                //       ).map(item => moment(item)).filter(
+                //         date =>
+                //           date.isAfter(this.state.startDate)
+                //       ).sort((a, b) => a.isBefore(b) ? -1 : a.isAfter(b) ? 1 : 0)[0].subtract(1, "days")) :
+                //       this.state.endDate
+                // }
                 startDate={this.state.startDate}
                 endDate={this.state.endDate}
                 onChange={this.handleChangeEndDate}
@@ -175,6 +209,11 @@ class ReservationConfirm extends Component {
               </DatePicker>
             </div>
 
+            <button
+              className="ButtonRed ButtonClearDates"
+              onClick={this.clearDates}
+            >Clear dates
+            </button>
 
             <div className="ReservationConfirmButtonsContainer">
               <Link to="/">
@@ -185,18 +224,32 @@ class ReservationConfirm extends Component {
                 </button>
               </Link>
 
-              <Link to="/my-rentals-screen">
-                <button
-                  className="ButtonBlue"
-                  onClick={
-                    () => {
-                      this.props.makeReservation(this.state)
-                    }
-                  }
-                >
-                  Confirm
-                </button>
-              </Link>
+              {
+                this.state.startDate && this.state.endDate ?
+                  (
+                    <Link to="/my-rentals-screen">
+                      <button
+                        className="ButtonGreen"
+                        onClick={
+                          () => {
+                            this.props.makeReservation(this.state)
+                          }
+                        }
+                      >
+                        Confirm
+                      </button>
+                    </Link>
+                  ) :
+                  (
+                    <button
+                      className="ButtonGreen ButtonDisabled"
+                      disabled="true"
+                    >
+                      Confirm
+                    </button>
+                  )
+              }
+
             </div>
           </form>
           <div className={'rentmap'}>

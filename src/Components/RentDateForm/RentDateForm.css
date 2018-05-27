@@ -17,7 +17,9 @@
 }
 
 .RentDateForm,
-.RentDateForm__ReservationConfirm {
+.RentDateForm__ReservationConfirm,
+.RentDateForm__ReservationConfirm__Disabled,
+.RentDateForm__Disabled {
     box-sizing: border-box;
     display: block;
     font-size: 16px;
@@ -31,8 +33,19 @@
     box-shadow: 0 0 5px rgba(73, 78, 92, 0.45);
 }
 
-.RentDateForm__ReservationConfirm {
+.RentDateForm__ReservationConfirm,
+.RentDateForm__ReservationConfirm__Disabled {
     width: 35vw;
+}
+
+.RentDateForm__ReservationConfirm__Disabled,
+.RentDateForm__Disabled {
+    background-color: #aaa;
+}
+
+.RentDateForm__ReservationConfirm__Disabled::placeholder,
+.RentDateForm__Disabled::placeholder {
+    color: #fff;
 }
 
 .CalendarDateTo {
@@ -50,11 +63,13 @@
         width: 98%;
     }
 
-    .RentDateForm {
+    .RentDateForm,
+    .RentDateForm__Disabled {
         width: 46vw;
     }
 
-    .RentDateForm__ReservationConfirm {
+    .RentDateForm__ReservationConfirm,
+    .RentDateForm__ReservationConfirm__Disabled {
         width: 100%;
     }
 }
@@ -66,7 +81,8 @@
         /*width: 98%;*/
     }
 
-    .RentDateForm {
+    .RentDateForm,
+    .RentDateForm__Disabled {
         margin: 12px auto;
         width: 100%;
     }

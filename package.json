@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "firebase": "^5.0.3",
+    "font-awesome": "^4.7.0",
     "google-map-react": "^1.0.3",
     "google-maps-react": "^2.0.2",
     "moment": "^2.22.1",

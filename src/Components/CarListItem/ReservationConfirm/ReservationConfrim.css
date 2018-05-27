@@ -1,6 +1,6 @@
 .rentsum {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 80%;
     margin: 0 auto;
     background-color: rgba(24, 48, 255, 0.08);
@@ -22,6 +22,12 @@
     top: 5%
 }
 
+.ButtonClearDates {
+    width: 35vw;
+    display: block;
+    margin: 0 auto;
+}
+
 @media screen and (max-width: 768px) {
     .CarType {
         width: 98%;
@@ -40,5 +46,9 @@
     .rentmap {
         position: initial !important;
 
+    }
+
+    .ButtonClearDates {
+        width: 100%;
     }
 }

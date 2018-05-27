@@ -1,5 +1,7 @@
 .ButtonBlue,
-.ButtonRed {
+.ButtonRed,
+.ButtonGreen,
+.ButtonDisabled {
     padding: 13px;
     margin: 20px 1rem;
     width: 150px;
@@ -26,14 +28,30 @@
     transition: all .4s;
 }
 
+.ButtonGreen {
+    background-color: rgb(71, 161, 0);
+}
+
+.ButtonGreen:hover {
+    background-color: rgb(69, 138, 0);
+    transition: all .4s;
+}
+
 .ReservationConfirmButtonsContainer {
     text-align: center;
     margin: 30px 10px;
 }
 
+.ButtonDisabled,
+.ButtonDisabled:hover {
+    background-color: #aaa;
+    cursor: inherit;
+}
+
 @media screen and (max-width: 650px) {
     .ButtonBlue,
-    .ButtonRed {
+    .ButtonRed,
+    .ButtonGreen {
         font-size: 20px;
         width: 120px;
 
