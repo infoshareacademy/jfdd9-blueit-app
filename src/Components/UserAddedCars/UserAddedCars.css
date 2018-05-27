@@ -1,23 +1,33 @@
-.Confirm{
+.ConfirmScreenHidden {
     visibility:hidden;
 }
 
-.ConfirmVisible{
+.ConfirmScreenVisible {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
     position:absolute;
-    top: 15%;
-    left: 10%;
-    width: 80%;
-    height: 70%;
-    background-color: rgba(11, 17, 82, 0.54);
+    top: 20%;
+    left: 25%;
+    right: 25%;
+    max-width: 50%;
+    min-height: 30%;
+    padding: 2em;
+    background-color: rgb(11, 17, 82);
     color: #fff;
     visibility: visible;
     border-radius: 5px;
+    box-shadow: 0 10px 10px 5px rgba(11, 17, 57, 0.68);
 }
 
-.UserAddedCarsContainer{
+.ConfirmScreenBtn {
+    display: flex;
+    flex-direction: row;
+}
+
+.UserAddedCarsContainer {
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -54,6 +64,7 @@ input:focus {
 
 .UserAddedCarsBtn {
     padding: 20px;
+    margin-top:1px;
     width: fit-content;
     color: #FFF;
     background-color: #0B1152;
@@ -65,20 +76,42 @@ input:focus {
     text-decoration: none;
 }
 
-.UserAddedCarsBtnConfirm{
-    padding: 20px;
-    width: fit-content;
-    color: #FFF;
-    background-color: rgba(11, 17, 82, 0.71);
-    font-size: 2em;
-    border: 0;
+.UserAddedCarsBtn:hover {
+    background-color: rgba(14, 18, 89, 0.9);
+    transition: all .4s;
+}
+
+.UserAddedCarsBtnConfirm {
+    padding: 10px;
+    margin: 3px;
+    width: 10ch;
+    color: #0b1139;
+    background-color: rgb(255, 255, 255);
+    font-size: 1.4rem;
+    border: 1px solid #0b1139;
     border-radius: 5px;
     cursor: pointer;
     transition: all .4s;
     text-decoration: none;
 }
 
-.UserAddedCarsBtn:hover {
-    background-color: rgba(14, 18, 89, 0.9);
+.UserAddedCarsBtnConfirm:hover {
+    background-color: rgb(219, 219, 219);
     transition: all .4s;
+}
+
+@media screen and (max-width: 768px) {
+    .ConfirmScreenBtn {
+        display: flex;
+        flex-direction: column;
+    }
+    .UserAddedCarsBtnConfirm {
+        width: 10ch;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .UserAddedCarsBtnConfirm {
+        width: 70%;
+    }
 }
