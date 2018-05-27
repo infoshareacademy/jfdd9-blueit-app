@@ -13,45 +13,48 @@ import UserAddedCars from "./Components/UserAddedCars/UserAddedCars";
 import {SearchProvider} from "./Components/contexts/Search";
 import {CarProvider} from "./Components/contexts/Cars";
 import LoginScreen from "./Components/LoginScreen/LoginScreen";
-import { withUser } from './Components/contexts/User';
+import {withUser} from './Components/contexts/User';
 import './App.css'
 
 class App extends Component {
 
   render() {
+    console.log('USER', this.props.user && this.props.user.email)
     return (
       <CarProvider>
-      <ReservationProvider>
-        <SearchProvider>
-          <Router>
-            <div className="App">
-              {
-                this.props.user === null ? (
-                  <div>
-                    <LoginScreen/>
-                  </div>
-                ) : (
-                  <div>
-                    <nav>
-                      <NavbarMenu/>
-                      <div className='SignOutButtonContainer'>
-                        <button className='SignOutButton' onClick={this.props.signOut}>Sign out</button>
-                      </div>
-                    </nav>
+        <ReservationProvider>
+          <SearchProvider>
+            <Router>
+              <div className="App">
+                {
+                  this.props.user === null ? (
+                    <div>
+                      <LoginScreen/>
+                    </div>
+                  ) : (
+                    <div>
+                      <nav>
+                        <NavbarMenu/>
+                        <div className='SignOutButtonContainer'>
+                          <span
+                            className="SignInAs">Signed in as: <strong>{this.props.user && this.props.user.email}</strong></span>
+                          <button className='SignOutButton' onClick={this.props.signOut}>Sign out</button>
+                        </div>
+                      </nav>
 
-                    <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
-                    {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
-                    <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
-                    <Route path="/rent-confirm/:carId" component={ReservationConfirm}/>
-                    <Route path="/user-added-cars" component={UserAddedCars}/>
-                  </div>
-                )
-              }
+                      <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
+                      {/*<Route path="/rent-car-screen" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>*/}
+                      <Route path="/my-rentals-screen" component={MyRentsalsScreen}/>
+                      <Route path="/rent-confirm/:carId" component={ReservationConfirm}/>
+                      <Route path="/user-added-cars" component={UserAddedCars}/>
+                    </div>
+                  )
+                }
 
-            </div>
-          </Router>
-        </SearchProvider>
-      </ReservationProvider>
+              </div>
+            </Router>
+          </SearchProvider>
+        </ReservationProvider>
       </CarProvider>
     );
   }
