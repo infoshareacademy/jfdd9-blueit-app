@@ -20,7 +20,6 @@ class ReservationConfirm extends Component {
     carId: null,
     startDate: null,
     endDate: null,
-    place: null,
     noRentBtn: true
   }
 
@@ -46,6 +45,9 @@ class ReservationConfirm extends Component {
       endDate: (this.state.endDate > moment(date).add(14, "days")) ?
         moment(date).add(14, "days") :
         date
+      // endDate: this.state.startDate > this.state.endDate ?
+      //   null :
+      //   this.state.endDate
     }, this.passToParent)
   };
 
@@ -122,15 +124,22 @@ class ReservationConfirm extends Component {
 
             <div className="datePicker__container__ReservationConfirm">
               <DatePicker
+                selectsStart
                 className="RentDateForm__ReservationConfirm"
                 locale="en-gb"
-                dateFormat="YYYY/MM/DD"
+                dateFormat="YYYY-MM-DD"
                 placeholderText="Start date"
                 todayButton={"Today"}
-                minDate={moment()}
+                minDate={
+                  (datesToExclude.length > 0 && this.state.endDate && flattenArrayOfArrays(
+                    datesToExclude
+                  ).map(item => moment(item)).filter(
+                    date =>
+                      date.isBefore(this.state.startDate)
+                  ).sort((a, b) => a.isBefore(b) ? 1 : a.isAfter(b) ? -1 : 0)[0]) || moment()
+                }
                 maxDate={moment().add(1, "month")}
                 selected={this.state.startDate}
-                selectsStart
                 startDate={this.state.startDate}
                 endDate={this.state.endDate}
                 onChange={this.handleChangeStartDate}
@@ -140,9 +149,10 @@ class ReservationConfirm extends Component {
               />
 
               <DatePicker
+                selectsEnd
                 className={this.state.startDate ? 'RentDateForm__ReservationConfirm' : 'RentDateForm__ReservationConfirm__Disabled'}
                 locale="en-gb"
-                dateFormat="YYYY/MM/DD"
+                dateFormat="YYYY-MM-DD"
                 placeholderText="End date"
                 minDate={moment(this.state.startDate)}
                 maxDate={
@@ -158,9 +168,27 @@ class ReservationConfirm extends Component {
                   (this.state.startDate > this.state.endDate) ?
                     this.state.startDate :
                     (this.state.endDate > moment(this.state.startDate).add(14, "days")) ?
+                      // (datesToExclude.length > 0 && flattenArrayOfArrays(
+                      //   datesToExclude
+                      // ).map(item => moment(item)).filter(
+                      //   date =>
+                      //     date.isAfter(this.state.startDate) && date.isBefore(this.state.endDate)
+                      // ).sort((a, b) => a.isBefore(b) ? -1 : a.isAfter(b) ? 1 : 0)[0]) :
                       moment(this.state.startDate).add(14, "days") :
                       this.state.endDate}
-                selectsEnd
+                // selected={this.state.startDate === null ?
+                //   undefined :
+                //   (this.state.startDate > this.state.endDate) ?
+                //     this.state.startDate :
+                //     datesToExclude.length > 0 ?
+                //       (flattenArrayOfArrays(
+                //         datesToExclude
+                //       ).map(item => moment(item)).filter(
+                //         date =>
+                //           date.isAfter(this.state.startDate)
+                //       ).sort((a, b) => a.isBefore(b) ? -1 : a.isAfter(b) ? 1 : 0)[0].subtract(1, "days")) :
+                //       this.state.endDate
+                // }
                 startDate={this.state.startDate}
                 endDate={this.state.endDate}
                 onChange={this.handleChangeEndDate}
