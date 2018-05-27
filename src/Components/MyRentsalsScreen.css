@@ -1,3 +1,26 @@
 h2 {
     text-align: center;
 }
+
+.MyRentsalsSortContainer {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.ButtonFilter {
+    width: 180px;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .MyRentsalsSortContainer {
+        width: 98%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .ButtonFilter {
+        font-size: 20px;
+        width: 180px;
+    }
+}

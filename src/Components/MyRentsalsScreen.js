@@ -2,9 +2,11 @@ import React, {Component, Fragment} from 'react'
 import {withReservation} from "./contexts/Reservation";
 import './CarListItem/CarImg/CarImg.css'
 import './MyRentsalsScreen.css'
+import './CarListItem/CarRentButton/CarRentButton.css'
 import SUV from './img/car-SUV.jpg'
 import {withCars} from "./contexts/Cars";
 import CarCancelRentButton from "./CarListItem/CarRentButton/CarCancelRentButton";
+import 'font-awesome/css/font-awesome.min.css'
 
 class MyRentsalsScreen extends Component {
   render() {
@@ -12,11 +14,16 @@ class MyRentsalsScreen extends Component {
     const {cars, options, reservations} = this.props;
     return (
       <div>
-        <button
-          onClick={this.props.toggleSortReservationsByDates}
-        >
-          Sort by dates
-        </button>
+        <div className="MyRentsalsSortContainer">
+          <button
+            className="ButtonBlue ButtonFilter"
+            onClick={this.props.toggleSortReservationsByDates}
+          >
+            Sort by dates {this.props.reservationsSortingOrder === 'ASC' ?
+            <i className="fas fa-arrow-alt-circle-up"/> : this.props.reservationsSortingOrder === 'DESC' ?
+              <i className="fas fa-arrow-alt-circle-down"/> : ''}
+          </button>
+        </div>
         {
           reservations && reservations.length === 0 ?
             <h2>You don't have any active reservations.</h2> :
