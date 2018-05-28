@@ -54,6 +54,7 @@ class SearchEngine extends Component {
 
     return (
       <Fragment>
+        <div style={{ background: 'rgb(59, 65, 122)'}}>
         <h2 className="H2__SectionBar">Filters</h2>
         <RentDateForm rentDates={this.props.rentDates}/>
         <SearchInput
@@ -72,6 +73,7 @@ class SearchEngine extends Component {
         >
           Clear filters
         </button>
+        </div>
         <h2 className="H2__SectionBar">Available cars</h2>
         <CarImg
           cars={filteredCars}
