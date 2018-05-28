@@ -41,29 +41,23 @@ class ReservationConfirm extends Component {
   }
 
   handleChangeStartDate = date => {
-    this.setState({
-      startDate: date,
-      endDate: (this.state.endDate > moment(date).add(14, "days")) ?
+    this.props.rentDates(
+      date,
+      (this.state.endDate > moment(date).add(14, "days")) ?
         moment(date).add(14, "days") :
         date
-      // endDate: this.state.startDate > this.state.endDate ?
-      //   null :
-      //   this.state.endDate
-    }, this.passToParent)
+    )
   };
 
   handleChangeEndDate = date => {
-    this.setState({
-      endDate: date
-    }, this.passToParent)
+    this.props.rentDates(
+      this.state.startDate,
+      date
+    )
   };
 
   isStartDateEmpty = () => {
     return this.state.startDate === null
-  };
-
-  passToParent = () => {
-    this.props.rentDates(this.state.startDate, this.state.endDate)
   };
 
   excludedDates = (startDate, endDate) => {
