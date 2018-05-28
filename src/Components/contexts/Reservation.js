@@ -28,6 +28,12 @@ export class ReservationProvider extends Component {
         endDate: endDate
       }),
 
+    clearDates: () =>
+      this.setState({
+        startDate: null,
+        endDate: null
+      }),
+
     makeReservation: ({carId, carLocation, startDate, endDate, ...reservation}) => {
       const user = firebase.auth().currentUser
       const firebaseId = firebase.database().ref(`/reservations/${user.uid}`).push({
