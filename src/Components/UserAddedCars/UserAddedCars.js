@@ -18,8 +18,6 @@ class UserAddedCars extends Component {
     cars: []
       }
 
-
-
   handleOptionChange = option => this.setState({
     selectedOptions: this.state.selectedOptions.includes(option) ?
       this.state.selectedOptions.filter(item => item !== option) :
@@ -36,17 +34,17 @@ class UserAddedCars extends Component {
       location: this.state.location,
       lat, lng
     })
-
-    const confirm = document.querySelector('.Confirm');
-    confirm.classList.add('ConfirmVisible')
   }
 
   handleSubmit = event => {
     event.preventDefault()
 
+    const confirm = document.querySelector('.ConfirmScreenHidden');
+    confirm.classList.add('ConfirmScreenVisible')
+
     if (this.state.carType.trim() === '') {
       this.setState({
-        formError: new Error('Please specify car type')
+        formError: new Error('Please select car type below:')
       })
 
       return
@@ -62,21 +60,30 @@ class UserAddedCars extends Component {
         console.error(error);
       }
     )
-
   }
 
   handleChange = event => {
-    console.log(event.target.value)
     this.setState({
       [event.target.name]: event.target.value,
       formError: null
     })
   }
 
-
   render() {
     return (
       <Fragment>
+        <div className="ConfirmScreenHidden">
+          <h1>THANK YOU FOR JOINING.</h1>
+          <h2>YOUR CAR HAS BEEN ADDED TO OUR FLEET</h2>
+          <div className="ConfirmScreenBtnContainer">
+            <NavLink to="/" className="UserAddedCarsBtnConfirm">
+              MAIN PAGE
+            </NavLink>
+            <NavLink onClick={this.forceUpdate} to={"/UserAddedCars"} className="UserAddedCarsBtnConfirm">
+              START OVER
+            </NavLink>
+          </div>
+        </div>
         <div className="UserAddedCarsContainer">
           <h1>Register your car with us and become part of Blue Sky Family</h1>
           <h2>Please fill in each field thoroughly:</h2>
@@ -96,7 +103,7 @@ class UserAddedCars extends Component {
               <option value={'fullsize'}>fullsize</option>
               <option value={'compact'}>compact</option>
             </select>
-            <h4>Car make:</h4>
+            <h4>Car Make:</h4>
             <input
               className="UserAddedInput"
               data-testid="carMake-input"
@@ -106,7 +113,7 @@ class UserAddedCars extends Component {
               placeholder="enter car maker"
               required
             />
-            <h4>Car model:</h4>
+            <h4>Car Model:</h4>
             <input
               className="UserAddedInput"
               data-testid="carModel-input"
@@ -116,19 +123,20 @@ class UserAddedCars extends Component {
               placeholder="enter car model"
               required
             />
-            <h4>Car make year:</h4>
+            <h4>Car Make Year:</h4>
             <input
-              maxLength="4"
-              // type="number"
+              type="number"
+              min="2000"
+              max="2018"
               className="UserAddedInput"
               data-testid="carYear-input"
               name="carYear"
               value={this.state.carYear}
               onChange={this.handleChange}
-              placeholder="enter year in xxxx -format, numbers only"
+              placeholder="enter year  [YYYY -format, numbers only]"
               required
             />
-            <h4>Car location</h4>
+            <h4>Car Location</h4>
             <input
               type="text"
               className="UserAddedInput"
@@ -136,19 +144,13 @@ class UserAddedCars extends Component {
               name="location"
               value={this.state.location}
               onChange={this.handleChange}
-              placeholder="enter address "
+              placeholder="enter address  [city, street]"
               required
             />
             <CarFeatures selectedOptions={this.state.selectedOptions} toggleOption={this.handleOptionChange}/>,
             <button className="UserAddedCarsBtn">ADD YOUR VEHICLE</button>
           </form>
-
-        <div className="Confirm">
-          <NavLink to="/" className="UserAddedCarsBtnConfirm">
-            <p>THANK YOU FOR JOINING.</p>
-            <p>YOUR CAR HAS BEEN ADDED </p>
-            <p><small>go back to main page</small></p>
-          </NavLink>
+          <div>
             {
               this.state.cars.map(
                 car =>

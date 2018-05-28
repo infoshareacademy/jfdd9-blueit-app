@@ -21,27 +21,23 @@ class RentDateForm extends Component {
   }
 
   handleChangeStartDate = date => {
-    this.setState({
-      startDate: date,
-      endDate: (this.state.endDate > moment(date).add(14, "days")) ?
+    this.props.rentDates(
+      date,
+      (this.state.endDate > moment(date).add(14, "days")) ?
         moment(date).add(14, "days") :
         date
-    }, this.passToParent)
+    )
   };
 
   handleChangeEndDate = date => {
-    console.log('handleChangeEndDate:', date)
-    this.setState({
-      endDate: date
-    }, this.passToParent)
+    this.props.rentDates(
+      this.state.startDate,
+      date
+    )
   };
 
   isStartDateEmpty = () => {
     return this.state.startDate === null
-  };
-
-  passToParent = () => {
-    this.props.rentDates(this.state.startDate, this.state.endDate)
   };
 
   render() {
