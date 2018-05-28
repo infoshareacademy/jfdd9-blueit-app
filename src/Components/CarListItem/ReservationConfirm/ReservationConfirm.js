@@ -21,6 +21,7 @@ class ReservationConfirm extends Component {
     carId: null,
     startDate: null,
     endDate: null,
+    location: null,
     noRentBtn: true
   }
 

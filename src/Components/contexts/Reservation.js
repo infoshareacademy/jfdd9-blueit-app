@@ -28,13 +28,14 @@ export class ReservationProvider extends Component {
         endDate: endDate
       }),
 
-    makeReservation: ({carId, startDate, endDate, ...reservation}) => {
+    makeReservation: ({carId, carLocation, startDate, endDate, ...reservation}) => {
       const user = firebase.auth().currentUser
       const firebaseId = firebase.database().ref(`/reservations/${user.uid}`).push({
         ...reservation,
         carId: carId,
         startDate: startDate.format('YYYY-MM-DD'),
-        endDate: endDate.format('YYYY-MM-DD')
+        endDate: endDate.format('YYYY-MM-DD'),
+
       })
       const reservationId = firebaseId.key
       console.log('ID rezerwacji z firebase', reservationId)
@@ -58,7 +59,7 @@ export class ReservationProvider extends Component {
           carId: carId,
           startDate: null,
           endDate: null,
-          place: null
+          location: null
         }
       })
     },

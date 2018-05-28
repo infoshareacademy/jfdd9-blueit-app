@@ -7,6 +7,8 @@ import {withCars} from "../contexts/Cars";
 import RentDateForm from "../RentDateForm/RentDateForm";
 import {withReservation} from "../contexts/Reservation";
 import moment from 'moment'
+import CarOwned from '../CarOwned/CarOwned'
+import {withUser} from "../contexts/User";
 import './SearchEngine.css'
 
 
@@ -31,6 +33,8 @@ class SearchEngine extends Component {
     console.log('SearchEngine dates from reservation', startDateFromDatePicker, endDateFromDatePicker)
 
     const filteredCars = this.props.cars.filter(
+      car => this.props.isOwned ? car.ownerId === this.props.user.uid : true
+    ).filter(
       createFilter(this.props.searchTerm, KEYS_TO_FILTERS)
     ).filter(
       car => this.props.selectedOptions.every(
@@ -65,13 +69,20 @@ class SearchEngine extends Component {
         <CarFeatures
           selectedOptions={this.props.selectedOptions}
           toggleOption={this.props.toggleOption}
+          toogleOwned={this.props.toggleOwned}
         />
-        <button
-          className="ButtonRed ButtonClearFilters"
-          onClick={this.clearFilters}
-        >
-          Clear filters
-        </button>
+        <div className='lastFilters'>
+          <CarOwned/>
+          <div className='divider'>
+
+          </div>
+          <button
+            className="ButtonRed ButtonClearFilters"
+            onClick={this.clearFilters}
+          >
+            Clear filters
+          </button>
+        </div>
         <h2 className="H2__SectionBar">Available cars</h2>
         <CarImg
           cars={filteredCars}
@@ -83,4 +94,4 @@ class SearchEngine extends Component {
 
 }
 
-export default withReservation(withCars(withSearch(SearchEngine)))
+export default withUser(withReservation(withCars(withSearch(SearchEngine))))
