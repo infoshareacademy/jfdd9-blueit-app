@@ -2,25 +2,27 @@
 .CarFeatures {
     background-color: #0B1152;
     height: auto;
-    width: 35vw;
+    width: 600px;
     color: white;
     font-size: 20px;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
     margin: 20px auto;
     border-radius: 15px;
     text-align: center;
 }
 
+.CarFeaturesOptions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 .CarFeatures p {
     padding: 15px 20px;
-    width: 220px;
+    width: 200px;
 }
 .CarFeatures button {
     padding: 10px;
     margin: 5px 5px 20px;
-    width: 150px;
     color: #FFF;
     background-color: #0B1152;
     font-size: 20px;
@@ -33,7 +35,14 @@
     font-weight: bold;
 }
 
-
+@media screen and (max-width: 768px) {
+    .CarFeatures {
+        width: 70vw;
+    }
+    .CarFeatures p {
+        width: 140px;
+    }
+}
 
 /*@media screen and (max-width: 650px) {*/
 
