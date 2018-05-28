@@ -16,24 +16,35 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.MoreOptions:hover {
+    background-color: #202466;
+    border-radius: 15px;
+}
 .CarFeatures p {
     padding: 15px 20px;
     width: 200px;
 }
 .CarFeatures button {
     padding: 10px;
-    margin: 5px 5px 20px;
+    margin: 5px 5px 5px;
     color: #FFF;
     background-color: #0B1152;
     font-size: 20px;
     border: 0;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     transition: all .4s;
-    height: 50px;
+    width:97%;
     text-transform: uppercase;
     font-weight: bold;
 }
+
+.CarFeatures button:hover {
+    background-color: #202466;
+    border-radius: 5px;
+}
+
 
 @media screen and (max-width: 768px) {
     .CarFeatures {

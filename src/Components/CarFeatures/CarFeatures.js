@@ -21,12 +21,12 @@ class CarFeatures extends React.Component {
 
   state = {
     expanded: false,
-    buttonText: 'MORE'
+    buttonText: 'MORE OPTIONS'
   }
 
   clickHeandler = () => {
     this.state.expanded ?
-      this.setState({expanded: false, buttonText: 'MORE'})
+      this.setState({expanded: false, buttonText: 'MORE OPTIONS'})
       :
       this.setState({expanded: true, buttonText: 'HIDE'})
   }
@@ -35,9 +35,9 @@ class CarFeatures extends React.Component {
     return (
       <Fragment>
       <div className='CarFeatures'>
-        <div>
+        <div className="MoreOptions">
         <button onClick={this.clickHeandler}
-                className={this.clickHeandler.includes ? 'MORE' : 'HIDE'}
+                className={this.clickHeandler.includes ? 'MORE OPTIONS' : 'HIDE'}
                 >
           {this.state.buttonText}</button>
         </div>
