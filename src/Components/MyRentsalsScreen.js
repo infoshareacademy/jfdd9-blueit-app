@@ -15,7 +15,7 @@ class MyRentsalsScreen extends Component {
     return (
       <div>
         {
-          reservations && reservations.length === 0 ?
+          reservations && reservations.length <= 1 ?
             undefined :
             (<div className="MyRentsalsSortContainer">
               <button
