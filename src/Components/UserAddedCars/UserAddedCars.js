@@ -83,7 +83,7 @@ class UserAddedCars extends Component {
             <NavLink to="/" className="UserAddedCarsBtnConfirm">
               MAIN PAGE
             </NavLink>
-            <NavLink onClick={this.forceUpdate} to={"/UserAddedCars"} className="UserAddedCarsBtnConfirm">
+            <NavLink onClick={this.forceUpdate} to={"/user-added-cars"} className="UserAddedCarsBtnConfirm">
               START OVER
             </NavLink>
           </div>
