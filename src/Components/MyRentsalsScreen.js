@@ -14,16 +14,20 @@ class MyRentsalsScreen extends Component {
     const {cars, options, reservations} = this.props;
     return (
       <div>
-        <div className="MyRentsalsSortContainer">
-          <button
-            className="ButtonBlue ButtonFilter"
-            onClick={this.props.toggleSortReservationsByDates}
-          >
-            Sort by dates {this.props.reservationsSortingOrder === 'ASC' ?
-            <i className="fas fa-arrow-alt-circle-up"/> : this.props.reservationsSortingOrder === 'DESC' ?
-              <i className="fas fa-arrow-alt-circle-down"/> : ''}
-          </button>
-        </div>
+        {
+          reservations && reservations.length === 0 ?
+            undefined :
+            (<div className="MyRentsalsSortContainer">
+              <button
+                className="ButtonBlue ButtonFilter"
+                onClick={this.props.toggleSortReservationsByDates}
+              >
+                Sort by dates {this.props.reservationsSortingOrder === 'ASC' ?
+                <i className="fas fa-arrow-alt-circle-up"/> : this.props.reservationsSortingOrder === 'DESC' ?
+                  <i className="fas fa-arrow-alt-circle-down"/> : ''}
+              </button>
+            </div>)
+        }
         {
           reservations && reservations.length === 0 ?
             <h2>You don't have any active reservations.</h2> :
