@@ -4,7 +4,7 @@
 }
 
 .buttonSection {
-    width: 20%;
+    width: 18%;
 }
 
 .CarType {
@@ -98,14 +98,22 @@
     }
 }
 
-/*@media screen and (max-width: 450px) {*/
-/*.CarType {*/
-/*height: 250px;*/
-/*}*/
-/*}*/
+@media screen and (max-width: 1024px) {
+    .buttonSection {
+        width: 25%;
+    }
+}
+
 @media screen and (max-width: 450px) {
-    .CarType {
-        height: 270px;
+
+    .buttonSection {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+
+    }
+    .buttonSection.ButtonBlue {
+
     }
 }
 
