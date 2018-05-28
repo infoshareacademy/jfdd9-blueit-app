@@ -2,7 +2,7 @@ import React, {Fragment, Component} from 'react'
 import CarFeatures from '../CarFeatures/CarFeatures'
 import firebase from 'firebase'
 import './UserAddedCars.css'
-import Geocode from "react-geocode";
+import Geocode from "../../vendor/react-geocode";
 import {NavLink} from 'react-router-dom'
 
 class UserAddedCars extends Component {
