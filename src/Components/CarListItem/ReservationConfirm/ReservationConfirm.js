@@ -76,12 +76,6 @@ class ReservationConfirm extends Component {
     return datesArray
   };
 
-  clearDates = () =>
-    this.setState({
-      startDate: null,
-      endDate: null
-    })
-
   render() {
     const car = this.props.cars.find(car =>
       car.id === this.state.carId
@@ -206,7 +200,7 @@ class ReservationConfirm extends Component {
 
             <button
               className="ButtonRed ButtonClearDates"
-              onClick={this.clearDates}
+              onClick={this.props.clearDates}
             >Clear dates
             </button>
 
