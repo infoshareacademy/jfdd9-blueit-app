@@ -2,35 +2,63 @@
 .CarFeatures {
     background-color: #0B1152;
     height: auto;
-    width: 80%;
+    width: 600px;
     color: white;
     font-size: 20px;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
     margin: 20px auto;
     border-radius: 15px;
     text-align: center;
 }
 
+.CarFeaturesOptions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.MoreOptions:hover {
+    background-color: #202466;
+    border-radius: 15px;
+}
 .CarFeatures p {
     padding: 15px 20px;
-    width: 220px;
+    width: 200px;
 }
+.CarFeatures button {
+    padding: 10px;
+    margin: 5px 5px 5px;
+    color: #FFF;
+    background-color: #0B1152;
+    font-size: 20px;
+    border: 0;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all .4s;
+    width:97%;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.CarFeatures button:hover {
+    background-color: #202466;
+    border-radius: 5px;
+}
+
 
 @media screen and (max-width: 768px) {
     .CarFeatures {
-        width: 98%;
+        width: 70vw;
     }
-}
-
-@media screen and (max-width: 650px) {
-    .CarFeatures {
-
-    }
-
     .CarFeatures p {
-        font-size: 20px;
-        padding: 5px 20px;
+        width: 140px;
     }
 }
+
+/*@media screen and (max-width: 650px) {*/
+
+    /*.CarFeatures p {*/
+        /*font-size: 20px;*/
+        /*padding: 5px 20px;*/
+    /*}*/
+/*}*/
