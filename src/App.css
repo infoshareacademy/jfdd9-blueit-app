@@ -1,10 +1,10 @@
 .SignOutButton {
     padding: 10px;
-    margin: 5px 1rem;
+    margin: 5px 5px 20px;
     width: 150px;
     color: #FFF;
     background-color: rgba(89, 0, 8, 0.8);
-    font-size: 24px;
+    font-size: 20px;
     border: 0;
     border-radius: 5px;
     cursor: pointer;
@@ -18,4 +18,9 @@
 
 .SignOutButtonContainer {
     text-align: right;
+}
+
+.SignInAs {
+    display: inline-block;
+    padding: 5px 5px;
 }

@@ -11,9 +11,9 @@
     align-items: center;
     background-color: rgba(24, 48, 255, 0.08);
     border-radius: 15px;
-    margin: 10px auto;
+    margin: 20px auto;
     width: 80%;
-    height: 220px;
+    min-height: 150px;
     font-size: 20px;
     padding-left: 20px;
 }
@@ -30,6 +30,28 @@
     width: 55%;
 }
 
+#show.ShowLess {
+    display: block;
+    padding: 13px;
+    margin: 20px auto;
+    width: 50%;
+    color: #FFF;
+    font-size: 20px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+#show.ShowLess {
+    background-color: rgba(89, 0, 8, 0.8);
+}
+
+#show.ShowLess:hover {
+    background-color: rgba(89, 0, 8, 0.9);
+    transition: all .4s;
+}
+
 @media screen and (max-width: 1200px) {
     .CarInfo {
         width: 45%;
@@ -38,18 +60,15 @@
 }
 
 @media screen and (max-width: 768px) {
-    .CarType {
-        width: 100%;
+    .CarType,
+    #show.ShowLess {
+        width: 50%;
     }
+
     .rentsum {
         flex-direction: column;
         width: 100%;
     }
-
-    .rentmap {
-
-    }
-
 }
 
 @media screen and (max-width: 650px) {
@@ -59,20 +78,25 @@
 
     .CarInfo {
         margin-left: 0;
-        font-size: 16px;
+        font-size: 20px;
         width: 100%;
         height: 300px;
 
     }
 
     .CarType {
-        height: 240px;
+        /*height: auto;*/
         padding: 0 10px;
         flex-direction: column;
         justify-content: space-around;
     }
 }
 
+/*@media screen and (max-width: 450px) {*/
+/*.CarType {*/
+/*height: 250px;*/
+/*}*/
+/*}*/
 @media screen and (max-width: 450px) {
     .CarType {
         height: 270px;

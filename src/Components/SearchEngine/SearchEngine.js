@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react'
 import SearchInput, {createFilter} from 'react-search-input'
-import './SearchEngine.css'
 import CarFeatures from "../CarFeatures/CarFeatures";
 import CarImg from "../CarListItem/CarImg/CarImg";
 import {withSearch} from "../contexts/Search";
@@ -10,6 +9,7 @@ import {withReservation} from "../contexts/Reservation";
 import moment from 'moment'
 import CarOwned from '../CarOwned/CarOwned'
 import {withUser} from "../contexts/User";
+import './SearchEngine.css'
 
 
 const KEYS_TO_FILTERS = [
@@ -20,6 +20,11 @@ const KEYS_TO_FILTERS = [
 ]
 
 class SearchEngine extends Component {
+
+  clearFilters = () => {
+    this.props.clearSearchState()
+    this.props.clearReservationDates()
+  }
 
   render() {
     console.log('SearchEngine Cars object', Object.values(this.props.cars))
@@ -53,6 +58,7 @@ class SearchEngine extends Component {
 
     return (
       <Fragment>
+        <h2 className="H2__SectionBar">Filters</h2>
         <RentDateForm rentDates={this.props.rentDates}/>
         <SearchInput
           placeholder={"Type make, model and/or year of production here"}
@@ -68,6 +74,13 @@ class SearchEngine extends Component {
 
       <CarOwned/>
 
+        <button
+          className="ButtonRed ButtonClearFilters"
+          onClick={this.clearFilters}
+        >
+          Clear filters
+        </button>
+        <h2 className="H2__SectionBar">Available cars</h2>
         <CarImg
           cars={filteredCars}
         />

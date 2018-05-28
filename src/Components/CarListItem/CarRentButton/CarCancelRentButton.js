@@ -8,7 +8,7 @@ class CarCancelRentButton extends React.Component {
     // const {cancelReservation} = this.props
     return (
       <button
-        className="RentBtnReserved"
+        className="ButtonRed"
         onClick={ () => {
           console.log('ID rezerwacji do usuniecia:', this.props.reservationId)
           console.log('ID auta do usuniecia:', this.props.carId)

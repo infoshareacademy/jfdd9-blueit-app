@@ -1,28 +1,39 @@
-.RentBtn,
-.RentBtnReserved {
-    padding: 20px;
-    margin: 10px 1rem;
+.ButtonBlue,
+.ButtonRed,
+.ButtonGreen,
+.ButtonDisabled {
+    padding: 13px;
+    margin: 20px 1rem;
     width: 150px;
     color: #FFF;
     background-color: #0B1152;
-    font-size: 24px;
+    font-size: 20px;
     border: 0;
     border-radius: 5px;
     cursor: pointer;
     transition: all .4s;
 }
 
-.RentBtn:hover {
+.ButtonBlue:hover {
     background-color: rgba(14, 18, 89, 0.9);
     transition: all .4s;
 }
 
-.RentBtnReserved {
+.ButtonRed {
     background-color: rgba(89, 0, 8, 0.8);
 }
 
-.RentBtnReserved:hover {
+.ButtonRed:hover {
     background-color: rgba(89, 0, 8, 0.9);
+    transition: all .4s;
+}
+
+.ButtonGreen {
+    background-color: rgb(71, 161, 0);
+}
+
+.ButtonGreen:hover {
+    background-color: rgb(69, 138, 0);
     transition: all .4s;
 }
 
@@ -31,10 +42,17 @@
     margin: 30px 10px;
 }
 
+.ButtonDisabled,
+.ButtonDisabled:hover {
+    background-color: #aaa;
+    cursor: inherit;
+}
+
 @media screen and (max-width: 650px) {
-    .RentBtn,
-    .RentBtnReserved {
-        font-size: 16px;
+    .ButtonBlue,
+    .ButtonRed,
+    .ButtonGreen {
+        font-size: 20px;
         width: 120px;
 
     }

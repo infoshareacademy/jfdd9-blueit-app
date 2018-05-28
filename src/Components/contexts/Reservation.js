@@ -4,6 +4,7 @@ import fullsize from '../img/car-fullsize.jpg'
 import compact from '../img/car-compact.jpg'
 import minivan from '../img/car-minivan.jpg'
 import firebase from 'firebase'
+import moment from "moment";
 
 const ReservationContext = React.createContext();
 
@@ -12,11 +13,9 @@ export const ReservationConsumer = ReservationContext.Consumer;
 export class ReservationProvider extends Component {
   state = {
     // cars: [],
-
     reservedCarIds: [],
-
     reservations: [],
-
+    reservationsSortingOrder: null,
     currentReservation: null,
 
     // State from datepicker (RentCarScreen) passed in rentDates():
@@ -63,6 +62,32 @@ export class ReservationProvider extends Component {
           location: null
         }
       })
+    },
+
+    clearReservationDates: () =>
+      this.setState({
+        startDate: null,
+        endDate: null
+      }),
+
+    toggleSortReservationsByDates: () => {
+      const sort = this.state.reservations.sort(
+        (reservationA, reservationB) =>
+          moment(reservationA.startDate).isBefore(moment(reservationB.startDate)) ? -1 :
+            moment(reservationA.startDate).isAfter(moment(reservationB.startDate)) ? 1 : 0
+      )
+
+      this.setState({
+        reservations: sort,
+        reservationsSortingOrder: 'ASC'
+      })
+
+      if (this.state.reservationsSortingOrder === 'ASC') {
+        sort.reverse()
+        this.setState({
+          reservationsSortingOrder: 'DESC'
+        })
+      }
     },
 
     options: {

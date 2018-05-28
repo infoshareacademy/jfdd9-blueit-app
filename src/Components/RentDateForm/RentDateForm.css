@@ -1,19 +1,51 @@
-.datePicker__container {
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin: 2rem auto;
-    text-align: center;
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+    display: block;
 }
 
-.RentDateForm {
+.datePicker__container {
+    /*box-sizing: border-box;*/
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.datePicker__container__ReservationConfirm {
+    display: block;
+    /*text-align: center;*/
+}
+
+.RentDateForm,
+.RentDateForm__ReservationConfirm,
+.RentDateForm__ReservationConfirm__Disabled,
+.RentDateForm__Disabled {
+    box-sizing: border-box;
+    display: block;
     font-size: 16px;
     padding: 15px;
+    width: 38vw;
+    margin: 20px auto;
     background-color: #ebf5f5;
     color: #8a97a0;
     border: none;
+    border-radius: 5px;
     box-shadow: 0 0 5px rgba(73, 78, 92, 0.45);
+}
+
+.RentDateForm__ReservationConfirm,
+.RentDateForm__ReservationConfirm__Disabled {
+    width: 35vw;
+}
+
+.RentDateForm__ReservationConfirm__Disabled,
+.RentDateForm__Disabled {
+    background-color: #aaa;
+}
+
+.RentDateForm__ReservationConfirm__Disabled::placeholder,
+.RentDateForm__Disabled::placeholder {
+    color: #fff;
 }
 
 .CalendarDateTo {
@@ -26,6 +58,32 @@
     padding: 5px 0;
 }
 
-.PlaceContainer {
-    text-align: center;
+@media screen and (max-width: 768px) {
+    .datePicker__container {
+        width: 98%;
+    }
+
+    .RentDateForm,
+    .RentDateForm__Disabled {
+        width: 46vw;
+    }
+
+    .RentDateForm__ReservationConfirm,
+    .RentDateForm__ReservationConfirm__Disabled {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .datePicker__container {
+        display: block;
+        margin: 0 auto;
+        /*width: 98%;*/
+    }
+
+    .RentDateForm,
+    .RentDateForm__Disabled {
+        margin: 12px auto;
+        width: 100%;
+    }
 }
