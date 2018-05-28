@@ -5,6 +5,8 @@ import compact from '../img/car-compact.jpg'
 import minivan from '../img/car-minivan.jpg'
 import SUV from '../img/car-SUV.jpg'
 import CarRentButton from "./CarRentButton/CarRentButton";
+import CarDeleteButton from "./CarDeleteButton/CarDeleteButton"
+import {withUser} from "../contexts/User";
 
 const options = {
   minivan: {
@@ -24,7 +26,9 @@ const options = {
     imageUrl: fullsize
   }
 
+
 };
+
 
 class CarItem extends Component {
   render() {
@@ -43,15 +47,17 @@ class CarItem extends Component {
             <strong>{(options[car.carbody] || {}).label || 'Car Undefined'}</strong>
             <span>{car.make}, {car.model}, {car.productionYear}</span>
           </p>
-            <p>{car.location}</p>
+          <p>{car.location}</p>
           {car.features && car.features.length === 0 ? '' :
             <p><strong>Features:</strong> {car.features && car.features.join(', ')}</p>}
         </div>
-        {this.props.noRentBtn === true ? <div></div> : <CarRentButton carId={car.id}/>}
-
+        <div className="buttonSection">
+          {this.props.noRentBtn === true ? <div></div> : <CarRentButton carId={car.id}/>}
+          {this.props.user.uid !== car.ownerId ? <div></div> : <CarDeleteButton carId={car.id}/>}
+        </div>
       </div>
     )
   }
 }
 
-export default CarItem
+export default withUser(CarItem)

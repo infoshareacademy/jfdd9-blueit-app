@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import './CarFeatures.css'
 
 const options = [
@@ -9,9 +9,11 @@ const options = [
   'Pet friendly',
   'Tour guide',
   'Cable TV',
-  'Private bathroom'
+  'Private bathroom',
+
 
 ];
+
 
 
 class CarFeatures extends React.Component {
@@ -21,6 +23,7 @@ class CarFeatures extends React.Component {
   }
   render() {
     return (
+      <Fragment>
       <div className='CarFeatures'>
         <div>
         <button onClick={() => this.setState({ expanded: true })}>MORE</button>
@@ -38,8 +41,9 @@ class CarFeatures extends React.Component {
             </p>
           )
         )}
-</div>
+        </div>
       </div>
+      </Fragment>
     )
   }
 }

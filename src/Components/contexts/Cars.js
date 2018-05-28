@@ -9,6 +9,9 @@ export class CarProvider extends Component {
 
   state = {
     cars: [],
+    deleteCar: (carId) => {
+      firebase.database().ref(`/cars/${carId}`).remove()
+    }
 
   }
 
@@ -19,6 +22,8 @@ export class CarProvider extends Component {
       </CarContext.Provider>
     )
   }
+
+
 
 
   handleCarSnapshot = snapshot => {

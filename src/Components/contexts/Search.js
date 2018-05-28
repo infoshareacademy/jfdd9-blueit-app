@@ -10,6 +10,7 @@ export class SearchProvider extends Component {
   state = {
     selectedOptions: [],
     searchTerm: '',
+    isOwned: false,
 
     toggleOption: optionName => this.setState(
       ({selectedOptions}) => ({
@@ -18,6 +19,9 @@ export class SearchProvider extends Component {
           selectedOptions.concat(optionName)
       })
     ),
+
+    toggleOwned: () =>
+      this.setState({ isOwned: !this.state.isOwned }),
 
     searchUpdated: (term) => {
       this.setState({searchTerm: term})

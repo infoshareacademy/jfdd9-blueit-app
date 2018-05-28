@@ -1,3 +1,10 @@
+.lastFilters {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    margin: 0 auto;
+}
+
 .H2__SectionBar {
     text-transform: uppercase;
     color: #FFF;
@@ -36,13 +43,14 @@
 }
 
 .ButtonClearFilters {
-    width: 50%;
+    width: 48%;
     display: block;
     margin: 0 auto;
 }
 .option {
     border: 1px solid #3B417A;
 }
+
 
 @media screen and (max-width: 768px) {
     .search-input > input {
