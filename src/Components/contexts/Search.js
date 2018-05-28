@@ -20,7 +20,8 @@ export class SearchProvider extends Component {
       })
     ),
 
-    toggleOwned: () => this.setState({ isOwned: !this.state.isOwned }),
+    toggleOwned: () =>
+      this.setState({ isOwned: !this.state.isOwned }),
 
     searchUpdated: (term) => {
       this.setState({searchTerm: term})

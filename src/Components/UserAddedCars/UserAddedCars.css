@@ -43,6 +43,7 @@ input:focus {
     cursor: pointer;
     transition: all .4s;
     text-decoration: none;
+    margin-bottom: 15px;
 }
 
 .UserAddedCarsBtn:hover {

@@ -9,7 +9,7 @@ class CarDeleteButton extends React.Component {
     // const {cancelReservation} = this.props
     return (
       <button
-        className="DelBtn"
+        className="ButtonRed"
         onClick={ () => {
           this.props.deleteCar(this.props.carId)
         }}

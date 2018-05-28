@@ -71,15 +71,18 @@ class SearchEngine extends Component {
           toggleOption={this.props.toggleOption}
           toogleOwned={this.props.toggleOwned}
         />
+        <div className='lastFilters'>
+          <CarOwned/>
+          <div className='divider'>
 
-      <CarOwned/>
-
-        <button
-          className="ButtonRed ButtonClearFilters"
-          onClick={this.clearFilters}
-        >
-          Clear filters
-        </button>
+          </div>
+          <button
+            className="ButtonRed ButtonClearFilters"
+            onClick={this.clearFilters}
+          >
+            Clear filters
+          </button>
+        </div>
         <h2 className="H2__SectionBar">Available cars</h2>
         <CarImg
           cars={filteredCars}

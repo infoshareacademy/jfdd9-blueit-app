@@ -3,6 +3,10 @@
     color: #0b1259;
 }
 
+.buttonSection {
+    width: 20%;
+}
+
 .CarType {
     box-sizing: border-box;
     display: flex;
@@ -51,6 +55,8 @@
     background-color: rgba(89, 0, 8, 0.9);
     transition: all .4s;
 }
+
+
 
 @media screen and (max-width: 1200px) {
     .CarInfo {
@@ -129,3 +135,4 @@
 .ShowMore {
     text-align: center;
 }
+

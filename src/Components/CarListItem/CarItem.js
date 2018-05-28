@@ -27,7 +27,6 @@ const options = {
   }
 
 
-
 };
 
 
@@ -48,12 +47,14 @@ class CarItem extends Component {
             <strong>{(options[car.carbody] || {}).label || 'Car Undefined'}</strong>
             <span>{car.make}, {car.model}, {car.productionYear}</span>
           </p>
-            <p>{car.location}</p>
+          <p>{car.location}</p>
           {car.features && car.features.length === 0 ? '' :
             <p><strong>Features:</strong> {car.features && car.features.join(', ')}</p>}
         </div>
-        {this.props.noRentBtn === true ? <div></div> : <CarRentButton carId={car.id}/>}
-        {this.props.user.uid !== car.ownerId ? <div></div> :<CarDeleteButton carId={car.id}/>}
+        <div className="buttonSection">
+          {this.props.noRentBtn === true ? <div></div> : <CarRentButton carId={car.id}/>}
+          {this.props.user.uid !== car.ownerId ? <div></div> : <CarDeleteButton carId={car.id}/>}
+        </div>
       </div>
     )
   }

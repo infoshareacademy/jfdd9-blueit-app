@@ -11,11 +11,15 @@
     border: 0;
     border-radius: 5px;
     cursor: pointer;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
     transition: all .4s;
 }
 
 .ButtonBlue:hover {
     background-color: rgba(14, 18, 89, 0.9);
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
     transition: all .4s;
 }
 
@@ -25,6 +29,8 @@
 
 .ButtonRed:hover {
     background-color: rgba(89, 0, 8, 0.9);
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
     transition: all .4s;
 }
 
@@ -34,6 +40,8 @@
 
 .ButtonGreen:hover {
     background-color: rgb(69, 138, 0);
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
     transition: all .4s;
 }
 
@@ -52,8 +60,15 @@
     .ButtonBlue,
     .ButtonRed,
     .ButtonGreen {
-        font-size: 20px;
+        font-size: 14px;
         width: 120px;
 
+    }
+    .buttonSection {
+        display: flex;
+        width: auto;
+        align-items: flex-start;
+        position: relative;
+        bottom: 40px;
     }
 }

@@ -43,7 +43,7 @@ class CarMap extends Component {
                       visible={this.state.showingInfoWindow}
           >
             <div>
-              <h1>Tu czeka kot dla Ciebie</h1>
+              <h1>Here is your chosen car</h1>
             </div>
           </InfoWindow>
         </Map>
