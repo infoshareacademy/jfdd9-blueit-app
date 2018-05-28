@@ -56,19 +56,3 @@
     cursor: inherit;
 }
 
-@media screen and (max-width: 650px) {
-    .ButtonBlue,
-    .ButtonRed,
-    .ButtonGreen {
-        font-size: 14px;
-        width: 120px;
-
-    }
-    .buttonSection {
-        display: flex;
-        width: auto;
-        align-items: flex-start;
-        position: relative;
-        bottom: 40px;
-    }
-}
