@@ -58,7 +58,7 @@ class SearchEngine extends Component {
 
     return (
       <Fragment>
-        <div style={{ background: 'rgb(59, 65, 122)'}}>
+        <div style={{ background: 'rgb(59, 65, 122)', paddingBottom:5}}>
         <h2 className="H2__SectionBar">Filters</h2>
         <RentDateForm rentDates={this.props.rentDates}/>
         <SearchInput
