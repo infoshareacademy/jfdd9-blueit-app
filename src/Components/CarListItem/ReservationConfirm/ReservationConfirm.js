@@ -94,7 +94,7 @@ class ReservationConfirm extends Component {
     // console.log('Router id:', this.props.match.params.carId)
     // console.log(this.state)
     // console.log('RESERVATIONS IN STATE', this.props.reservations)
-    console.log('CARS IN STATE', this.props.cars)
+    // console.log('CARS IN STATE', this.props.cars)
     // console.log('MOMENT SUBSTRACTION', (moment('2018-06-05').diff(moment('2018-06-01'), 'days')+1))
     // console.log('FIND RESERVATION', this.props.reservations.filter(reservation =>
     //   reservation.carId === this.state.carId
