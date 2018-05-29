@@ -36,10 +36,8 @@ class CarFeatures extends React.Component {
       <Fragment>
       <div className='CarFeatures'>
         <div className="MoreOptions">
-        <button onClick={this.clickHeandler}
-                className={this.clickHeandler.includes ? 'MORE OPTIONS' : 'HIDE'}
-                >
-          {this.state.buttonText}</button>
+        <div onClick={this.clickHeandler}>
+          {this.state.buttonText}</div>
         </div>
 <div className="CarFeaturesOptions">
         {this.state.expanded && options.map(

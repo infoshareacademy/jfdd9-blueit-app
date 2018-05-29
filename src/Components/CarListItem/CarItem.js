@@ -29,13 +29,13 @@ const options = {
 
 };
 
-
 class CarItem extends Component {
   render() {
     const {car} = this.props
-
     return (
-      <div key={car.id} className="CarType" onClick={() => console.log('Kliknięte ID samochodu:', car.id)}>
+      <div key={car.id}
+           className="CarType"
+      >
         <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
         <div className="CarInfo">
           <p>
