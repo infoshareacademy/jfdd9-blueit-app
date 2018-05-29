@@ -57,7 +57,6 @@ class UserAddedCars extends Component {
     Geocode.fromAddress(this.state.location).then(
       response => {
         const {lat, lng} = response.results[0].geometry.location;
-        console.log(lat, lng);
         this.addCar(lat, lng)
       },
       error => {
