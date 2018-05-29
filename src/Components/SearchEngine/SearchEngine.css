@@ -2,7 +2,11 @@
     width: 80%;
     height: 50px;
     display: flex;
-    margin: 0 auto;
+    margin: 20px auto;
+}
+
+.lastFiltersSingle{
+
 }
 
 .H2__SectionBar {

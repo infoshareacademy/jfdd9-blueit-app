@@ -15,6 +15,7 @@ import {CarProvider} from "./Components/contexts/Cars";
 import LoginScreen from "./Components/LoginScreen/LoginScreen";
 import {withUser} from './Components/contexts/User';
 import './App.css'
+import logo from './carwhite.png'
 
 class App extends Component {
 
@@ -34,12 +35,20 @@ class App extends Component {
                   ) : (
                     <div>
                       <nav>
-                        <NavbarMenu/>
-                        <div className='SignOutButtonContainer'>
+                        <div className="longMenu">
+                          <div className="longMenu-logo">
+                            <img src={logo}/>
+                            <span className="longMenu-text">BlueSky Cars</span>
+                          </div>
+                          <div className='SignOutButtonContainer'>
                           <span
                             className="SignInAs">Signed in as: <strong>{this.props.user && this.props.user.email}</strong></span>
-                          <button className='SignOutButton' onClick={this.props.signOut}>Sign out</button>
+                            <button className='SignOutButton' onClick={this.props.signOut}>Sign out</button>
+                          </div>
                         </div>
+
+                        <NavbarMenu/>
+
                       </nav>
 
                       <Route exact path="/" render={() => <RentCarScreen rentDates={this.rentDates}/>}/>
