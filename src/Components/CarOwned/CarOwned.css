@@ -46,7 +46,7 @@ button, input[type="submit"], input[type="reset"] {
 
 @media screen and (max-width: 640px){
     .checkOwner {
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 

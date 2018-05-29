@@ -56,3 +56,92 @@
     cursor: inherit;
 }
 
+.longMenu-logo {
+    display: flex;
+}
+
+.longMenu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #0b1139;
+
+}
+
+.longMenu img {
+    height: 4.1em;
+    float: left;
+    margin-left: 1em;
+    padding: 10px;
+
+}
+
+.longMenu span {
+    color: white;
+    align-self: center;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 320px) {
+    .ButtonBlue,
+    .ButtonRed,
+    .ButtonGreen,
+    .ButtonDisabled {
+        padding: 13px;
+        margin: 20px 1rem;
+        width: 150px;
+        color: #FFF;
+        background-color: #0B1152;
+        font-size: 12px;
+        border: 0;
+        border-radius: 5px;
+        cursor: pointer;
+        -webkit-transition: all .4s;
+        -o-transition: all .4s;
+        transition: all .4s;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .longMenu {
+        display: flex;
+    }
+
+    .longMenu img {
+
+    }
+
+    .longMenu span {
+        display: block;
+        font-size: 12px;
+    }
+
+    .longMenu-logo {
+        display: flex;
+        justify-content: space-around;
+        width: 50%;
+
+    }
+
+    .longMenu-logo span {
+        /*display: block;*/
+        width: 50%;
+        align-self: center;
+
+    }
+
+    .SignOutButton {
+        /*display: block;*/
+        /*align-self: flex-end;*/
+
+    }
+
+    .SignOutButtonContainer {
+        width: 50%;
+        /*display: flex;*/
+        /*flex-wrap: wrap;*/
+        /*align-self: right;*/
+
+    }
+}
+
