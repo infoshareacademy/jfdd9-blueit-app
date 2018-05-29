@@ -44,7 +44,6 @@ export class ReservationProvider extends Component {
 
       })
       const reservationId = firebaseId.key
-      // console.log('ID rezerwacji z firebase', reservationId)
 
       firebase.database().ref(`/cars/${carId}/reservedFor/${reservationId}`).set({
         startDate: startDate.format('YYYY-MM-DD'),
@@ -117,7 +116,6 @@ export class ReservationProvider extends Component {
   };
 
   render() {
-    // console.log('Reservation render this.state.reservations', this.state.reservations)
     return (
       <ReservationContext.Provider value={this.state}>
         {this.props.children}
