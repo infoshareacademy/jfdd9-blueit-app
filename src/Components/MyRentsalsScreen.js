@@ -49,7 +49,7 @@ class MyRentsalsScreen extends Component {
                         </p>
                         <span><strong>Location: </strong>{car.location}</span>
                         {
-                          car.features.length === 0 ? '' : <p><strong>Features:</strong> {car.features.join(', ')}</p>
+                          car.features && car.features.length > 0 && <p><strong>Features:</strong> {car.features.join(', ')}</p>
                         }
                         <p><strong>Rent start date: </strong>{reservation.startDate}, <strong>end
                           date: </strong>{reservation.endDate}</p>
