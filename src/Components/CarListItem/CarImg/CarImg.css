@@ -8,25 +8,29 @@
 }
 
 .CarType {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -ms-flex-align: center;
     align-items: center;
     background-color: rgba(24, 48, 255, 0.08);
     border-radius: 15px;
     margin: 20px auto;
     width: 80%;
     min-height: 150px;
-    height: 250px;
     font-size: 20px;
     padding-left: 20px;
 }
 
 .CarImg {
     border: 1px #0b1259 solid;
-    width: 20%;
-    max-height: 150px;
+    width: 15%;
+    height: auto;
     padding: 5px;
     background: #fff;
 }
@@ -45,6 +49,8 @@
     border: 0;
     border-radius: 5px;
     cursor: pointer;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
     transition: all .4s;
 }
 
@@ -54,6 +60,8 @@
 
 #show.ShowLess:hover {
     background-color: rgba(89, 0, 8, 0.9);
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
     transition: all .4s;
 }
 
@@ -77,10 +85,15 @@
     }
 
     .rentsum {
+        -ms-flex-direction: column;
         flex-direction: column;
         width: 100%;
     }
 
+    .buttonSection {
+        /*width: 50%;*/
+
+    }
 
 }
 
@@ -100,6 +113,7 @@
     .CarType {
         /*height: auto;*/
         padding: 0 10px;
+        -ms-flex-direction: column;
         flex-direction: column;
         justify-content: space-around;
     }
@@ -111,7 +125,9 @@
 
     .buttonSection {
         width: 100%;
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-align: end;
         align-items: flex-end;
 
     }
@@ -131,6 +147,8 @@
     border: 0;
     border-radius: 5px;
     cursor: pointer;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
     transition: all .4s;
 }
 
@@ -140,6 +158,8 @@
 
 #show.ShowLess:hover {
     background-color: rgba(89, 0, 8, 0.9);
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
     transition: all .4s;
 }
 
