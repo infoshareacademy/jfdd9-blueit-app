@@ -62,6 +62,8 @@ class UserAddedCars extends Component {
       error => {
         console.error(error);
       }
+    ).catch(
+      () => this.addCar()
     )
   }
 
