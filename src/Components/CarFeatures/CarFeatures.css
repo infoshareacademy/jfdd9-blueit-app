@@ -17,6 +17,11 @@
     justify-content: space-around;
 }
 
+.MoreOptions {
+    padding: 10px;
+    cursor: pointer;
+}
+
 .MoreOptions:hover {
     background-color: #202466;
     border-radius: 15px;
