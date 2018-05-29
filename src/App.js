@@ -19,7 +19,6 @@ import './App.css'
 class App extends Component {
 
   render() {
-    // console.log('USER', this.props.user && this.props.user.email)
     return (
       <CarProvider>
         <ReservationProvider>

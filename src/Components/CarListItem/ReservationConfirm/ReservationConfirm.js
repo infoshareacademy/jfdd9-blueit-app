@@ -26,7 +26,6 @@ class ReservationConfirm extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, currentState) {
-    // console.log('ReservationConfirm getDerivedStateFromProps, (nextProps):', nextProps)
     if (nextProps.currentReservation === null) {
       nextProps.history.push('/')
       return null
@@ -69,10 +68,8 @@ class ReservationConfirm extends Component {
     const endDateConst = moment(endDate)
     datesArray.push(currentDateConst.format('YYYY-MM-DD'))
     while (currentDateConst.add(1, 'days').diff(endDateConst) <= 0) {
-      // console.log('currentDateConst:', currentDateConst, 'endDateConst', endDateConst)
       datesArray.push(currentDateConst.clone().format('YYYY-MM-DD'))
     }
-    // console.log('datesArray', datesArray)
     return datesArray
   };
 
@@ -87,26 +84,6 @@ class ReservationConfirm extends Component {
     car.reservedFor && Object.values(car.reservedFor).forEach(reservation =>
       datesToExclude.push(this.excludedDates(reservation.startDate, reservation.endDate))
     )
-
-    // console.log('EXCLUDED FUNCTION', this.excludedDates('2018-06-07', '2018-06-09'))
-    // let excludedDates2 = []
-    // console.log('ReservationConfirm render (this.props)', this.props)
-    // console.log('Router id:', this.props.match.params.carId)
-    // console.log(this.state)
-    // console.log('RESERVATIONS IN STATE', this.props.reservations)
-    // console.log('CARS IN STATE', this.props.cars)
-    // console.log('MOMENT SUBSTRACTION', (moment('2018-06-05').diff(moment('2018-06-01'), 'days')+1))
-    // console.log('FIND RESERVATION', this.props.reservations.filter(reservation =>
-    //   reservation.carId === this.state.carId
-    // ).map(reservation =>
-    //   console.log(this.excludedDates(reservation.startDate, reservation.endDate))
-    // ))
-    // console.log('EXCLUDED DATES ARRAY', excludedDates2)
-
-
-    // let excluded = this.props.reservations.find(reservation =>
-    //   reservation.carId === this.state.carId
-    // ).calculateExcludedDates(reservation.startDate, reservation.endDate)
 
     return (
       <Fragment>

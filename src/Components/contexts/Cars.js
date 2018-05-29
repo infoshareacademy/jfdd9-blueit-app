@@ -30,8 +30,6 @@ export class CarProvider extends Component {
     this.setState({
         cars: Object.entries(snapshot.val() || {}).map(([id, other]) => ({...other, id}))
       }
-      // ,
-      // () => console.log('Cars handleCarSnapshot (this.state)', this.state)
     )
   }
 

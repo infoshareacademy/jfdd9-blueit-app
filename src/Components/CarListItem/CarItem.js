@@ -33,16 +33,9 @@ const options = {
 class CarItem extends Component {
   render() {
     const {car} = this.props
-    // console.log('CarItem render (this.props.car)', car)
-    // if(typeof car === 'undefined') {
-    //   return (
-    //     this.props.history.push('/my-rentals-screen')
-    //   )
-    // }
     return (
       <div key={car.id}
            className="CarType"
-           // onClick={() => console.log('Kliknięte ID samochodu:', car.id)}
       >
         <img src={(options[car.carbody] || {}).imageUrl || SUV} alt="car-compact" className="CarImg"/>
         <div className="CarInfo">
