@@ -10,6 +10,7 @@ h2 {
 .ButtonFilter {
     width: 180px;
     margin: 0;
+
 }
 
 @media screen and (max-width: 768px) {
@@ -22,5 +23,6 @@ h2 {
     .ButtonFilter {
         font-size: 20px;
         width: 180px;
+        margin-top: 5px
     }
 }
