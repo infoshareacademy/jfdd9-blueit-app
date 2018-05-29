@@ -29,9 +29,11 @@ const options = {
 
 };
 
+
 class CarItem extends Component {
   render() {
     const {car} = this.props
+
     return (
       <div key={car.id}
            className="CarType"
