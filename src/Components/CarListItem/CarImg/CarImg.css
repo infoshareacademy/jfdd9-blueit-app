@@ -18,14 +18,15 @@
     margin: 20px auto;
     width: 80%;
     min-height: 150px;
+    height: 250px;
     font-size: 20px;
     padding-left: 20px;
 }
 
 .CarImg {
     border: 1px #0b1259 solid;
-    width: 15%;
-    height: auto;
+    width: 20%;
+    max-height: 150px;
     padding: 5px;
     background: #fff;
 }
@@ -80,10 +81,6 @@
         width: 100%;
     }
 
-    .buttonSection {
-        width: 50%;
-
-    }
 
 }
 

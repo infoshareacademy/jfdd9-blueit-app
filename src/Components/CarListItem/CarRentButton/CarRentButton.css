@@ -82,6 +82,10 @@
     font-size: 16px;
 }
 
+.buttonSectionSingle {
+    width: 18%;
+}
+
 @media screen and (max-width: 320px) {
     .ButtonBlue,
     .ButtonRed,
@@ -100,7 +104,16 @@
         -o-transition: all .4s;
         transition: all .4s;
     }
+    .buttonSectionSingle {
+        margin: 0;
+    }
+    .buttonSectionSingle {
+        /*margin: 35px;*/
+        width: 60%;
+    }
 }
+
+
 
 @media screen and (max-width: 800px) {
     .longMenu {
@@ -142,6 +155,15 @@
         /*flex-wrap: wrap;*/
         /*align-self: right;*/
 
+    }
+
+    .ButtonRed {
+        background-color: rgba(89, 0, 8, 0.8);
+    }
+
+    .buttonSectionSingle {
+        /*margin: 35px;*/
+        width: 50%;
     }
 }
 
