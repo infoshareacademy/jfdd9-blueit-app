@@ -20,8 +20,8 @@ class CarMap extends Component {
   }
 
   render() {
-    const car = this.props.car
-    console.log(car)
+    // const car = this.props.car
+    // console.log(car)
 
     return (
       <div>

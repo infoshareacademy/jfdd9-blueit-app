@@ -27,10 +27,10 @@ class SearchEngine extends Component {
   }
 
   render() {
-    console.log('SearchEngine Cars object', Object.values(this.props.cars))
+    // console.log('SearchEngine Cars object', Object.values(this.props.cars))
 
     const {startDate: startDateFromDatePicker, endDate: endDateFromDatePicker} = this.props
-    console.log('SearchEngine dates from reservation', startDateFromDatePicker, endDateFromDatePicker)
+    // console.log('SearchEngine dates from reservation', startDateFromDatePicker, endDateFromDatePicker)
 
     const filteredCars = this.props.cars.filter(
       car => this.props.isOwned ? car.ownerId === this.props.user.uid : true
@@ -49,7 +49,7 @@ class SearchEngine extends Component {
       //debugger
       return reservations.every(
         reservation => {
-          console.log('MOMENT', moment(reservation.endDate))
+          // console.log('MOMENT', moment(reservation.endDate))
           return moment(reservation.endDate).isBefore(startDateFromDatePicker) || moment(reservation.startDate).isAfter(endDateFromDatePicker)
         }
       )
